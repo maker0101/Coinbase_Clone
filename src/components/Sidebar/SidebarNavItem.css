@@ -1,0 +1,13 @@
+.SidebarNavItem {
+	display: grid;
+	align-content: center;
+	grid-template-columns: 30px auto;
+	height: 48px;
+	padding-left: 8px;
+	margin-bottom: 24px;
+	border-radius: 8px;
+}
+
+.SidebarNavItem:hover {
+	background-color: #eef0f3;
+}

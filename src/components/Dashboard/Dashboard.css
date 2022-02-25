@@ -1,0 +1,7 @@
+.Dashboard {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: auto 1fr;
+}

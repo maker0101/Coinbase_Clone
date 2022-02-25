@@ -1,0 +1,6 @@
+.Sidebar {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	width: 236px;
+	border-right: 1px solid #dedfd2;
+}
