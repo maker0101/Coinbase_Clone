@@ -7,9 +7,9 @@ export const WATCHLIST = [
 		icon: <RiPieChartFill />,
 		balance_eur: 1986.74,
 		balance_coin: 0.84433661,
-		price_eur: 2325.89,
+		price_eur: 10.38,
 		price_change24h: -3.9,
-		allocation: 39.66,
+		market_cap: 9.66,
 	},
 	{
 		name: 'Avalanche',
@@ -17,8 +17,8 @@ export const WATCHLIST = [
 		icon: <RiPieChartFill />,
 		balance_eur: 986.74,
 		balance_coin: 10.844336,
-		price_eur: 22325.89,
+		price_eur: 58.38,
 		price_change24h: 2.1,
-		allocation: 39.66,
+		market_cap: 19.66,
 	},
 ];

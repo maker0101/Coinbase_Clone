@@ -1,36 +1,33 @@
+import { useState } from 'react';
+import { YOUR_ASSETS } from '../constants/your-assets';
+import { WATCHLIST } from '../constants/watchlist';
 import {
 	ContentCenter,
 	ContentRight,
 	Section,
 	SectionTitle,
-	Text,
 	TableYourAssets,
-	TableWatchlist,
+	TableAssets,
 } from '../components';
 
 const Assets = () => {
+	const [yourAssets] = useState(YOUR_ASSETS);
+	const [watchingAssets] = useState(WATCHLIST);
+
 	return (
 		<>
 			<ContentCenter>
 				<Section>
 					<SectionTitle text="Your Assets" />
-					<TableYourAssets />
+					<TableYourAssets assets={yourAssets} />
 				</Section>
 				<Section>
 					<SectionTitle text="Watchlist" />
-					<TableWatchlist />
+					<TableAssets assets={watchingAssets} />
 				</Section>
 			</ContentCenter>
 			<ContentRight>
-				<Section>
-					<Text h1 size="xxl">
-						€4,999.46
-					</Text>
-					<Text h1>Assets</Text>
-					<Text h2>Your assets</Text>
-					<Text h3>Assets</Text>
-					<Text uppercase>Assets</Text>
-				</Section>
+				<Section></Section>
 			</ContentRight>
 		</>
 	);

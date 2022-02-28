@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import { Table, TableCellCoinName, Text } from '..';
-import { YOUR_ASSETS } from '../../constants/your-assets';
 
-const TableYourAssets = () => {
-	const [yourAssets] = useState(YOUR_ASSETS);
-
+const TableYourAssets = ({ assets }) => {
 	return (
 		<Table>
 			<thead>
@@ -16,7 +12,7 @@ const TableYourAssets = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{yourAssets.map((asset) => (
+				{assets.map((asset) => (
 					<tr key={asset.symbol}>
 						<td>
 							<TableCellCoinName

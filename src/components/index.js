@@ -11,8 +11,10 @@ import Button from './Button/Button';
 import Text from './Text/Text';
 import Table from './Table/Table';
 import TableCellCoinName from './Table/TableCellCoinName';
+import TableCellWatch from './Table/TableCellWatch';
 import TableYourAssets from './Tables/TableYourAssets';
-import TableWatchlist from './Tables/TableWatchlist';
+import TableAssets from './Tables/TableAssets';
+import Star from './Star/Star';
 
 export {
 	Dashboard,
@@ -28,6 +30,8 @@ export {
 	Text,
 	Table,
 	TableCellCoinName,
+	TableCellWatch,
 	TableYourAssets,
-	TableWatchlist,
+	TableAssets,
+	Star,
 };

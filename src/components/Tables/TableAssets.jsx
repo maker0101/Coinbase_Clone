@@ -1,16 +1,12 @@
-import { useState } from 'react';
-import { Table, TableCellCoinName, Text } from '..';
-import { WATCHLIST } from '../../constants/watchlist';
+import { Table, TableCellCoinName, TableCellWatch, Text } from '..';
 
-const TableWatchlist = () => {
-	const [assets] = useState(WATCHLIST);
-
+const TableAssets = ({ assets }) => {
 	return (
 		<Table>
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Past24h</th>
+					<th>Past 24h</th>
 					<th>Price</th>
 					<th>Change</th>
 					<th>Market cap</th>
@@ -28,21 +24,22 @@ const TableWatchlist = () => {
 							/>
 						</td>
 						<td>
-							<Text>{`€${asset.balance_eur.toLocaleString()}`}</Text>
-							<Text color="grey" size="s">
-								{`${asset.balance_coin} ${asset.symbol}`}
-							</Text>
+							<Text>Change</Text>
+							<Text>Chart</Text>
 						</td>
 						<td>
 							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
-							<Text
-								size="s"
-								color={asset.price_change24h < 0 ? 'red' : 'green'}>
+						</td>
+						<td>
+							<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
 								{asset.price_change24h}%
 							</Text>
 						</td>
 						<td>
-							<Text>{asset.allocation}%</Text>
+							<Text>{`€${asset.market_cap}B`}</Text>
+						</td>
+						<td>
+							<TableCellWatch />
 						</td>
 					</tr>
 				))}
@@ -51,4 +48,4 @@ const TableWatchlist = () => {
 	);
 };
 
-export default TableWatchlist;
+export default TableAssets;

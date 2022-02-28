@@ -1,0 +1,14 @@
+.Star {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	font-size: 25px;
+}
+
+.star__filled {
+	color: #2151f5;
+}
+
+.star__empty {
+	color: #d8d8d8;
+}
