@@ -1,22 +1,28 @@
 import {
 	ContentCenter,
 	ContentRight,
-	Container,
+	Section,
+	SectionTitle,
 	Text,
-	Table,
+	TableYourAssets,
+	TableWatchlist,
 } from '../components';
 
 const Assets = () => {
 	return (
 		<>
 			<ContentCenter>
-				<Container>
-					<Table></Table>
-				</Container>
-				<Container></Container>
+				<Section>
+					<SectionTitle text="Your Assets" />
+					<TableYourAssets />
+				</Section>
+				<Section>
+					<SectionTitle text="Watchlist" />
+					<TableWatchlist />
+				</Section>
 			</ContentCenter>
 			<ContentRight>
-				<Container>
+				<Section>
 					<Text h1 size="xxl">
 						€4,999.46
 					</Text>
@@ -24,7 +30,7 @@ const Assets = () => {
 					<Text h2>Your assets</Text>
 					<Text h3>Assets</Text>
 					<Text uppercase>Assets</Text>
-				</Container>
+				</Section>
 			</ContentRight>
 		</>
 	);

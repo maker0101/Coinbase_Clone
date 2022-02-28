@@ -9,7 +9,9 @@ const TableCellCoinName = ({ icon, name, symbol }) => {
 				<Text>{name}</Text>
 			</div>
 			<div className="tableCellCoinName__symbol">
-				<Text>{symbol}</Text>
+				<Text color="grey" size="s" uppercase>
+					{symbol}
+				</Text>
 			</div>
 		</div>
 	);

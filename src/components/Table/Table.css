@@ -20,6 +20,21 @@ td {
 	padding: 14px 16px;
 }
 
+th:first-child,
+td:first-child {
+	padding-left: 32px;
+}
+
+th:last-child,
+td:last-child {
+	text-align: right;
+	padding-right: 32px;
+}
+
+tr:last-child > td {
+	border-bottom: none;
+}
+
 th {
 	color: #5b616e;
 	font-weight: 400;

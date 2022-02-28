@@ -5,10 +5,14 @@ import Header from './Header/Header';
 import Content from './Content/Content';
 import ContentCenter from './Content/ContentCenter';
 import ContentRight from './Content/ContentRight';
-import Container from './Container/Container';
+import Section from './Section/Section';
+import SectionTitle from './Section/SectionTitle';
 import Button from './Button/Button';
 import Text from './Text/Text';
 import Table from './Table/Table';
+import TableCellCoinName from './Table/TableCellCoinName';
+import TableYourAssets from './Tables/TableYourAssets';
+import TableWatchlist from './Tables/TableWatchlist';
 
 export {
 	Dashboard,
@@ -18,8 +22,12 @@ export {
 	Content,
 	ContentCenter,
 	ContentRight,
-	Container,
+	Section,
+	SectionTitle,
 	Button,
 	Text,
 	Table,
+	TableCellCoinName,
+	TableYourAssets,
+	TableWatchlist,
 };
