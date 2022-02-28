@@ -6,6 +6,9 @@ import Content from './Content/Content';
 import ContentCenter from './Content/ContentCenter';
 import ContentRight from './Content/ContentRight';
 import Container from './Container/Container';
+import Button from './Button/Button';
+import Text from './Text/Text';
+import Table from './Table/Table';
 
 export {
 	Dashboard,
@@ -16,4 +19,7 @@ export {
 	ContentCenter,
 	ContentRight,
 	Container,
+	Button,
+	Text,
+	Table,
 };

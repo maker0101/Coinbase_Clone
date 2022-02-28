@@ -1,0 +1,81 @@
+.Button {
+	padding: 5px;
+	border: 1px solid #2151f5;
+	padding: 11px 16px;
+	border-radius: 4px;
+	font-size: 15px;
+	font-weight: 600;
+	background-color: #2151f5;
+	color: white;
+	cursor: pointer;
+}
+
+.Button:hover {
+	background-color: #1d48d6;
+}
+
+.btn-secondary {
+	background-color: white;
+	color: black;
+	border: 1px solid #d8d8d8;
+}
+
+.btn-secondary:hover {
+	background-color: rgb(241, 241, 241);
+}
+
+.btn-danger {
+	background-color: #cf202f;
+	color: white;
+	border: 1px solid #cf202f;
+}
+
+.btn-danger:hover {
+	background-color: rgb(233, 66, 66);
+}
+
+.btn-xl {
+	padding: 22px;
+	width: 100%;
+}
+
+.btn-xxl {
+	padding: 32px;
+	width: 100%;
+}
+
+.btn-disabled {
+	cursor: not-allowed;
+}
+
+.btn-light {
+	border: none;
+	background-color: white;
+}
+
+.btn-light.btn-primary {
+	color: #2151f5;
+}
+
+.btn-light.btn-primary:hover {
+	color: #1d48d6;
+	background-color: white;
+}
+
+.btn-light.btn-secondary {
+	color: black;
+}
+
+.btn-light.btn-secondary:hover {
+	color: black;
+	background-color: white;
+}
+
+.btn-light.btn-danger {
+	color: #cf202f;
+}
+
+.btn-light.btn-danger:hover {
+	color: #cf202f;
+	background-color: white;
+}

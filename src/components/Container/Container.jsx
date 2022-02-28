@@ -1,7 +1,7 @@
 import './Container.css';
 
-const Container = () => {
-	return <div className="Container">Container</div>;
+const Container = ({ children }) => {
+	return <section className="Container">{children}</section>;
 };
 
 export default Container;

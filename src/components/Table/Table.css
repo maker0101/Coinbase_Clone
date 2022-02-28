@@ -1,0 +1,27 @@
+.Table,
+table {
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr {
+	cursor: pointer;
+}
+
+th,
+td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #d8d8d8;
+	padding: 14px 16px;
+}
+
+th {
+	color: #5b616e;
+	font-weight: 400;
+	font-size: 14px;
+}

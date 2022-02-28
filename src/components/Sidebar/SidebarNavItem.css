@@ -11,3 +11,7 @@
 .SidebarNavItem:hover {
 	background-color: #eef0f3;
 }
+
+.SidebarNavItem:hover svg {
+	color: #2151f5;
+}
