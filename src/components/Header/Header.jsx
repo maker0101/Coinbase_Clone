@@ -2,10 +2,10 @@ import './Header.css';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import { Button, Text } from '..';
 
-const Header = (props) => {
+const Header = ({ page }) => {
 	return (
 		<header className="Header">
-			<Text h1>{props.page}</Text>
+			<Text h1>{page}</Text>
 			<div className="header__right">
 				<Button color="primary">Buy / Sell</Button>
 				<Button color="secondary">Send / Receive</Button>

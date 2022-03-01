@@ -1,6 +1,6 @@
 import { RiPieChartFill } from 'react-icons/ri';
 
-export const WATCHLIST = [
+export const WATCHLIST_ASSETS = [
 	{
 		name: 'Chainlink',
 		symbol: 'LINK',

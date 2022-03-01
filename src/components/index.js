@@ -15,6 +15,9 @@ import TableCellWatch from './Table/TableCellWatch';
 import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import Star from './Star/Star';
+import Search from './Inputs/Search';
+import Dropdown from './Dropdown/Dropdown';
+import Tabs from './Tabs/Tabs';
 
 export {
 	Dashboard,
@@ -34,4 +37,7 @@ export {
 	TableYourAssets,
 	TableAssets,
 	Star,
+	Search,
+	Dropdown,
+	Tabs,
 };

@@ -1,0 +1,11 @@
+.trade__searchFilterRow {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 32px;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.trade__filters {
+	display: flex;
+	gap: 8px;
+}

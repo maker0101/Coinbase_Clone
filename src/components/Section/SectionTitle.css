@@ -2,3 +2,7 @@
 	padding: 16px 32px;
 	border-bottom: 1px solid #d8d8d8;
 }
+
+.sectionTitle-noBorderBottom {
+	border-bottom: none;
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { YOUR_ASSETS } from '../constants/your-assets';
-import { WATCHLIST } from '../constants/watchlist';
+import { WATCHLIST_ASSETS } from '../constants/watchlist-assets';
 import {
 	ContentCenter,
 	ContentRight,
@@ -8,11 +8,12 @@ import {
 	SectionTitle,
 	TableYourAssets,
 	TableAssets,
+	Tabs,
 } from '../components';
 
 const Assets = () => {
 	const [yourAssets] = useState(YOUR_ASSETS);
-	const [watchingAssets] = useState(WATCHLIST);
+	const [watchlistAssets] = useState(WATCHLIST_ASSETS);
 
 	return (
 		<>
@@ -23,11 +24,13 @@ const Assets = () => {
 				</Section>
 				<Section>
 					<SectionTitle text="Watchlist" />
-					<TableAssets assets={watchingAssets} />
+					<TableAssets assets={watchlistAssets} />
 				</Section>
 			</ContentCenter>
 			<ContentRight>
-				<Section></Section>
+				<Section>
+					<Tabs />
+				</Section>
 			</ContentRight>
 		</>
 	);
