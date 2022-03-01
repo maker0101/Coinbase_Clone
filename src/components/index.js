@@ -14,10 +14,12 @@ import TableCellCoinName from './Table/TableCellCoinName';
 import TableCellWatch from './Table/TableCellWatch';
 import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
+import TableRecentTransactions from './Tables/TableRecentTransactions';
 import Star from './Star/Star';
 import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
-import Tabs from './Tabs/Tabs';
+import Tab from './Tab/Tab';
+import TabBuy from './Tabs/TabBuy';
 
 export {
 	Dashboard,
@@ -36,8 +38,10 @@ export {
 	TableCellWatch,
 	TableYourAssets,
 	TableAssets,
+	TableRecentTransactions,
 	Star,
 	Search,
 	Dropdown,
-	Tabs,
+	Tab,
+	TabBuy,
 };

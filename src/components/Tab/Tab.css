@@ -1,13 +1,13 @@
-.Tabs {
+.Tab {
 	display: flex;
 	flex-direction: column;
 }
 
-.tabButton__wrapper {
+.tabBtn__wrapper {
 	display: flex;
 }
 
-.tabButton {
+.tabBtn {
 	position: relative;
 	padding: 15px;
 	text-align: center;
@@ -16,16 +16,16 @@
 	border: none;
 	border-bottom: 1px solid #dedfd2;
 }
-.tabButton:not(:last-child) {
+.tabBtn:not(:last-child) {
 	border-right: 1px solid #dedfd2;
 }
 
-.tabButton__active {
+.tabBtn__active {
 	border-bottom: 1px solid transparent;
 	background-color: white;
 }
 
-.tabButton__active::before {
+.tabBtn__active::before {
 	content: '';
 	display: block;
 	position: absolute;

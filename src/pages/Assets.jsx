@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { YOUR_ASSETS } from '../constants/your-assets';
 import { WATCHLIST_ASSETS } from '../constants/watchlist-assets';
+import { TABS_TRADE } from '../constants/tabs-trade';
 import {
 	ContentCenter,
 	ContentRight,
@@ -8,28 +8,25 @@ import {
 	SectionTitle,
 	TableYourAssets,
 	TableAssets,
-	Tabs,
+	Tab,
 } from '../components';
 
 const Assets = () => {
-	const [yourAssets] = useState(YOUR_ASSETS);
-	const [watchlistAssets] = useState(WATCHLIST_ASSETS);
-
 	return (
 		<>
 			<ContentCenter>
 				<Section>
-					<SectionTitle text="Your Assets" />
-					<TableYourAssets assets={yourAssets} />
+					<SectionTitle title="Your Assets" />
+					<TableYourAssets assets={YOUR_ASSETS} />
 				</Section>
 				<Section>
-					<SectionTitle text="Watchlist" />
-					<TableAssets assets={watchlistAssets} />
+					<SectionTitle title="Watchlist" />
+					<TableAssets assets={WATCHLIST_ASSETS} />
 				</Section>
 			</ContentCenter>
 			<ContentRight>
 				<Section>
-					<Tabs />
+					<Tab data={TABS_TRADE} />
 				</Section>
 			</ContentRight>
 		</>

@@ -6,3 +6,7 @@
 .sectionTitle-noBorderBottom {
 	border-bottom: none;
 }
+
+.sectionTitle__subtitle {
+	margin-top: 8px;
+}

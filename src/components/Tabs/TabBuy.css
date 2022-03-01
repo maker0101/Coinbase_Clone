@@ -1,0 +1,19 @@
+.TabBuy {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.tabBuy__icon {
+	color: #f3b74f;
+	font-size: 90px;
+}
+
+.tabBuy__heading {
+	margin: 16px 0;
+}
+
+.tabBuy__content {
+	margin-bottom: 32px;
+}

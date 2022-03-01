@@ -1,0 +1,23 @@
+.tableRecentTransactions__cell {
+	display: grid;
+	grid-template-columns: fit-content(30px) 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		'icon name'
+		'icon symbol';
+}
+
+.tableRecentTransactions__icon {
+	display: flex;
+	align-items: center;
+	width: 30px;
+	grid-area: icon;
+}
+
+.tableRecentTransactions__head {
+	grid-area: name;
+}
+.tableRecentTransactions__body {
+	grid-area: symbol;
+}

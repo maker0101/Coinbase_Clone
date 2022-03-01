@@ -1,9 +1,10 @@
 .Dropdown {
 	height: 48px;
 	padding-left: 8px;
-	color: #808080;
+	color: #474747;
 	border: 1px solid #d8d8d8;
 	border-radius: 8px;
+	font-weight: 700;
 }
 
 .Dropdown:focus {

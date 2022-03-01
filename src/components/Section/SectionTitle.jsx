@@ -2,7 +2,7 @@ import './SectionTitle.css';
 import { Text } from '..';
 import classNames from 'classnames';
 
-const SectionTitle = ({ text, noBorderBottom }) => {
+const SectionTitle = ({ title, subtitle, noBorderBottom }) => {
 	const sectionTitleClasses = classNames({
 		SectionTitle: true,
 		'sectionTitle-noBorderBottom': noBorderBottom,
@@ -10,7 +10,12 @@ const SectionTitle = ({ text, noBorderBottom }) => {
 
 	return (
 		<div className={sectionTitleClasses}>
-			<Text h3>{text}</Text>
+			<Text h3>{title}</Text>
+			{subtitle && (
+				<div className="sectionTitle__subtitle">
+					<Text color="grey">{subtitle}</Text>
+				</div>
+			)}
 		</div>
 	);
 };
