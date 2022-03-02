@@ -21,6 +21,8 @@ import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
 import Tab from './Tab/Tab';
 import TabBuy from './Tabs/TabBuy';
+import ChartPortfolio from './Charts/ChartPortfolio';
+import LineChart from './Chart/LineChart';
 
 export {
 	Dashboard,
@@ -46,4 +48,6 @@ export {
 	Dropdown,
 	Tab,
 	TabBuy,
+	ChartPortfolio,
+	LineChart,
 };

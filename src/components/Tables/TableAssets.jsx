@@ -1,4 +1,6 @@
-import { Table, TableCellCoinName, TableCellWatch, Text } from '..';
+import './TableAssets.css';
+import { Table, TableCellCoinName, TableCellWatch, Text, LineChart } from '..';
+import { ASSET_PRICE_LAST_24H } from '../../constants/asset-price-last-24h';
 
 const TableAssets = ({ assets }) => {
 	return (
@@ -24,8 +26,13 @@ const TableAssets = ({ assets }) => {
 							/>
 						</td>
 						<td>
-							<Text>Change</Text>
-							<Text>Chart</Text>
+							<div className='tableAssets__priceChart'>
+								<LineChart
+									chartData={ASSET_PRICE_LAST_24H}
+									labelsKey="time"
+									datasetsKey="price"
+								/>
+							</div>
 						</td>
 						<td>
 							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>

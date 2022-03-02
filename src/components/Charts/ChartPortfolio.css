@@ -1,0 +1,31 @@
+.chartPortfolio__header {
+	padding: 32px;
+}
+
+.chartPortfolio__headerRow1 {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.timeFrameBtn__wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.timeFrameBtn {
+	padding: 0 12px;
+	font-size: 14px;
+	color: #5b616e;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.timeFrameBtn__active {
+	color: #2151f5;
+}
+
+.chartPortfolio__chartWrapper,
+.chartPortfolio__chartWrapper > canvas {
+	max-height: 240px;
+}

@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-const useGetPageName = () => {
+const usePageName = () => {
 	const location = useLocation();
 	const path = location.pathname;
 	const pageName = path[1].toUpperCase() + path.substring(2);
@@ -8,4 +8,4 @@ const useGetPageName = () => {
 	return { pageName };
 };
 
-export default useGetPageName;
+export default usePageName;

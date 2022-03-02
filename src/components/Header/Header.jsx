@@ -1,10 +1,10 @@
 import './Header.css';
-import useGetPageName from '../../hooks/useGetPageName';
+import usePageName from '../../hooks/usePageName';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import { Button, Text } from '..';
 
 const Header = () => {
-	const { pageName } = useGetPageName();
+	const { pageName } = usePageName();
 
 	return (
 		<header className="Header">

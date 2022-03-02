@@ -9,12 +9,16 @@ import {
 	TableYourAssets,
 	TableAssets,
 	Tab,
+	ChartPortfolio,
 } from '../components';
 
 const Assets = () => {
 	return (
 		<>
 			<ContentCenter>
+				<Section>
+					<ChartPortfolio />
+				</Section>
 				<Section>
 					<SectionTitle title="Your Assets" />
 					<TableYourAssets assets={YOUR_ASSETS} />
