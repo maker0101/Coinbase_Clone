@@ -1,16 +1,22 @@
 import './SidebarNavItem.css';
 import { Link } from 'react-router-dom';
-import SidebarNavItemCircle from './SidebarNavItemCircle';
-import SidebarNavItemIcon from './SidebarNavItemIcon';
-import SidebarNavItemText from './SidebarNavItemText';
+import usePageName from '../../hooks/usePageName';
+import classNames from 'classnames';
 
-const SidebarNavItem = (props) => {
+const SidebarNavItem = ({ to, icon, text }) => {
+	const { pageName } = usePageName();
+
+	const sidebarNavItemClasses = classNames({
+		SidebarNavItem: true,
+		'sidebarNavItem-active': pageName === text,
+	});
+
 	return (
-		<Link to={props.to} className="SidebarNavItem">
-			<SidebarNavItemCircle>
-				<SidebarNavItemIcon icon={props.icon} />
-			</SidebarNavItemCircle>
-			<SidebarNavItemText>{props.text}</SidebarNavItemText>
+		<Link to={to} className={sidebarNavItemClasses}>
+			<div className="sidebarNavItem__circle">
+				<div className="sidebarNavItem__icon">{icon}</div>
+			</div>
+			<div className="sidebarNavItem__text">{text}</div>
 		</Link>
 	);
 };

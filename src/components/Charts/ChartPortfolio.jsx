@@ -11,6 +11,15 @@ const ChartPortfolio = () => {
 		setActiveTimeFrame(index);
 	};
 
+	const FOOTER_DATES = [
+		'JAN 27',
+		'FEB 1',
+		'FEB 6',
+		'FEB 11',
+		'FEB 17',
+		'FEB 22',
+	];
+
 	return (
 		<div>
 			<div className="chartPortfolio__header">
@@ -42,7 +51,13 @@ const ChartPortfolio = () => {
 					datasetsKey="balance"
 				/>
 			</div>
-			<div className="chartPortfolio__footer"></div>
+			<div className="chartPortfolio__footer">
+				{FOOTER_DATES.map((date) => (
+					<div key={date} className="chartPortfolio__footerDate">
+						{date}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

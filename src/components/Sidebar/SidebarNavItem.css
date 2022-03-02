@@ -12,6 +12,32 @@
 	background-color: #eef0f3;
 }
 
-.SidebarNavItem:hover svg {
+.SidebarNavItem:hover svg,
+.sidebarNavItem-active svg {
 	color: #2151f5;
+}
+
+.sidebarNavItem__circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background-color: #eef0f3;
+}
+
+.sidebarNavItem__icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 16px;
+	width: 16px;
+}
+
+.sidebarNavItem__text {
+	display: flex;
+	align-items: center;
+	margin-left: 16px;
+	font-weight: 600;
 }
