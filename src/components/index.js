@@ -15,6 +15,7 @@ import TableCellWatch from './Table/TableCellWatch';
 import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
+import TablePayments from './Tables/TablePayments';
 import Star from './Star/Star';
 import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
@@ -39,6 +40,7 @@ export {
 	TableYourAssets,
 	TableAssets,
 	TableRecentTransactions,
+	TablePayments,
 	Star,
 	Search,
 	Dropdown,

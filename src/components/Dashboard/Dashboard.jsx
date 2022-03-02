@@ -7,7 +7,7 @@ const Dashboard = () => {
 		<div className="Dashboard">
 			<Sidebar />
 			<Main>
-				<Header page="Assets" />
+				<Header />
 				<Content>
 					<Outlet />
 				</Content>

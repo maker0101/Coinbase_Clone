@@ -1,11 +1,11 @@
 import { TABS_PAY } from '../constants/tabs-pay';
-import { RECENT_TRANSACTIONS } from '../constants/recent-transactions';
+import { PAYMENTS } from '../constants/payments';
 import {
 	ContentCenter,
 	ContentRight,
 	Section,
 	SectionTitle,
-	TableRecentTransactions,
+	TablePayments,
 	Tab,
 } from '../components';
 
@@ -23,7 +23,7 @@ const Pay = () => {
 						title="Send again"
 						subtitle="Easily send to a recent destination"
 					/>
-					<TableRecentTransactions transactions={RECENT_TRANSACTIONS} />
+					<TablePayments payments={PAYMENTS} />
 				</Section>
 			</ContentRight>
 		</>

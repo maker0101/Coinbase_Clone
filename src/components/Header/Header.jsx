@@ -1,11 +1,14 @@
 import './Header.css';
+import useGetPageName from '../../hooks/useGetPageName';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import { Button, Text } from '..';
 
-const Header = ({ page }) => {
+const Header = () => {
+	const { pageName } = useGetPageName();
+
 	return (
 		<header className="Header">
-			<Text h1>{page}</Text>
+			<Text h1>{pageName}</Text>
 			<div className="header__right">
 				<Button color="primary">Buy / Sell</Button>
 				<Button color="secondary">Send / Receive</Button>
