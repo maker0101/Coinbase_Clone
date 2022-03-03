@@ -23,6 +23,9 @@ import Tab from './Tab/Tab';
 import TabBuy from './Tabs/TabBuy';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
+import Modal from './Modal/Modal';
+import ModalPay from './Modals/ModalPay';
+import ModalTrade from './Modals/ModalTrade';
 
 export {
 	Dashboard,
@@ -50,4 +53,7 @@ export {
 	TabBuy,
 	ChartPortfolio,
 	LineChart,
+	Modal,
+	ModalPay,
+	ModalTrade,
 };

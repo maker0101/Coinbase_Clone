@@ -1,14 +1,14 @@
 import './SidebarNavItem.css';
 import { Link } from 'react-router-dom';
-import usePageName from '../../hooks/usePageName';
+import usePathName from '../../hooks/usePathName';
 import classNames from 'classnames';
 
 const SidebarNavItem = ({ to, icon, text }) => {
-	const { pageName } = usePageName();
+	const { page } = usePathName();
 
 	const sidebarNavItemClasses = classNames({
 		SidebarNavItem: true,
-		'sidebarNavItem-active': pageName === text,
+		'sidebarNavItem-active': page === text,
 	});
 
 	return (

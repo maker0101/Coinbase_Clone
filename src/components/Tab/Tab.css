@@ -11,6 +11,7 @@
 	position: relative;
 	padding: 15px;
 	text-align: center;
+	font-weight: 600;
 	width: 100%;
 	cursor: pointer;
 	border: none;
@@ -23,6 +24,8 @@
 .tabBtn__active {
 	border-bottom: 1px solid transparent;
 	background-color: white;
+	border-radius: 8px 8px 0 0;
+	color: #2151f5;
 }
 
 .tabBtn__active::before {

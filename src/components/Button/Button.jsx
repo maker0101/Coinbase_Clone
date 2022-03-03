@@ -1,7 +1,7 @@
 import './Button.css';
 import classNames from 'classnames';
 
-const Button = ({ children, color, disabled, light, size }) => {
+const Button = ({ children, color, disabled, light, size, onClick }) => {
 	const btnClasses = classNames({
 		Button: true,
 		'btn-primary': color === 'primary',
@@ -14,7 +14,11 @@ const Button = ({ children, color, disabled, light, size }) => {
 		'btn-light': light,
 	});
 
-	return <button className={btnClasses}>{children}</button>;
+	return (
+		<button className={btnClasses} onClick={onClick}>
+			{children}
+		</button>
+	);
 };
 
 export default Button;
