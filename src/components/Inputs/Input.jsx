@@ -1,0 +1,15 @@
+import './Input.css';
+
+const Input = ({ type, placeholder, placeholderSize }) => {
+	return (
+		<div className="Input">
+			<input
+				type={type || 'text'}
+				placeholder={placeholder || 'Type here'}
+				className="input__field"
+			/>
+		</div>
+	);
+};
+
+export default Input;

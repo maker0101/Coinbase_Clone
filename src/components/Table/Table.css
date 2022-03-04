@@ -41,3 +41,7 @@ th {
 	font-weight: 400;
 	font-size: 14px;
 }
+
+.table-min-row-height-xl > tbody > tr {
+	height: 65px;
+}

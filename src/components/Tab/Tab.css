@@ -1,6 +1,7 @@
 .Tab {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 .tabBtn__wrapper {
@@ -9,7 +10,7 @@
 
 .tabBtn {
 	position: relative;
-	padding: 15px;
+	padding: 24px 16px;
 	text-align: center;
 	font-weight: 600;
 	width: 100%;

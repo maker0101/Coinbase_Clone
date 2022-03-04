@@ -13,7 +13,7 @@ const Pay = () => {
 	return (
 		<>
 			<ContentCenter>
-				<Section>
+				<Section width="s">
 					<Tab data={TABS_PAY} />
 				</Section>
 			</ContentCenter>

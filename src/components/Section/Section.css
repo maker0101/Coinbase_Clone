@@ -5,3 +5,7 @@
 	background-color: white;
 	margin-bottom: 24px;
 }
+
+.section-width-s {
+	max-width: 650px;
+}

@@ -1,19 +1,19 @@
-import { TabBuy } from '../components';
+import { TabBuyEmpty } from '../components';
 
 export const TABS_TRADE = [
 	{
 		index: 1,
 		name: 'Buy',
-		content: <TabBuy />,
+		content: <TabBuyEmpty />,
 	},
 	{
 		index: 2,
 		name: 'Sell',
-		content: <TabBuy />,
+		content: <TabBuyEmpty />,
 	},
 	{
 		index: 3,
 		name: 'Convert',
-		content: <TabBuy />,
+		content: <TabBuyEmpty />,
 	},
 ];

@@ -1,0 +1,7 @@
+.input__field {
+	border: none;
+}
+
+.input__field:focus {
+	outline: none;
+}

@@ -1,0 +1,28 @@
+.InputAmountDynamicWidth {
+	height: 80px;
+	font-size: 88px;
+	font-weight: 500;
+	border: none;
+	color: #2151f5;
+}
+
+.InputAmountDynamicWidth::placeholder {
+	font-size: 88px;
+	font-weight: 500;
+}
+
+.InputAmountDynamicWidth:focus {
+	outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.InputAmountDynamicWidth::-webkit-outer-spin-button,
+.InputAmountDynamicWidth::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+.InputAmountDynamicWidth[type='number'] {
+	-moz-appearance: textfield;
+}

@@ -1,0 +1,33 @@
+.TabSend {
+	width: 100%;
+}
+
+.tabSend__amountWrapper {
+	display: flex;
+	justify-content: center;
+	margin: 48px 0;
+	width: 100%;
+}
+
+.tabSend__amounntCurrency {
+	font-size: 40px;
+	font-weight: 600;
+	color: #5b616e;
+}
+
+.tabSend__table {
+	border: 1px solid #dedfd2;
+	border-radius: 8px;
+	margin-bottom: 24px;
+}
+
+.tableSend__cellVerticalAligned {
+	display: flex;
+	align-items: center;
+}
+
+.tabSend__footer {
+	margin-top: 24px;
+	display: flex;
+	justify-content: space-between;
+}

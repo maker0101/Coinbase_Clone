@@ -1,15 +1,15 @@
-import './TabBuy.css';
+import './TabBuyEmpty.css';
 import { HiExclamationCircle } from 'react-icons/hi';
 import { Text, Button } from '..';
 
-const TabBuy = () => {
+const TabBuyEmpty = () => {
 	return (
-		<div className="TabBuy">
-			<HiExclamationCircle className="tabBuy__icon" />
-			<div className="tabBuy__heading">
+		<div className="TabBuyEmpty">
+			<HiExclamationCircle className="TabBuyEmpty__icon" />
+			<div className="TabBuyEmpty__heading">
 				<Text h3>Deposit required</Text>
 			</div>
-			<div className='tabBuy__content'>
+			<div className="TabBuyEmpty__content">
 				<Text color="grey">
 					You'll need to deposit money into your fiat wallet before you can buy,
 					or add a new payment method.
@@ -20,4 +20,4 @@ const TabBuy = () => {
 	);
 };
 
-export default TabBuy;
+export default TabBuyEmpty;

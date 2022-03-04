@@ -12,8 +12,6 @@ const Header = () => {
 	const openPayModal = () => setIsPayModalOpen(true);
 	const openTradeModal = () => setIsTradeModalOpen(true);
 
-	console.log(isTradeModalOpen);
-
 	return (
 		<header className="Header">
 			<Text h1>{page}</Text>

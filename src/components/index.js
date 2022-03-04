@@ -12,15 +12,20 @@ import Text from './Text/Text';
 import Table from './Table/Table';
 import TableCellCoinName from './Table/TableCellCoinName';
 import TableCellWatch from './Table/TableCellWatch';
+import TableRowSelectAsset from './Table/TableRowSelectAsset';
+import TableRowInputText from './Table/TableRowInputText';
 import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
 import TablePayments from './Tables/TablePayments';
+import TableSend from './Tables/TableSend';
+import Input from './Inputs/Input';
 import Star from './Star/Star';
 import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
 import Tab from './Tab/Tab';
-import TabBuy from './Tabs/TabBuy';
+import TabBuyEmpty from './Tabs/TabBuyEmpty';
+import TabSend from './Tabs/TabSend';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
@@ -42,15 +47,20 @@ export {
 	Table,
 	TableCellCoinName,
 	TableCellWatch,
+	TableRowSelectAsset,
+	TableRowInputText,
 	TableYourAssets,
 	TableAssets,
 	TableRecentTransactions,
 	TablePayments,
+	TableSend,
 	Star,
+	Input,
 	Search,
 	Dropdown,
 	Tab,
-	TabBuy,
+	TabBuyEmpty,
+	TabSend,
 	ChartPortfolio,
 	LineChart,
 	Modal,
