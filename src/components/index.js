@@ -14,18 +14,24 @@ import TableCellCoinName from './Table/TableCellCoinName';
 import TableCellWatch from './Table/TableCellWatch';
 import TableRowSelectAsset from './Table/TableRowSelectAsset';
 import TableRowInputText from './Table/TableRowInputText';
+import TableRowAssetAddress from './Table/TableRowAssetAddress';
+import TableRowQR from './Table/TableRowQR';
 import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
 import TablePayments from './Tables/TablePayments';
-import TableSend from './Tables/TableSend';
+import TableSendInputs from './Tables/TableSendInputs';
+import TableReceive from './Tables/TableReceive';
 import Input from './Inputs/Input';
+import InputAmountContainer from './Inputs/InputAmountContainer';
 import Star from './Star/Star';
 import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
+import TabFooter from './Tab/TabFooter';
 import Tab from './Tab/Tab';
 import TabBuyEmpty from './Tabs/TabBuyEmpty';
 import TabSend from './Tabs/TabSend';
+import TabReceive from './Tabs/TabReceive';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
@@ -48,19 +54,25 @@ export {
 	TableCellCoinName,
 	TableCellWatch,
 	TableRowSelectAsset,
+	TableRowAssetAddress,
 	TableRowInputText,
+	TableRowQR,
 	TableYourAssets,
 	TableAssets,
 	TableRecentTransactions,
 	TablePayments,
-	TableSend,
+	TableSendInputs,
+	TableReceive,
 	Star,
 	Input,
+	InputAmountContainer,
 	Search,
 	Dropdown,
 	Tab,
+	TabFooter,
 	TabBuyEmpty,
 	TabSend,
+	TabReceive,
 	ChartPortfolio,
 	LineChart,
 	Modal,

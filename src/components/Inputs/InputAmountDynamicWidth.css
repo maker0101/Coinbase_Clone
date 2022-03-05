@@ -4,6 +4,7 @@
 	font-weight: 500;
 	border: none;
 	color: #2151f5;
+	caret-color: #5b616e;
 }
 
 .InputAmountDynamicWidth::placeholder {

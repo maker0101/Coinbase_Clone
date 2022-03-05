@@ -1,0 +1,12 @@
+.InputAmountContainer {
+	display: flex;
+	justify-content: center;
+	margin: 48px 0;
+	width: 100%;
+}
+
+.inputAmountContainer_currency {
+	font-size: 40px;
+	font-weight: 600;
+	color: #5b616e;
+}

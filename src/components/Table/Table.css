@@ -4,7 +4,7 @@ table {
 }
 
 table {
-	border-collapse: collapse;
+	border-spacing: 0;
 	width: 100%;
 }
 
@@ -44,4 +44,9 @@ th {
 
 .table-min-row-height-xl > tbody > tr {
 	height: 65px;
+}
+
+.table-has-border {
+	border: 1px solid #dedfd2;
+	border-radius: 8px;
 }

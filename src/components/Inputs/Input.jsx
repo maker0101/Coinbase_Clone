@@ -1,6 +1,6 @@
 import './Input.css';
 
-const Input = ({ type, placeholder, placeholderSize }) => {
+const Input = ({ type, placeholder }) => {
 	return (
 		<div className="Input">
 			<input

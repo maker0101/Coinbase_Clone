@@ -1,4 +1,4 @@
-import { TabBuyEmpty, TabSend } from '../components';
+import { TabSend, TabReceive } from '../components';
 
 export const TABS_PAY = [
 	{
@@ -9,6 +9,6 @@ export const TABS_PAY = [
 	{
 		index: 2,
 		name: 'Receive',
-		content: <TabBuyEmpty />,
+		content: <TabReceive />,
 	},
 ];
