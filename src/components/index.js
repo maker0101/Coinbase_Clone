@@ -21,6 +21,9 @@ import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
 import TablePayments from './Tables/TablePayments';
 import TableSendInputs from './Tables/TableSendInputs';
+import TableBuyInputs from './Tables/TableBuyInputs';
+import TableSellInputs from './Tables/TableSellInputs';
+import TableConvertInputs from './Tables/TableConvertInputs';
 import TableReceive from './Tables/TableReceive';
 import Input from './Inputs/Input';
 import InputAmountContainer from './Inputs/InputAmountContainer';
@@ -29,6 +32,9 @@ import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
 import TabFooter from './Tab/TabFooter';
 import Tab from './Tab/Tab';
+import TabBuy from './Tabs/TabBuy';
+import TabSell from './Tabs/TabSell';
+import TabConvert from './Tabs/TabConvert';
 import TabBuyEmpty from './Tabs/TabBuyEmpty';
 import TabSend from './Tabs/TabSend';
 import TabReceive from './Tabs/TabReceive';
@@ -62,6 +68,9 @@ export {
 	TableRecentTransactions,
 	TablePayments,
 	TableSendInputs,
+	TableBuyInputs,
+	TableSellInputs,
+	TableConvertInputs,
 	TableReceive,
 	Star,
 	Input,
@@ -70,6 +79,9 @@ export {
 	Dropdown,
 	Tab,
 	TabFooter,
+	TabBuy,
+	TabSell,
+	TabConvert,
 	TabBuyEmpty,
 	TabSend,
 	TabReceive,

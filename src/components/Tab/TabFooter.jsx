@@ -1,11 +1,11 @@
 import './TabFooter.css';
 import { Text } from '..';
 
-const TabFooter = () => {
+const TabFooter = ({ textLeft, textRight }) => {
 	return (
 		<div className="TabFooter">
-			<Text color="grey">ETH balance</Text>
-			<Text color="grey">0.84447543 ETH = €1.743,45</Text>
+			<Text color="grey">{textLeft}</Text>
+			<Text color="grey">{textRight}</Text>
 		</div>
 	);
 };

@@ -7,7 +7,10 @@ const TabSend = () => {
 			<InputAmountContainer />
 			<TableSendInputs />
 			<Button size="xl">Send</Button>
-			<TabFooter />
+			<TabFooter
+				textLeft="ETH balance"
+				textRight="0.84447543 ETH = €1.743,45"
+			/>
 		</div>
 	);
 };

@@ -15,6 +15,10 @@ const LineChart = ({ chartData, labelsKey, datasetsKey }) => {
 		animation: {
 			duration: 0,
 		},
+		interaction: {
+			intersect: false,
+			mode: 'index',
+		},
 		responsive: true,
 		scales: {
 			x: {
@@ -37,7 +41,7 @@ const LineChart = ({ chartData, labelsKey, datasetsKey }) => {
 				display: false,
 			},
 			tooltip: {
-				enabled: false,
+				enabled: true,
 			},
 		},
 	};
