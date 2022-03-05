@@ -1,9 +1,14 @@
-import './TabSend.css';
-import { Button, InputAmountContainer, TableSellInputs, TabFooter } from '..';
+import {
+	TabContent,
+	Button,
+	InputAmountContainer,
+	TableSellInputs,
+	TabFooter,
+} from '..';
 
-const TabSell = () => {
+const TabContentSell = () => {
 	return (
-		<div className="TabSell">
+		<TabContent>
 			<InputAmountContainer />
 			<TableSellInputs />
 			<Button size="xl">Sell</Button>
@@ -11,8 +16,8 @@ const TabSell = () => {
 				textLeft="ETH balance"
 				textRight="0.84447543 ETH = €1.743,45"
 			/>
-		</div>
+		</TabContent>
 	);
 };
 
-export default TabSell;
+export default TabContentSell;

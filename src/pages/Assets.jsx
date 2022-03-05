@@ -1,6 +1,5 @@
 import { YOUR_ASSETS } from '../constants/your-assets';
 import { WATCHLIST_ASSETS } from '../constants/watchlist-assets';
-import { TABS_TRADE } from '../constants/tabs-trade';
 import {
 	ContentCenter,
 	ContentRight,
@@ -8,7 +7,7 @@ import {
 	SectionTitle,
 	TableYourAssets,
 	TableAssets,
-	Tab,
+	TabTrade,
 	ChartPortfolio,
 } from '../components';
 
@@ -30,7 +29,7 @@ const Assets = () => {
 			</ContentCenter>
 			<ContentRight>
 				<Section>
-					<Tab data={TABS_TRADE} />
+					<TabTrade />
 				</Section>
 			</ContentRight>
 		</>

@@ -30,14 +30,17 @@ import InputAmountContainer from './Inputs/InputAmountContainer';
 import Star from './Star/Star';
 import Search from './Inputs/Search';
 import Dropdown from './Dropdown/Dropdown';
-import TabFooter from './Tab/TabFooter';
 import Tab from './Tab/Tab';
-import TabBuy from './Tabs/TabBuy';
-import TabSell from './Tabs/TabSell';
-import TabConvert from './Tabs/TabConvert';
-import TabBuyEmpty from './Tabs/TabBuyEmpty';
-import TabSend from './Tabs/TabSend';
-import TabReceive from './Tabs/TabReceive';
+import TabFooter from './Tab/TabFooter';
+import TabTrade from './Tabs/TabTrade';
+import TabPay from './Tabs/TabPay';
+import TabContent from './TabContent/TabContent';
+import TabContentBuy from './TabContents/TabContentBuy';
+import TabContentSell from './TabContents/TabContentSell';
+import TabContentConvert from './TabContents/TabContentConvert';
+import TabContentBuyEmpty from './TabContents/TabContentBuyEmpty';
+import TabContentSend from './TabContents/TabContentSend';
+import TabContentReceive from './TabContents/TabContentReceive';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
@@ -79,12 +82,15 @@ export {
 	Dropdown,
 	Tab,
 	TabFooter,
-	TabBuy,
-	TabSell,
-	TabConvert,
-	TabBuyEmpty,
-	TabSend,
-	TabReceive,
+	TabTrade,
+	TabPay,
+	TabContentBuy,
+	TabContent,
+	TabContentSell,
+	TabContentConvert,
+	TabContentBuyEmpty,
+	TabContentSend,
+	TabContentReceive,
 	ChartPortfolio,
 	LineChart,
 	Modal,

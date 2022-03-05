@@ -1,4 +1,3 @@
-import { TABS_PAY } from '../constants/tabs-pay';
 import { PAYMENTS } from '../constants/payments';
 import {
 	ContentCenter,
@@ -6,7 +5,7 @@ import {
 	Section,
 	SectionTitle,
 	TablePayments,
-	Tab,
+	TabPay,
 } from '../components';
 
 const Pay = () => {
@@ -14,7 +13,7 @@ const Pay = () => {
 		<>
 			<ContentCenter>
 				<Section width="s">
-					<Tab data={TABS_PAY} />
+					<TabPay />
 				</Section>
 			</ContentCenter>
 			<ContentRight>

@@ -1,10 +1,9 @@
-import { Tab, Modal } from '..';
-import { TABS_TRADE } from '../../constants/tabs-trade';
+import { TabTrade, Modal } from '..';
 
 const ModalTrade = ({ isModalOpen, setIsModalOpen }) => {
 	return (
 		<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-			<Tab data={TABS_TRADE} />
+			<TabTrade />
 		</Modal>
 	);
 };

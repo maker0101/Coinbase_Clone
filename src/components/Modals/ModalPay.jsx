@@ -1,10 +1,9 @@
-import { Tab, Modal } from '..';
-import { TABS_PAY } from '../../constants/tabs-pay';
+import { Modal, TabPay } from '..';
 
 const ModalPay = ({ isModalOpen, setIsModalOpen }) => {
 	return (
 		<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-			<Tab data={TABS_PAY} />
+			<TabPay />
 		</Modal>
 	);
 };

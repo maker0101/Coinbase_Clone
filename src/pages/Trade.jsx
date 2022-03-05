@@ -1,7 +1,6 @@
 import './Trade.css';
 import { ALL_ASSETS } from '../constants/all-assets';
 import { RECENT_TRANSACTIONS } from '../constants/recent-transactions';
-import { TABS_TRADE } from '../constants/tabs-trade';
 import {
 	ContentCenter,
 	ContentRight,
@@ -11,7 +10,7 @@ import {
 	TableRecentTransactions,
 	Search,
 	Dropdown,
-	Tab,
+	TabTrade,
 } from '../components';
 import { OPTIONS_TIME } from '../constants/options-time';
 import { ASSET_TYPE } from '../constants/asset-type';
@@ -34,7 +33,7 @@ const Trade = () => {
 			</ContentCenter>
 			<ContentRight>
 				<Section>
-					<Tab data={TABS_TRADE} />
+					<TabTrade />
 				</Section>
 				<Section>
 					<SectionTitle title="Recent transactions" />

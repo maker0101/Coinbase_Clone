@@ -1,23 +1,23 @@
-import './TabSend.css';
 import {
+	TabContent,
 	Button,
 	InputAmountContainer,
-	TableConvertInputs,
+	TableSendInputs,
 	TabFooter,
 } from '..';
 
-const TabConvert = () => {
+const TabContentSend = () => {
 	return (
-		<div className="TabConvert">
+		<TabContent>
 			<InputAmountContainer />
-			<TableConvertInputs />
-			<Button size="xl">Convert</Button>
+			<TableSendInputs />
+			<Button size="xl">Send</Button>
 			<TabFooter
 				textLeft="ETH balance"
 				textRight="0.84447543 ETH = €1.743,45"
 			/>
-		</div>
+		</TabContent>
 	);
 };
 
-export default TabConvert;
+export default TabContentSend;
