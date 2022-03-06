@@ -4,7 +4,7 @@ import { Table, TableRowSelectAsset } from '..';
 
 const TableInputBuy = () => {
 	return (
-		<Table minRowHeight="xl" hasBorder marginBottom={24}>
+		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
 					helperText="Buy"

@@ -26,11 +26,12 @@ const TableAssets = ({ assets }) => {
 							/>
 						</td>
 						<td>
-							<div className='tableAssets__priceChart'>
+							<div className="tableAssets__priceChart">
 								<LineChart
 									chartData={ASSET_PRICE_LAST_24H}
 									labelsKey="time"
 									datasetsKey="price"
+									hasTooltip={false}
 								/>
 							</div>
 						</td>

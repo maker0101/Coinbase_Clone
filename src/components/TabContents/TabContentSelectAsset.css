@@ -1,0 +1,12 @@
+.tabContent__titleGrid {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr 5fr 1fr;
+	height: 32px;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.tabContent__titleGrid > svg {
+	cursor: pointer;
+}

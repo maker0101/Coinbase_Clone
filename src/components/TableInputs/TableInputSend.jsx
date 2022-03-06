@@ -5,7 +5,7 @@ import { Table, TableRowSelectAsset, TableRowInputText } from '..';
 
 const TableInputSend = () => {
 	return (
-		<Table minRowHeight="xl" hasBorder marginBottom={24}>
+		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
 					helperText="Pay with"

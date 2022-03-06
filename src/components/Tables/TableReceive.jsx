@@ -11,7 +11,7 @@ import {
 const TableReceive = () => {
 	return (
 		<div className="TableReceive">
-			<Table minRowHeight="xl" hasBorder>
+			<Table isInputTable>
 				<tbody>
 					<TableRowQR />
 					<TableRowSelectAsset

@@ -3,7 +3,7 @@ import { Table, TableRowSelectAsset } from '..';
 
 const TableInputCashout = () => {
 	return (
-		<Table minRowHeight="xl" hasBorder marginBottom={24}>
+		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
 					helperText="Witdraw from"

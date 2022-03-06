@@ -20,6 +20,7 @@ import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
 import TablePayments from './Tables/TablePayments';
+import TableFiatTransfers from './Tables/TableFiatTransfers';
 import TableInputSend from './TableInputs/TableInputSend';
 import TableInputBuy from './TableInputs/TableInputBuy';
 import TableInputSell from './TableInputs/TableInputSell';
@@ -46,6 +47,7 @@ import TabContentSend from './TabContents/TabContentSend';
 import TabContentReceive from './TabContents/TabContentReceive';
 import TabContentAddCash from './TabContents/TabContentAddCash';
 import TabContentCashout from './TabContents/TabContentCashout';
+import TabContentSelectAsset from './TabContents/TabContentSelectAsset';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
@@ -76,6 +78,7 @@ export {
 	TableRecentTransactions,
 	TablePayments,
 	TableReceive,
+	TableFiatTransfers,
 	TableInputSend,
 	TableInputBuy,
 	TableInputSell,
@@ -101,6 +104,7 @@ export {
 	TabContentReceive,
 	TabContentAddCash,
 	TabContentCashout,
+	TabContentSelectAsset,
 	ChartPortfolio,
 	LineChart,
 	Modal,

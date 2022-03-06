@@ -1,10 +1,10 @@
-import { PAYMENTS } from '../constants/payments';
+import { FIAT_TRANSFERS } from '../constants/fiat-transfers';
 import {
 	ContentCenter,
 	ContentRight,
 	Section,
 	SectionTitle,
-	TablePayments,
+	TableFiatTransfers,
 	TabDeposit,
 } from '../components';
 
@@ -19,7 +19,7 @@ const Deposit = () => {
 			<ContentRight>
 				<Section>
 					<SectionTitle title="Recent fiat transfers" />
-					<TablePayments payments={PAYMENTS} />
+					<TableFiatTransfers payments={FIAT_TRANSFERS} />
 				</Section>
 			</ContentRight>
 		</>

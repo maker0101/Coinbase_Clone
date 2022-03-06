@@ -3,7 +3,7 @@ import { Table, TableRowSelectAsset } from '..';
 
 const TableInputAddCash = () => {
 	return (
-		<Table minRowHeight="xl" hasBorder marginBottom={24}>
+		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
 					helperText="Add to"

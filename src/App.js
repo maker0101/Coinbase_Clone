@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { SignIn, SignUp, Assets, Trade, Pay, Deposit } from './pages';
 import { Dashboard } from './components';
 
@@ -7,6 +7,7 @@ function App() {
 	return (
 		<div className="App">
 			<Routes>
+				<Route path="/" element={<Navigate to="/assets" />} />
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/" element={<Dashboard />}>

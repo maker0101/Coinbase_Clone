@@ -1,17 +1,19 @@
 import './Table.css';
 import classNames from 'classnames';
 
-const Table = ({ children, minRowHeight, hasBorder, marginBottom = 0 }) => {
+const Table = ({
+	children,
+	isInputTable = false,
+	hasBorderBottom = true,
+	hasSmallPadding = false,
+}) => {
 	const tableClasses = classNames({
-		'table-min-row-height-xl': minRowHeight === 'xl',
-		'table-has-border': hasBorder,
+		'table-is-input-table': isInputTable,
+		'table-has-border-bottom': hasBorderBottom,
+		'table-has-small-padding': hasSmallPadding,
 	});
 
-	return (
-		<table className={tableClasses} style={{ marginBottom: marginBottom }}>
-			{children}
-		</table>
-	);
+	return <table className={tableClasses}>{children}</table>;
 };
 
 export default Table;

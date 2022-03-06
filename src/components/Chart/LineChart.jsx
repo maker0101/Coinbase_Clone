@@ -3,7 +3,12 @@ import { Line } from 'react-chartjs-2';
 // Chart needs to be imported for react-chartjs-2 to work
 import { Chart as ChartJS } from 'chart.js/auto';
 
-const LineChart = ({ chartData, labelsKey, datasetsKey }) => {
+const LineChart = ({
+	chartData,
+	labelsKey,
+	datasetsKey,
+	hasTooltip = true,
+}) => {
 	const [lineChartData] = useState({
 		labels: chartData.map((data) => data[`${labelsKey}`]),
 		datasets: [{ data: chartData.map((data) => data[`${datasetsKey}`]) }],
@@ -41,7 +46,7 @@ const LineChart = ({ chartData, labelsKey, datasetsKey }) => {
 				display: false,
 			},
 			tooltip: {
-				enabled: true,
+				enabled: hasTooltip,
 			},
 		},
 	};

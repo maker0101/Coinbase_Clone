@@ -8,15 +8,10 @@ table {
 	width: 100%;
 }
 
-tr {
-	cursor: pointer;
-}
-
 th,
 td {
 	padding: 8px;
 	text-align: left;
-	border-bottom: 1px solid #d8d8d8;
 	padding: 14px 16px;
 }
 
@@ -42,11 +37,28 @@ th {
 	font-size: 14px;
 }
 
-.table-min-row-height-xl > tbody > tr {
-	height: 65px;
-}
-
-.table-has-border {
+.table-is-input-table {
 	border: 1px solid #dedfd2;
 	border-radius: 8px;
+	margin-bottom: 24px;
+}
+
+.table-is-input-table > tbody > tr {
+	height: 65px;
+	cursor: pointer;
+}
+
+.table-has-border-bottom th,
+td {
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.table-has-small-padding th:last-child,
+.table-has-small-padding td:last-child {
+	padding-right: 16px;
+}
+
+.table-has-small-padding th:first-child,
+.table-has-small-padding td:first-child {
+	padding-left: 16px;
 }

@@ -1,7 +1,7 @@
 import './TablePayments.css';
 import { Text, Table } from '..';
 
-const TablePayments = ({ payments }) => {
+const TableFiatTransfers = ({ payments }) => {
 	return (
 		<Table>
 			<tbody>
@@ -11,11 +11,13 @@ const TablePayments = ({ payments }) => {
 							<div className="tablePayments__cell">
 								<div className="tablePayments__icon">{p.icon}</div>
 								<div className="tablePayments__head">
-									<Text>{`Sent ${p.name}`}</Text>
+									<Text>{`${p.type === 'deposit' ? 'Deposited' : 'Withdrew'} ${
+										p.amount
+									} ${p.name}`}</Text>
 								</div>
 								<div className="tablePayments__body">
 									<Text color="grey" size="s">
-										{`To ${p.adress} on ${p.date}`}
+										{`On ${p.date}`}
 									</Text>
 								</div>
 							</div>
@@ -27,4 +29,4 @@ const TablePayments = ({ payments }) => {
 	);
 };
 
-export default TablePayments;
+export default TableFiatTransfers;

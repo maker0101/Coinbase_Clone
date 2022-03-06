@@ -3,6 +3,7 @@
 	align-items: center;
 	margin-left: 10px;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 .star__filled {
