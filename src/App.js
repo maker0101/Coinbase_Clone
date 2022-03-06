@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { SignIn, SignUp, Assets, Trade, Pay } from './pages';
+import { SignIn, SignUp, Assets, Trade, Pay, Deposit } from './pages';
 import { Dashboard } from './components';
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
 					<Route path="assets" element={<Assets />} />
 					<Route path="trade" element={<Trade />} />
 					<Route path="pay" element={<Pay />} />
+					<Route path="deposit" element={<Deposit />} />
 				</Route>
 			</Routes>
 		</div>

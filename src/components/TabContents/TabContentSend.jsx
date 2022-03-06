@@ -2,7 +2,7 @@ import {
 	TabContent,
 	Button,
 	InputAmountContainer,
-	TableSendInputs,
+	TableInputSend,
 	TabFooter,
 } from '..';
 
@@ -10,7 +10,7 @@ const TabContentSend = () => {
 	return (
 		<TabContent>
 			<InputAmountContainer />
-			<TableSendInputs />
+			<TableInputSend />
 			<Button size="xl">Send</Button>
 			<TabFooter
 				textLeft="ETH balance"

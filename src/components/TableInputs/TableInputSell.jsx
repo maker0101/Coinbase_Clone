@@ -1,27 +1,24 @@
-import './TableBuyInputs.css';
 import { SiEthereum } from 'react-icons/si';
 import { AiOutlineEuro } from 'react-icons/ai';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableBuyInputs = () => {
+const TableInputSell = () => {
 	return (
-		<div className="TableBuyInputs">
-			<Table minRowHeight="xl" hasBorder>
+			<Table minRowHeight="xl" hasBorder marginBottom={24}>
 				<tbody>
 					<TableRowSelectAsset
-						helperText="Buy"
+						helperText="Sell"
 						assetName="Ethereum"
 						assetIcon={<SiEthereum />}
 					/>
 					<TableRowSelectAsset
-						helperText="With"
+						helperText="Add to"
 						assetName="EUR wallet"
 						assetIcon={<AiOutlineEuro />}
 					/>
 				</tbody>
 			</Table>
-		</div>
 	);
 };
 
-export default TableBuyInputs;
+export default TableInputSell;

@@ -20,10 +20,12 @@ import TableYourAssets from './Tables/TableYourAssets';
 import TableAssets from './Tables/TableAssets';
 import TableRecentTransactions from './Tables/TableRecentTransactions';
 import TablePayments from './Tables/TablePayments';
-import TableSendInputs from './Tables/TableSendInputs';
-import TableBuyInputs from './Tables/TableBuyInputs';
-import TableSellInputs from './Tables/TableSellInputs';
-import TableConvertInputs from './Tables/TableConvertInputs';
+import TableInputSend from './TableInputs/TableInputSend';
+import TableInputBuy from './TableInputs/TableInputBuy';
+import TableInputSell from './TableInputs/TableInputSell';
+import TableInputConvert from './TableInputs/TableInputConvert';
+import TableInputAddCash from './TableInputs/TableInputAddCash';
+import TableInputCashout from './TableInputs/TableInputCashout';
 import TableReceive from './Tables/TableReceive';
 import Input from './Inputs/Input';
 import InputAmountContainer from './Inputs/InputAmountContainer';
@@ -34,13 +36,16 @@ import Tab from './Tab/Tab';
 import TabFooter from './Tab/TabFooter';
 import TabTrade from './Tabs/TabTrade';
 import TabPay from './Tabs/TabPay';
-import TabContent from './TabContent/TabContent';
+import TabDeposit from './Tabs/TabDeposit';
+import TabContent from './Tab/TabContent';
 import TabContentBuy from './TabContents/TabContentBuy';
 import TabContentSell from './TabContents/TabContentSell';
 import TabContentConvert from './TabContents/TabContentConvert';
 import TabContentBuyEmpty from './TabContents/TabContentBuyEmpty';
 import TabContentSend from './TabContents/TabContentSend';
 import TabContentReceive from './TabContents/TabContentReceive';
+import TabContentAddCash from './TabContents/TabContentAddCash';
+import TabContentCashout from './TabContents/TabContentCashout';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
@@ -70,11 +75,13 @@ export {
 	TableAssets,
 	TableRecentTransactions,
 	TablePayments,
-	TableSendInputs,
-	TableBuyInputs,
-	TableSellInputs,
-	TableConvertInputs,
 	TableReceive,
+	TableInputSend,
+	TableInputBuy,
+	TableInputSell,
+	TableInputConvert,
+	TableInputAddCash,
+	TableInputCashout,
 	Star,
 	Input,
 	InputAmountContainer,
@@ -84,6 +91,7 @@ export {
 	TabFooter,
 	TabTrade,
 	TabPay,
+	TabDeposit,
 	TabContentBuy,
 	TabContent,
 	TabContentSell,
@@ -91,6 +99,8 @@ export {
 	TabContentBuyEmpty,
 	TabContentSend,
 	TabContentReceive,
+	TabContentAddCash,
+	TabContentCashout,
 	ChartPortfolio,
 	LineChart,
 	Modal,

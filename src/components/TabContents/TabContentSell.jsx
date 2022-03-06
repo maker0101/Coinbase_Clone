@@ -2,7 +2,7 @@ import {
 	TabContent,
 	Button,
 	InputAmountContainer,
-	TableSellInputs,
+	TableInputSell,
 	TabFooter,
 } from '..';
 
@@ -10,7 +10,7 @@ const TabContentSell = () => {
 	return (
 		<TabContent>
 			<InputAmountContainer />
-			<TableSellInputs />
+			<TableInputSell />
 			<Button size="xl">Sell</Button>
 			<TabFooter
 				textLeft="ETH balance"

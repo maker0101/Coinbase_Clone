@@ -1,20 +1,20 @@
 import {
 	TabContent,
-	Button,
+  Button,
 	InputAmountContainer,
-	TableInputBuy,
+  TableInputCashout,
 	TabFooter,
 } from '..';
 
-const TabContentBuy = () => {
+const TabContentCashout = () => {
 	return (
 		<TabContent>
 			<InputAmountContainer />
-			<TableInputBuy />
-			<Button size="xl">Buy</Button>
+			<TableInputCashout />
+			<Button size="xl">Cashout</Button>
 			<TabFooter textLeft="EUR balance" textRight="€2.500,00" />
 		</TabContent>
 	);
 };
 
-export default TabContentBuy;
+export default TabContentCashout;
