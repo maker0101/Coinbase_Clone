@@ -1,16 +1,21 @@
 import { Table, TableCellCoinName, Text } from '..';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TableYourAssets = ({ assets }) => {
+	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+
 	return (
 		<Table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Ballance</th>
-					<th>Price</th>
-					<th>Allocation</th>
-				</tr>
-			</thead>
+			{isWidthMin800 && (
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Ballance</th>
+						<th>Price</th>
+						<th>Allocation</th>
+					</tr>
+				</thead>
+			)}
 			<tbody>
 				{assets.map((asset) => (
 					<tr key={asset.symbol}>
@@ -27,17 +32,21 @@ const TableYourAssets = ({ assets }) => {
 								{`${asset.balance_coin} ${asset.symbol}`}
 							</Text>
 						</td>
-						<td>
-							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
-							<Text
-								size="s"
-								color={asset.price_change24h < 0 ? 'red' : 'green'}>
-								{asset.price_change24h}%
-							</Text>
-						</td>
-						<td>
-							<Text>{asset.allocation}%</Text>
-						</td>
+						{isWidthMin800 && (
+							<td>
+								<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
+								<Text
+									size="s"
+									color={asset.price_change24h < 0 ? 'red' : 'green'}>
+									{asset.price_change24h}%
+								</Text>
+							</td>
+						)}
+						{isWidthMin800 && (
+							<td>
+								<Text>{asset.allocation}%</Text>
+							</td>
+						)}
 					</tr>
 				))}
 			</tbody>

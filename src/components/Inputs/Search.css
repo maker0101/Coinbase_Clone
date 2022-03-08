@@ -29,3 +29,9 @@
 	margin: 0 16px;
 	color: #808080;
 }
+
+@media (min-width: 800px) {
+	.Search {
+		max-width: 300px;
+	}
+}

@@ -10,7 +10,7 @@ const InputAmountDynamicWidth = () => {
 			className="InputAmountDynamicWidth"
 			type="number"
 			min="1"
-			max="100000"
+			max="999999"
 			placeholder={0}
 			style={{ width: inputWidth(inputLength) + 'px' }}
 			onChange={(e) => setInputLength(e.target.value.length)}

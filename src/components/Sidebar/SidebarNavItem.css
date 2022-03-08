@@ -41,3 +41,13 @@
 	margin-left: 16px;
 	font-weight: 600;
 }
+
+@media (max-width: 1300px) {
+	.SidebarNavItem {
+		padding-right: 8px;
+	}
+
+	.Sidebar .sidebarNavItem__text {
+		display: none;
+	}
+}

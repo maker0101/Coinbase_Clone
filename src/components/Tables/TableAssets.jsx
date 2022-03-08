@@ -1,20 +1,26 @@
 import './TableAssets.css';
 import { Table, TableCellCoinName, TableCellWatch, Text, LineChart } from '..';
 import { ASSET_PRICE_LAST_24H } from '../../constants/asset-price-last-24h';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TableAssets = ({ assets }) => {
+	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	let isWidthMin400 = useMediaQuery('(min-width: 400px)');
+
 	return (
 		<Table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Past 24h</th>
-					<th>Price</th>
-					<th>Change</th>
-					<th>Market cap</th>
-					<th>Watch</th>
-				</tr>
-			</thead>
+			{isWidthMin800 && (
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Past 24h</th>
+						<th>Price</th>
+						<th>Change</th>
+						<th>Market cap</th>
+						<th>Watch</th>
+					</tr>
+				</thead>
+			)}
 			<tbody>
 				{assets.map((asset) => (
 					<tr key={asset.symbol}>
@@ -25,30 +31,40 @@ const TableAssets = ({ assets }) => {
 								symbol={asset.symbol}
 							/>
 						</td>
-						<td>
-							<div className="tableAssets__priceChart">
-								<LineChart
-									chartData={ASSET_PRICE_LAST_24H}
-									labelsKey="time"
-									datasetsKey="price"
-									hasTooltip={false}
-								/>
-							</div>
-						</td>
+
+						{isWidthMin400 && (
+							<td>
+								<div className="tableAssets__priceChart">
+									<LineChart
+										chartData={ASSET_PRICE_LAST_24H}
+										labelsKey="time"
+										datasetsKey="price"
+										hasTooltip={false}
+									/>
+								</div>
+							</td>
+						)}
 						<td>
 							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
-						</td>
-						<td>
 							<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
 								{asset.price_change24h}%
 							</Text>
 						</td>
-						<td>
-							<Text>{`€${asset.market_cap}B`}</Text>
-						</td>
-						<td>
-							<TableCellWatch />
-						</td>
+						{isWidthMin800 && (
+							<>
+								<td>
+									<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
+										{asset.price_change24h}%
+									</Text>
+								</td>
+								<td>
+									<Text>{`€${asset.market_cap}B`}</Text>
+								</td>
+								<td>
+									<TableCellWatch />
+								</td>
+							</>
+						)}
 					</tr>
 				))}
 			</tbody>

@@ -1,0 +1,18 @@
+.hasTooltip .Tooltip {
+	visibility: hidden;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 8px 16px;
+	border-radius: 6px;
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+	margin: 10px 0 0 50px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.hasTooltip:hover .Tooltip {
+	visibility: visible;
+}

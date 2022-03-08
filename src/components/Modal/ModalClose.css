@@ -1,0 +1,17 @@
+.ModalClose {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 24px;
+	left: 24px;
+	background-color: #eef0f3;
+	border-radius: 50%;
+	z-index: inherit;
+	padding: 16px;
+	cursor: pointer;
+}
+
+.ModalClose:hover {
+	transform: scale(1.1);
+}

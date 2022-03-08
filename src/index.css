@@ -6,6 +6,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 16px;
+	overscroll-behavior: none;
 }
 
 code {
@@ -19,4 +20,8 @@ a:focus,
 a:active {
 	text-decoration: none;
 	color: inherit;
+}
+
+:root {
+	--breakpoint-xl: 1300px;
 }

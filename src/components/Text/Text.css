@@ -57,6 +57,10 @@
 	font-weight: 400;
 }
 
+.text-white {
+	color: white;
+}
+
 .text-grey {
 	color: #5b616e;
 }

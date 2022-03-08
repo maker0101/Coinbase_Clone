@@ -5,3 +5,15 @@
 	padding: 24px 24px;
 	background-color: #f9f9fd;
 }
+
+@media (max-width: 1150px) {
+	.Content {
+		grid-template-columns: 100%;
+	}
+}
+
+@media (max-width: 800px) {
+	.Content {
+		padding-bottom: 64px;
+	}
+}

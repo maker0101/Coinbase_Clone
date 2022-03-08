@@ -44,6 +44,10 @@
 	width: 100%;
 }
 
+.btn-stretch {
+	width: 100%;
+}
+
 .btn-disabled {
 	cursor: not-allowed;
 }

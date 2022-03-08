@@ -1,6 +1,7 @@
 import Dashboard from './Dashboard/Dashboard';
 import Main from './Main/Main';
 import Sidebar from './Sidebar/Sidebar';
+import SidebarNavItem from './Sidebar/SidebarNavItem';
 import Header from './Header/Header';
 import Content from './Content/Content';
 import ContentCenter from './Content/ContentCenter';
@@ -51,13 +52,20 @@ import TabContentSelectAsset from './TabContents/TabContentSelectAsset';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
 import Modal from './Modal/Modal';
+import ModalClose from './Modal/ModalClose';
 import ModalPay from './Modals/ModalPay';
 import ModalTrade from './Modals/ModalTrade';
+import ModalDeposit from './Modals/ModalDeposit';
+import MenuMobile from './MenuMobile/MenuMobile';
+import Tooltip from './Tooltip/Tooltip';
+import Logo from './Logo/Logo';
+import Footer from './Footer/Footer';
 
 export {
 	Dashboard,
 	Main,
 	Sidebar,
+	SidebarNavItem,
 	Header,
 	Content,
 	ContentCenter,
@@ -108,6 +116,12 @@ export {
 	ChartPortfolio,
 	LineChart,
 	Modal,
+	ModalClose,
 	ModalPay,
 	ModalTrade,
+	ModalDeposit,
+	MenuMobile,
+	Tooltip,
+	Logo,
+	Footer,
 };

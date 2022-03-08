@@ -3,6 +3,7 @@
 	justify-content: space-between;
 	padding: 0 32px;
 	border-bottom: 1px solid #d8d8d8;
+	gap: 8px;
 }
 
 .trade__filters {

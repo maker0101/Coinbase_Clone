@@ -1,0 +1,14 @@
+.Footer {
+	display: flex;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 16px 0;
+	background-color: white;
+	border-top: 1px solid #dedfd2;
+}
+
+.Footer > button {
+	margin: 0 8px;
+}

@@ -10,3 +10,15 @@
 	font-weight: 600;
 	color: #5b616e;
 }
+
+@media (max-width: 800px) {
+	.InputAmountContainer {
+		margin: 8% 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.InputAmountContainer {
+		margin: 16% 0;
+	}
+}

@@ -1,8 +1,8 @@
 import './Tab.css';
 import { useState } from 'react';
 
-const Tab = ({ data }) => {
-	const [activeTab, setActiveTab] = useState(1);
+const Tab = ({ data, initialTab = 1 }) => {
+	const [activeTab, setActiveTab] = useState(initialTab);
 
 	const selectTab = (index) => {
 		setActiveTab(index);

@@ -20,3 +20,17 @@
 	background: #fff;
 	border-radius: 8px;
 }
+
+@media (max-width: 800px) {
+	.Modal {
+		right: 0;
+		margin: 0px;
+	}
+
+	.modal__content {
+		height: 100vh;
+		width: 100vw;
+		border-radius: 0;
+		align-items: flex-start;
+	}
+}

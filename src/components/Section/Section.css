@@ -1,5 +1,7 @@
 .Section {
 	width: 100%;
+	min-width: 320px;
+	height: fit-content;
 	border: 1px solid #dedfd2;
 	border-radius: 8px;
 	background-color: white;

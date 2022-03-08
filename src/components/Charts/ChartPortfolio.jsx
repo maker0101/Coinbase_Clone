@@ -1,24 +1,18 @@
 import './ChartPortfolio.css';
 import { useState } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
-import { TIMEFRAMES_PORTFOLIO } from '../../constants/timeframes-portfolio';
-import { Text, LineChart } from '..';
+import { PORTFOLIO_CHART_TIMEFRAMES } from '../../constants/portfolio-chart-timeframes';
+import { PORTFOLIO_FOOTER_DATES } from '../../constants/portfolio-footer-dates';
+import { Text, LineChart, Dropdown } from '..';
 
 const ChartPortfolio = () => {
-	const [activeTimeFrame, setActiveTimeFrame] = useState(4);
+	let isWidthMax600 = useMediaQuery('(max-width: 600px)');
+	const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
 
 	const selectTimeFrame = (index) => {
 		setActiveTimeFrame(index);
 	};
-
-	const FOOTER_DATES = [
-		'JAN 27',
-		'FEB 1',
-		'FEB 6',
-		'FEB 11',
-		'FEB 17',
-		'FEB 22',
-	];
 
 	return (
 		<div>
@@ -28,16 +22,24 @@ const ChartPortfolio = () => {
 						Portfolio balance
 					</Text>
 					<div className="timeFrameBtn__wrapper">
-						{TIMEFRAMES_PORTFOLIO.map((time) => (
-							<div
-								key={time.index}
-								className={`timeFrameBtn ${
-									activeTimeFrame === time.index && 'timeFrameBtn__active'
-								}`}
-								onClick={() => selectTimeFrame(time.index)}>
-								{time.name}
-							</div>
-						))}
+						{isWidthMax600 && (
+							<Dropdown
+								name="timeframes"
+								options={PORTFOLIO_CHART_TIMEFRAMES}
+								initialValue={activeTimeFrame}
+							/>
+						)}
+						{!isWidthMax600 &&
+							PORTFOLIO_CHART_TIMEFRAMES.map((time) => (
+								<div
+									key={time.value}
+									className={`timeFrameBtn ${
+										activeTimeFrame === time.value && 'timeFrameBtn__active'
+									}`}
+									onClick={() => selectTimeFrame(time.value)}>
+									{time.text}
+								</div>
+							))}
 					</div>
 				</div>
 				<Text h1 size="xxl">
@@ -52,7 +54,7 @@ const ChartPortfolio = () => {
 				/>
 			</div>
 			<div className="chartPortfolio__footer">
-				{FOOTER_DATES.map((date) => (
+				{PORTFOLIO_FOOTER_DATES.map((date) => (
 					<div key={date} className="chartPortfolio__footerDate">
 						{date}
 					</div>
