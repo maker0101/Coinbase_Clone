@@ -1,5 +1,4 @@
 import './Trade.css';
-import { ALL_ASSETS } from '../constants/all-assets';
 import { RECENT_TRANSACTIONS } from '../constants/recent-transactions';
 import {
 	ContentCenter,
@@ -12,13 +11,16 @@ import {
 	Dropdown,
 	TabTrade,
 } from '../components';
-import { OPTIONS_TIME } from '../constants/options-time';
-import { ASSET_TYPE } from '../constants/asset-type';
 import useMediaQuery from '../hooks/useMediaQuery';
+import useAssets from '../hooks/useAssets';
 
 const Trade = () => {
 	let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const { allAssets } = useAssets();
+
+	const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
+	const ASSET_TYPE = ['All assets', 'Watchlist'];
 
 	return (
 		<>
@@ -42,7 +44,7 @@ const Trade = () => {
 							</div>
 						)}
 					</div>
-					<TableAssets assets={ALL_ASSETS} />
+					<TableAssets assets={allAssets} />
 				</Section>
 			</ContentCenter>
 			<ContentRight>

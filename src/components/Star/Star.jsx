@@ -2,14 +2,14 @@ import './Star.css';
 import { useState } from 'react';
 import { HiStar, HiOutlineStar } from 'react-icons/hi';
 
-const Star = () => {
-	const [isWatching, setIsWatching] = useState(false);
+const Star = ({ onWatchlist }) => {
+	const [isOnWatchlist, setisOnWatchlist] = useState(onWatchlist);
 
-	const toggleIsWatching = () => setIsWatching(() => !isWatching);
+	const toggleisOnWatchlist = () => setisOnWatchlist(() => !isOnWatchlist);
 
 	return (
-		<div className="Star" onClick={toggleIsWatching}>
-			{isWatching ? (
+		<div className="Star" onClick={toggleisOnWatchlist}>
+			{isOnWatchlist ? (
 				<HiStar className="star__filled" />
 			) : (
 				<HiOutlineStar className="star__empty" />

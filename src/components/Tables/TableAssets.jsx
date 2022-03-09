@@ -46,9 +46,11 @@ const TableAssets = ({ assets }) => {
 						)}
 						<td>
 							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
-							<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
-								{asset.price_change24h}%
-							</Text>
+							{!isWidthMin800 && (
+								<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
+									{asset.price_change24h}%
+								</Text>
+							)}
 						</td>
 						{isWidthMin800 && (
 							<>
@@ -61,7 +63,7 @@ const TableAssets = ({ assets }) => {
 									<Text>{`€${asset.market_cap}B`}</Text>
 								</td>
 								<td>
-									<TableCellWatch />
+									<TableCellWatch onWatchlist={asset.onWatchlist} />
 								</td>
 							</>
 						)}

@@ -1,13 +1,13 @@
 import './SidebarNavItem.css';
 import { Link } from 'react-router-dom';
-import usePathName from '../../hooks/usePathName';
+import usePath from '../../hooks/usePath';
 import classNames from 'classnames';
 import { Tooltip } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const SidebarNavItem = ({ to, icon, text, closeMenuMobile }) => {
 	let isWidthMax1300 = useMediaQuery('(max-width: 1300px)');
-	const { page } = usePathName();
+	const { page } = usePath();
 	const inMobileMenu = Boolean(closeMenuMobile);
 
 	const sidebarNavItemClasses = classNames({

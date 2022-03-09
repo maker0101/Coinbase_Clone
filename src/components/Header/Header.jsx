@@ -1,6 +1,6 @@
 import './Header.css';
 import { useState } from 'react';
-import usePathName from '../../hooks/usePathName';
+import usePath from '../../hooks/usePath';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { RiAccountCircleFill } from 'react-icons/ri';
 import { Button, Text, ModalPay, ModalTrade, MenuMobile, Logo } from '..';
@@ -8,7 +8,7 @@ import { IoMenuSharp } from 'react-icons/io5';
 
 const Header = () => {
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
-	const { page } = usePathName();
+	const { page } = usePath();
 	const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 	const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
 	const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);

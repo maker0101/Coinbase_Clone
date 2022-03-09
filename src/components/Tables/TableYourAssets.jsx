@@ -1,5 +1,6 @@
 import { Table, TableCellCoinName, Text } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import { calculateAllocation } from '../../utilities/calculate-allocation';
 
 const TableYourAssets = ({ assets }) => {
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
@@ -44,7 +45,7 @@ const TableYourAssets = ({ assets }) => {
 						)}
 						{isWidthMin800 && (
 							<td>
-								<Text>{asset.allocation}%</Text>
+								<Text>{calculateAllocation(assets, asset)}%</Text>
 							</td>
 						)}
 					</tr>

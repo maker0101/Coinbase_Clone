@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Button, ModalPay, ModalTrade, ModalDeposit } from '..';
 import './Footer.css';
-import usePathName from '../../hooks/usePathName';
+import usePath from '../../hooks/usePath';
 
 const Footer = () => {
-	const { page } = usePathName();
+	const { page } = usePath();
 	const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 	const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
 	const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);

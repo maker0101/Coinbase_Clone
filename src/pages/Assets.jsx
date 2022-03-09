@@ -1,5 +1,3 @@
-import { YOUR_ASSETS } from '../constants/your-assets';
-import { WATCHLIST_ASSETS } from '../constants/watchlist-assets';
 import {
 	ContentCenter,
 	ContentRight,
@@ -11,9 +9,11 @@ import {
 	ChartPortfolio,
 } from '../components';
 import useMediaQuery from '../hooks/useMediaQuery';
+import useAssets from '../hooks/useAssets';
 
 const Assets = () => {
 	let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
+	const { yourAssets, watchlistAssets } = useAssets();
 
 	return (
 		<>
@@ -23,11 +23,11 @@ const Assets = () => {
 				</Section>
 				<Section>
 					<SectionTitle title="Your Assets" />
-					<TableYourAssets assets={YOUR_ASSETS} />
+					<TableYourAssets assets={yourAssets} />
 				</Section>
 				<Section>
 					<SectionTitle title="Watchlist" />
-					<TableAssets assets={WATCHLIST_ASSETS} />
+					<TableAssets assets={watchlistAssets} />
 				</Section>
 			</ContentCenter>
 			{isWidthMin1150 && (

@@ -1,9 +1,11 @@
 import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft } from 'react-icons/fa';
-import { YOUR_ASSETS } from '../../constants/your-assets';
+import useAssets from '../../hooks/useAssets';
 
 const TabContentSelectAsset = () => {
+	const { allAssets } = useAssets();
+
 	return (
 		<TabContent>
 			<div className="tabContent__titleGrid">
@@ -13,7 +15,7 @@ const TabContentSelectAsset = () => {
 			<Search maxWidth={800} />
 			<Table hasSmallPadding>
 				<tbody>
-					{YOUR_ASSETS.map((asset) => (
+					{allAssets.map((asset) => (
 						<tr key={asset.symbol}>
 							<td>
 								<TableCellCoinName

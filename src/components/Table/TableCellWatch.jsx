@@ -2,14 +2,14 @@ import './TableCellWatch.css';
 import { useState } from 'react';
 import { Button, Star, ModalTrade } from '..';
 
-const TableCellWatch = () => {
+const TableCellWatch = ({ onWatchlist }) => {
 	const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
 	const openTradeModal = () => setIsTradeModalOpen(true);
 
 	return (
 		<div className="TableCellWatch">
 			<Button onClick={openTradeModal}>Buy</Button>
-			<Star />
+			<Star onWatchlist={onWatchlist} />
 			<ModalTrade
 				isModalOpen={isTradeModalOpen}
 				setIsModalOpen={setIsTradeModalOpen}

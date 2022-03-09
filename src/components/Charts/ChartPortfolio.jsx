@@ -2,11 +2,11 @@ import './ChartPortfolio.css';
 import { useState } from 'react';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
-import { PORTFOLIO_CHART_TIMEFRAMES } from '../../constants/portfolio-chart-timeframes';
 import { PORTFOLIO_FOOTER_DATES } from '../../constants/portfolio-footer-dates';
 import { Text, LineChart, Dropdown } from '..';
 
 const ChartPortfolio = () => {
+	const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
 	let isWidthMax600 = useMediaQuery('(max-width: 600px)');
 	const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
 
@@ -25,25 +25,25 @@ const ChartPortfolio = () => {
 						{isWidthMax600 && (
 							<Dropdown
 								name="timeframes"
-								options={PORTFOLIO_CHART_TIMEFRAMES}
+								options={TIMEFRAMES}
 								initialValue={activeTimeFrame}
 							/>
 						)}
 						{!isWidthMax600 &&
-							PORTFOLIO_CHART_TIMEFRAMES.map((time) => (
+							TIMEFRAMES.map((time) => (
 								<div
-									key={time.value}
+									key={time}
 									className={`timeFrameBtn ${
-										activeTimeFrame === time.value && 'timeFrameBtn__active'
+										activeTimeFrame === time && 'timeFrameBtn__active'
 									}`}
-									onClick={() => selectTimeFrame(time.value)}>
-									{time.text}
+									onClick={() => selectTimeFrame(time)}>
+									{time}
 								</div>
 							))}
 					</div>
 				</div>
 				<Text h1 size="xxl">
-					€5,324.90
+					€25,324.90
 				</Text>
 			</div>
 			<div className="chartPortfolio__chartWrapper">
