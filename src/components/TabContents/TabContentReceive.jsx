@@ -1,14 +1,24 @@
-import { TabContent, TableReceive, TabFooter } from '..';
+import { TabContent, TableReceive, TabFooter, TabContentSelectAsset } from '..';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentReceive = () => {
+const TabContentReceive = (props) => {
 	return (
-		<TabContent>
-			<TableReceive />
-			<TabFooter
-				textLeft="ETH balance"
-				textRight="0.84447543 ETH = €1.743,45"
-			/>
-		</TabContent>
+		<>
+			{props.isSelectAssetOpen ? (
+				<TabContentSelectAsset {...props} />
+			) : (
+				<TabContent>
+					<TableReceive {...props} />
+					<TabFooter
+						marginTop={0}
+						textLeft={`${props.selectedCrypto.symbol} balance`}
+						textRight={`${props.selectedCrypto.balance_coin} ${
+							props.selectedCrypto.symbol
+						} = ${convertToCurrency(props.selectedCrypto.balance_eur)}`}
+					/>
+				</TabContent>
+			)}
+		</>
 	);
 };
 

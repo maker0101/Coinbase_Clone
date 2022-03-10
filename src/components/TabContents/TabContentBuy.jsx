@@ -6,6 +6,7 @@ import {
 	TabFooter,
 	TabContentSelectAsset,
 } from '..';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TabContentBuy = (props) => {
 	return (
@@ -17,7 +18,10 @@ const TabContentBuy = (props) => {
 					<InputAmountContainer />
 					<TableInputBuy {...props} />
 					<Button size="xl">Buy</Button>
-					<TabFooter textLeft="EUR balance" textRight="€2.500,00" />
+					<TabFooter
+						textLeft={`${props.selectedFiat.symbol} balance`}
+						textRight={convertToCurrency(props.selectedFiat.balance_eur)}
+					/>
 				</TabContent>
 			)}
 		</>

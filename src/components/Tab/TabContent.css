@@ -6,8 +6,15 @@
 	align-items: space-between;
 }
 
-.ContentRight .TabContent,
-.Modal .TabContent {
-	max-height: 440px;
-	overflow: scroll;
+@media (min-width: 800px) {
+	.ContentRight .TabContent,
+	.Modal .TabContent {
+		max-height: 440px;
+		overflow: scroll;
+	}
+
+	.ContentCenter .TabContent {
+		max-height: 510px;
+		overflow: scroll;
+	}
 }

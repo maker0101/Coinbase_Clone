@@ -2,6 +2,8 @@ import './TableAssets.css';
 import { Table, TableCellCoinName, TableCellWatch, Text, LineChart } from '..';
 import { ASSET_PRICE_LAST_24H } from '../../constants/asset-price-last-24h';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
+import { formatMarketCap } from '../../utilities/format-market-cap';
 
 const TableAssets = ({ assets }) => {
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
@@ -45,7 +47,7 @@ const TableAssets = ({ assets }) => {
 							</td>
 						)}
 						<td>
-							<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
+							<Text>{convertToCurrency(asset.price_eur)}</Text>
 							{!isWidthMin800 && (
 								<Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
 									{asset.price_change24h}%
@@ -60,7 +62,7 @@ const TableAssets = ({ assets }) => {
 									</Text>
 								</td>
 								<td>
-									<Text>{`€${asset.market_cap}B`}</Text>
+									<Text>{formatMarketCap(asset.market_cap)}</Text>
 								</td>
 								<td>
 									<TableCellWatch onWatchlist={asset.onWatchlist} />

@@ -1,20 +1,26 @@
-import { SiEthereum } from 'react-icons/si';
-import { SiBitcoin } from 'react-icons/si';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputConvert = () => {
+const TableInputConvert = ({
+	handleSelectAssetOpenClick,
+	selectedCrypto,
+	selectedCryptoConvertTo,
+}) => {
 	return (
 		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="From"
-					assetName="Ethereum"
-					assetIcon={<SiEthereum />}
+					assetName={selectedCrypto.name}
+					assetIcon={selectedCrypto.icon}
+					selectAssetType="selectCrypto"
 				/>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="To"
-					assetName="Bitcoin"
-					assetIcon={<SiBitcoin />}
+					assetName={selectedCryptoConvertTo.name}
+					assetIcon={selectedCryptoConvertTo.icon}
+					selectAssetType="selectCryptoConvertTo"
 				/>
 			</tbody>
 		</Table>

@@ -6,6 +6,9 @@ const useSelectAsset = () => {
 	const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
 	const [lastSelectAssetType, setLastSelectAssetType] = useState('crypto');
 	const [selectedCrypto, setSelectedCrypto] = useState(allCrypto[0]);
+	const [selectedCryptoConvertTo, setSelectedCryptoConvertTo] = useState(
+		allCrypto[1]
+	);
 	const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
 
 	const setSelectAssetType = (e) => {
@@ -13,6 +16,8 @@ const useSelectAsset = () => {
 			setLastSelectAssetType('fiat');
 		if (e?.target?.matches('.selectCrypto, .selectCrypto *'))
 			setLastSelectAssetType('crypto');
+		if (e?.target?.matches('.selectCryptoConvertTo, .selectCryptoConvertTo *'))
+			setLastSelectAssetType('cryptoConvertTo');
 	};
 
 	const toggleIsSelectAssetOpen = () =>
@@ -23,18 +28,23 @@ const useSelectAsset = () => {
 		toggleIsSelectAssetOpen();
 	};
 
-	const handleSelectAsset = (asset) => {
-		asset.isFiat ? setSelectedFiat(asset) : setSelectedCrypto(asset);
+	const handleSelectAsset = (asset, lastSelectAssetType) => {
+		if (asset.isFiat) setSelectedFiat(asset);
+		if (!asset.isFiat && lastSelectAssetType === 'crypto')
+			setSelectedCrypto(asset);
+		if (!asset.isFiat && lastSelectAssetType === 'cryptoConvertTo')
+			setSelectedCryptoConvertTo(asset);
 		toggleIsSelectAssetOpen();
 	};
 
-	const showCheck = (asset, selectedCrypto = {}, selectedFiat = {}) =>
-		selectedCrypto?.name === asset.name || selectedFiat?.name === asset.name;
+	const showCheck = (asset, assetSelected1 = {}, assetSelected2 = {}) =>
+		assetSelected1?.name === asset.name || assetSelected2?.name === asset.name;
 
 	return {
 		isSelectAssetOpen,
 		lastSelectAssetType,
 		selectedCrypto,
+		selectedCryptoConvertTo,
 		selectedFiat,
 		toggleIsSelectAssetOpen,
 		handleSelectAssetOpenClick,

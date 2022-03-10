@@ -8,16 +8,18 @@ import {
 	TableRowAssetAddress,
 } from '..';
 
-const TableReceive = () => {
+const TableReceive = ({ handleSelectAssetOpenClick, selectedCrypto }) => {
 	return (
 		<div className="TableReceive">
 			<Table isInputTable>
 				<tbody>
 					<TableRowQR />
 					<TableRowSelectAsset
+						handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 						helperText="Asset"
-						assetName="Ethereum"
-						assetIcon={<SiEthereum />}
+						assetName={selectedCrypto.name}
+						assetIcon={selectedCrypto.icon}
+						selectAssetType="selectCrypto"
 					/>
 					<TableRowAssetAddress
 						helperText="Address"

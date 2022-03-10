@@ -4,16 +4,27 @@ import {
 	InputAmountContainer,
 	TableInputAddCash,
 	TabFooter,
+	TabContentSelectAsset,
 } from '..';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentAddCash = () => {
+const TabContentAddCash = (props) => {
 	return (
-		<TabContent>
-			<InputAmountContainer />
-			<TableInputAddCash />
-			<Button size="xl">Add cash</Button>
-			<TabFooter textLeft="EUR balance" textRight="€2.500,00" />
-		</TabContent>
+		<>
+			{props.isSelectAssetOpen ? (
+				<TabContentSelectAsset {...props} />
+			) : (
+				<TabContent>
+					<InputAmountContainer />
+					<TableInputAddCash {...props} />
+					<Button size="xl">Add cash</Button>
+					<TabFooter
+						textLeft={`${props.selectedFiat.symbol} balance`}
+						textRight={convertToCurrency(props.selectedFiat.balance_eur)}
+					/>
+				</TabContent>
+			)}
+		</>
 	);
 };
 

@@ -13,12 +13,12 @@ const TabTrade = () => {
 		{
 			index: 2,
 			name: 'Sell',
-			content: <TabContentSell />,
+			content: <TabContentSell {...useSelectAssetObj} />,
 		},
 		{
 			index: 3,
 			name: 'Convert',
-			content: <TabContentConvert />,
+			content: <TabContentConvert {...useSelectAssetObj} />,
 		},
 	];
 

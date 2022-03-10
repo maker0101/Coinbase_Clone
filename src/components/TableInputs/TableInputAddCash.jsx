@@ -1,14 +1,15 @@
-import { AiOutlineEuro } from 'react-icons/ai';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputAddCash = () => {
+const TableInputAddCash = ({ handleSelectAssetOpenClick, selectedFiat }) => {
 	return (
 		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="Add to"
-					assetName="EUR wallet"
-					assetIcon={<AiOutlineEuro />}
+					assetName={`${selectedFiat.symbol} wallet`}
+					assetIcon={selectedFiat.icon}
+					selectAssetType="selectFiat"
 				/>
 			</tbody>
 		</Table>

@@ -3,14 +3,16 @@ import { SiEthereum } from 'react-icons/si';
 import { FaWallet } from 'react-icons/fa';
 import { Table, TableRowSelectAsset, TableRowInputText } from '..';
 
-const TableInputSend = () => {
+const TableInputSend = ({ handleSelectAssetOpenClick, selectedCrypto }) => {
 	return (
 		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="Pay with"
-					assetName="Ethereum"
-					assetIcon={<SiEthereum />}
+					assetName={selectedCrypto.name}
+					assetIcon={selectedCrypto.icon}
+					selectAssetType="selectCrypto"
 				/>
 				<TableRowInputText
 					helperText="To"

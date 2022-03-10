@@ -12,7 +12,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0.84433661,
 		price_eur: 10.38,
 		price_change24h: -3.9,
-		market_cap: 90.66,
+		market_cap: 90664444444,
 		onWatchlist: false,
 	},
 	{
@@ -24,7 +24,7 @@ export const ALL_ASSETS = [
 		balance_coin: 10.844336,
 		price_eur: 58.38,
 		price_change24h: 2.1,
-		market_cap: 45.66,
+		market_cap: 45666666666,
 		onWatchlist: true,
 	},
 	{
@@ -36,7 +36,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0.84433661,
 		price_eur: 10.38,
 		price_change24h: -3.9,
-		market_cap: 19.66,
+		market_cap: 19663333333,
 		onWatchlist: false,
 	},
 	{
@@ -48,7 +48,7 @@ export const ALL_ASSETS = [
 		balance_coin: 10.844336,
 		price_eur: 58.38,
 		price_change24h: 2.1,
-		market_cap: 11.66,
+		market_cap: 11222222222,
 		onWatchlist: false,
 	},
 	{
@@ -60,7 +60,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0.84433661,
 		price_eur: 10.38,
 		price_change24h: -3.9,
-		market_cap: 9.66,
+		market_cap: 9865743278,
 		onWatchlist: false,
 	},
 	{
@@ -72,7 +72,7 @@ export const ALL_ASSETS = [
 		balance_coin: 10.844336,
 		price_eur: 58.38,
 		price_change24h: 2.1,
-		market_cap: 8.66,
+		market_cap: 8466563897,
 		onWatchlist: false,
 	},
 	{
@@ -84,7 +84,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0.84433661,
 		price_eur: 10.38,
 		price_change24h: -3.9,
-		market_cap: 9.66,
+		market_cap: 9667888999,
 		onWatchlist: false,
 	},
 	{
@@ -96,7 +96,7 @@ export const ALL_ASSETS = [
 		balance_coin: 10.844336,
 		price_eur: 58.38,
 		price_change24h: 2.1,
-		market_cap: 19.66,
+		market_cap: 19333777888,
 		onWatchlist: true,
 	},
 	{
@@ -108,7 +108,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0,
 		price_eur: 28.38,
 		price_change24h: -52.1,
-		market_cap: 7.2,
+		market_cap: 7222333444,
 		onWatchlist: true,
 	},
 	{
@@ -120,7 +120,7 @@ export const ALL_ASSETS = [
 		balance_coin: 0,
 		price_eur: 38.38,
 		price_change24h: 20.1,
-		market_cap: 0.66,
+		market_cap: 789543432,
 		onWatchlist: true,
 	},
 	,
@@ -130,10 +130,5 @@ export const ALL_ASSETS = [
 		isFiat: true,
 		icon: <AiOutlineEuro />,
 		balance_eur: 2500,
-		balance_coin: 0,
-		price_eur: 38.38,
-		price_change24h: 20.1,
-		market_cap: 0.66,
-		onWatchlist: true,
 	},
 ];

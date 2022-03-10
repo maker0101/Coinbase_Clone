@@ -2,6 +2,7 @@ import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
 import useAssets from '../../hooks/useAssets';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TabContentSelectAsset = ({
 	toggleIsSelectAssetOpen,
@@ -24,7 +25,9 @@ const TabContentSelectAsset = ({
 			<Table hasSmallPadding>
 				<tbody>
 					{assets.map((asset) => (
-						<tr key={asset.symbol} onClick={() => handleSelectAsset(asset)}>
+						<tr
+							key={asset.symbol}
+							onClick={() => handleSelectAsset(asset, lastSelectAssetType)}>
 							<td>
 								<TableCellCoinName
 									icon={asset.icon}
@@ -34,7 +37,9 @@ const TabContentSelectAsset = ({
 							</td>
 							<td>
 								<div className="tabContent__selectAssetCell">
-									<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
+									{lastSelectAssetType !== 'fiat' && (
+										<Text>{convertToCurrency(asset.price_eur)}</Text>
+									)}
 									{showCheck(asset, selectedCrypto, selectedFiat) && (
 										<FaCheck />
 									)}

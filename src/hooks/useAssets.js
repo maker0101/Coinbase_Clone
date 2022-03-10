@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ALL_ASSETS } from '../constants/all-assets';
 
 const useAssets = () => {
-	const [allAssets, setAllAssets] = useState(ALL_ASSETS);
+	const [allAssets] = useState(ALL_ASSETS);
 
 	const allCrypto = allAssets
 		.filter((asset) => asset.isFiat === false)

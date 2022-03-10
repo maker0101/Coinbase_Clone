@@ -1,6 +1,7 @@
 import { Table, TableCellCoinName, Text } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { calculateAllocation } from '../../utilities/calculate-allocation';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TableYourAssets = ({ assets }) => {
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
@@ -28,14 +29,14 @@ const TableYourAssets = ({ assets }) => {
 							/>
 						</td>
 						<td>
-							<Text>{`€${asset.balance_eur.toLocaleString()}`}</Text>
+							<Text>{convertToCurrency(asset.balance_eur)}</Text>
 							<Text color="grey" size="s">
 								{`${asset.balance_coin} ${asset.symbol}`}
 							</Text>
 						</td>
 						{isWidthMin800 && (
 							<td>
-								<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
+								<Text>{convertToCurrency(asset.price_eur)}</Text>
 								<Text
 									size="s"
 									color={asset.price_change24h < 0 ? 'red' : 'green'}>

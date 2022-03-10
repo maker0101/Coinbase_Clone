@@ -1,20 +1,26 @@
-import { SiEthereum } from 'react-icons/si';
-import { AiOutlineEuro } from 'react-icons/ai';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputSell = () => {
+const TableInputSell = ({
+	handleSelectAssetOpenClick,
+	selectedCrypto,
+	selectedFiat,
+}) => {
 	return (
 		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="Sell"
-					assetName="Ethereum"
-					assetIcon={<SiEthereum />}
+					assetName={selectedCrypto.name}
+					assetIcon={selectedCrypto.icon}
+					selectAssetType="selectCrypto"
 				/>
 				<TableRowSelectAsset
+					handleSelectAssetOpenClick={handleSelectAssetOpenClick}
 					helperText="Add to"
-					assetName="EUR wallet"
-					assetIcon={<AiOutlineEuro />}
+					assetName={`${selectedFiat.symbol} wallet`}
+					assetIcon={selectedFiat.icon}
+					selectAssetType="selectFiat"
 				/>
 			</tbody>
 		</Table>
