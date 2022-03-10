@@ -16,6 +16,10 @@ td {
 	padding: 14px 16px;
 }
 
+tr {
+	cursor: pointer;
+}
+
 th:last-child,
 td:last-child {
 	text-align: right;

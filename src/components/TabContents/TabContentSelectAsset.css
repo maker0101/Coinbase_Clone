@@ -10,3 +10,14 @@
 .tabContent__titleGrid > svg {
 	cursor: pointer;
 }
+
+.tabContent__selectAssetCell {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 8px;
+}
+
+.tabContent__selectAssetCell svg {
+	color: #2151f5;
+}

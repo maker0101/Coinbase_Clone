@@ -1,15 +1,15 @@
-import { SiEthereum } from 'react-icons/si';
 import { AiOutlineEuro } from 'react-icons/ai';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputBuy = () => {
+const TableInputBuy = ({ toggleIsSelectAssetOpen, selectedAsset }) => {
 	return (
 		<Table isInputTable>
 			<tbody>
 				<TableRowSelectAsset
+					toggleIsSelectAssetOpen={toggleIsSelectAssetOpen}
 					helperText="Buy"
-					assetName="Ethereum"
-					assetIcon={<SiEthereum />}
+					assetName={selectedAsset.name}
+					assetIcon={selectedAsset.icon}
 				/>
 				<TableRowSelectAsset
 					helperText="With"

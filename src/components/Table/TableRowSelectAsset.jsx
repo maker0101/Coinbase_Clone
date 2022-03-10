@@ -2,9 +2,14 @@ import './TableRowSelectAsset.css';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import { Text } from '..';
 
-const TableRowSelectAsset = ({ helperText, assetName, assetIcon }) => {
+const TableRowSelectAsset = ({
+	helperText,
+	assetName,
+	assetIcon,
+	toggleIsSelectAssetOpen,
+}) => {
 	return (
-		<tr>
+		<tr onClick={toggleIsSelectAssetOpen}>
 			<td>
 				<Text color="grey">{helperText}</Text>
 			</td>

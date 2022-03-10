@@ -1,10 +1,11 @@
+import { SiBitcoin, SiEthereum } from 'react-icons/si';
 import { RiPieChartFill } from 'react-icons/ri';
 
 export const ALL_ASSETS = [
 	{
 		name: 'Bitcoin',
 		symbol: 'BTC',
-		icon: <RiPieChartFill />,
+		icon: <SiBitcoin />,
 		balance_eur: 10986.74,
 		balance_coin: 0.84433661,
 		price_eur: 10.38,
@@ -15,7 +16,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Ethereum',
 		symbol: 'ETH',
-		icon: <RiPieChartFill />,
+		icon: <SiEthereum />,
 		balance_eur: 6986.74,
 		balance_coin: 10.844336,
 		price_eur: 58.38,
