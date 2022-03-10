@@ -13,7 +13,7 @@ import useAssets from '../hooks/useAssets';
 
 const Assets = () => {
 	let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
-	const { yourAssets, watchlistAssets } = useAssets();
+	const { yourCrypto, watchlistCrypto } = useAssets();
 
 	return (
 		<>
@@ -23,11 +23,11 @@ const Assets = () => {
 				</Section>
 				<Section>
 					<SectionTitle title="Your Assets" />
-					<TableYourAssets assets={yourAssets} />
+					<TableYourAssets assets={yourCrypto} />
 				</Section>
 				<Section>
 					<SectionTitle title="Watchlist" />
-					<TableAssets assets={watchlistAssets} />
+					<TableAssets assets={watchlistCrypto} />
 				</Section>
 			</ContentCenter>
 			{isWidthMin1150 && (

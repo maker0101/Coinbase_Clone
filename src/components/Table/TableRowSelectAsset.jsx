@@ -6,10 +6,13 @@ const TableRowSelectAsset = ({
 	helperText,
 	assetName,
 	assetIcon,
-	toggleIsSelectAssetOpen,
+	handleSelectAssetOpenClick,
+	selectAssetType,
 }) => {
 	return (
-		<tr onClick={toggleIsSelectAssetOpen}>
+		<tr
+			className={selectAssetType}
+			onClick={(e) => handleSelectAssetOpenClick(e)}>
 			<td>
 				<Text color="grey">{helperText}</Text>
 			</td>

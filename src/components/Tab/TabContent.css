@@ -5,3 +5,9 @@
 	flex-direction: column;
 	align-items: space-between;
 }
+
+.ContentRight .TabContent,
+.Modal .TabContent {
+	max-height: 440px;
+	overflow: scroll;
+}

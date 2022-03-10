@@ -2,26 +2,44 @@ import { useState } from 'react';
 import useAssets from './useAssets';
 
 const useSelectAsset = () => {
-	const { allAssets } = useAssets();
+	const { allCrypto, allFiat } = useAssets();
 	const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
-	const [selectedAsset, setSelectedAsset] = useState(allAssets[0]);
+	const [lastSelectAssetType, setLastSelectAssetType] = useState('crypto');
+	const [selectedCrypto, setSelectedCrypto] = useState(allCrypto[0]);
+	const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
 
-	console.log(selectedAsset);
+	const setSelectAssetType = (e) => {
+		if (e?.target?.matches('.selectFiat, .selectFiat *'))
+			setLastSelectAssetType('fiat');
+		if (e?.target?.matches('.selectCrypto, .selectCrypto *'))
+			setLastSelectAssetType('crypto');
+	};
 
 	const toggleIsSelectAssetOpen = () =>
 		setIsSelectAssetOpen(() => !isSelectAssetOpen);
 
-	const handleSelectAsset = (asset) => {
-		setSelectedAsset(asset);
+	const handleSelectAssetOpenClick = (e) => {
+		setSelectAssetType(e);
 		toggleIsSelectAssetOpen();
 	};
 
+	const handleSelectAsset = (asset) => {
+		asset.isFiat ? setSelectedFiat(asset) : setSelectedCrypto(asset);
+		toggleIsSelectAssetOpen();
+	};
+
+	const showCheck = (asset, selectedCrypto = {}, selectedFiat = {}) =>
+		selectedCrypto?.name === asset.name || selectedFiat?.name === asset.name;
+
 	return {
 		isSelectAssetOpen,
-		selectedAsset,
-		setSelectedAsset,
+		lastSelectAssetType,
+		selectedCrypto,
+		selectedFiat,
 		toggleIsSelectAssetOpen,
+		handleSelectAssetOpenClick,
 		handleSelectAsset,
+		showCheck,
 	};
 };
 

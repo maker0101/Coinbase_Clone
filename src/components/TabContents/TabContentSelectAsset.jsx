@@ -5,10 +5,14 @@ import useAssets from '../../hooks/useAssets';
 
 const TabContentSelectAsset = ({
 	toggleIsSelectAssetOpen,
-	selectedAsset,
+	selectedCrypto,
+	selectedFiat,
+	lastSelectAssetType,
 	handleSelectAsset,
+	showCheck,
 }) => {
-	const { allAssets } = useAssets();
+	const { allCrypto, allFiat } = useAssets();
+	const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
 
 	return (
 		<TabContent>
@@ -19,10 +23,8 @@ const TabContentSelectAsset = ({
 			<Search maxWidth={800} />
 			<Table hasSmallPadding>
 				<tbody>
-					{allAssets.map((asset) => (
-						<tr
-							key={asset.symbol}
-							onClick={() => handleSelectAsset(asset)}>
+					{assets.map((asset) => (
+						<tr key={asset.symbol} onClick={() => handleSelectAsset(asset)}>
 							<td>
 								<TableCellCoinName
 									icon={asset.icon}
@@ -33,7 +35,9 @@ const TabContentSelectAsset = ({
 							<td>
 								<div className="tabContent__selectAssetCell">
 									<Text>{`€${asset.price_eur.toLocaleString()}`}</Text>
-									{selectedAsset.name === asset.name && <FaCheck />}
+									{showCheck(asset, selectedCrypto, selectedFiat) && (
+										<FaCheck />
+									)}
 								</div>
 							</td>
 						</tr>

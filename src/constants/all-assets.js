@@ -1,10 +1,12 @@
 import { SiBitcoin, SiEthereum } from 'react-icons/si';
+import { AiOutlineEuro } from 'react-icons/ai';
 import { RiPieChartFill } from 'react-icons/ri';
 
 export const ALL_ASSETS = [
 	{
 		name: 'Bitcoin',
 		symbol: 'BTC',
+		isFiat: false,
 		icon: <SiBitcoin />,
 		balance_eur: 10986.74,
 		balance_coin: 0.84433661,
@@ -16,6 +18,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Ethereum',
 		symbol: 'ETH',
+		isFiat: false,
 		icon: <SiEthereum />,
 		balance_eur: 6986.74,
 		balance_coin: 10.844336,
@@ -27,6 +30,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Cardano',
 		symbol: 'ADA',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 2986.74,
 		balance_coin: 0.84433661,
@@ -38,6 +42,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Solana',
 		symbol: 'SOL',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 1086.74,
 		balance_coin: 10.844336,
@@ -49,6 +54,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Avalance',
 		symbol: 'AVA',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 3986.74,
 		balance_coin: 0.84433661,
@@ -60,6 +66,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Dogecoin',
 		symbol: 'DOGE',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 986.74,
 		balance_coin: 10.844336,
@@ -71,6 +78,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Polkadot',
 		symbol: 'DOT',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 786.74,
 		balance_coin: 0.84433661,
@@ -82,6 +90,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'SHIBA INU',
 		symbol: 'SHIB',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 586.74,
 		balance_coin: 10.844336,
@@ -93,6 +102,7 @@ export const ALL_ASSETS = [
 	{
 		name: 'Trashcoin',
 		symbol: 'TRA',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 0,
 		balance_coin: 0,
@@ -104,8 +114,22 @@ export const ALL_ASSETS = [
 	{
 		name: 'Worldcoin',
 		symbol: 'WLD',
+		isFiat: false,
 		icon: <RiPieChartFill />,
 		balance_eur: 0,
+		balance_coin: 0,
+		price_eur: 38.38,
+		price_change24h: 20.1,
+		market_cap: 0.66,
+		onWatchlist: true,
+	},
+	,
+	{
+		name: 'Euro',
+		symbol: 'EUR',
+		isFiat: true,
+		icon: <AiOutlineEuro />,
+		balance_eur: 2500,
 		balance_coin: 0,
 		price_eur: 38.38,
 		price_change24h: 20.1,
