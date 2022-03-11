@@ -4,7 +4,7 @@ import { Sidebar, Main, Header, Content, Footer } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const Dashboard = () => {
-	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
 	return (
 		<div className="Dashboard">
