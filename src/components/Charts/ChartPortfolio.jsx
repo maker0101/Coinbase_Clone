@@ -14,10 +14,6 @@ const ChartPortfolio = () => {
 	const { yourCrypto } = useAssets();
 	const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
 
-	const selectTimeFrame = (index) => {
-		setActiveTimeFrame(index);
-	};
-
 	const portfolioBalance = convertToCurrency(calculateBalanceTotal(yourCrypto));
 
 	return (
@@ -42,7 +38,7 @@ const ChartPortfolio = () => {
 									className={`timeFrameBtn ${
 										activeTimeFrame === time && 'timeFrameBtn__active'
 									}`}
-									onClick={() => selectTimeFrame(time)}>
+									onClick={setActiveTimeFrame}>
 									{time}
 								</div>
 							))}
