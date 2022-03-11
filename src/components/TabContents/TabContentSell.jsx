@@ -17,7 +17,7 @@ const TabContentSell = (props) => {
 				<TabContent>
 					<InputAmountContainer />
 					<TableInputSell {...props} />
-					<Button size="xl">Sell</Button>
+					<Button size="xl">{`Sell ${props.selectedCrypto.name}`}</Button>
 					<TabFooter
 						textLeft={`${props.selectedCrypto.symbol} balance`}
 						textRight={`${props.selectedCrypto.balance_coin} ${

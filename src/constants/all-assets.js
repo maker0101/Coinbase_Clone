@@ -123,7 +123,6 @@ export const ALL_ASSETS = [
 		market_cap: 789543432,
 		onWatchlist: true,
 	},
-	,
 	{
 		name: 'Euro',
 		symbol: 'EUR',

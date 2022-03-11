@@ -17,7 +17,7 @@ const TabContentSend = (props) => {
 				<TabContent>
 					<InputAmountContainer />
 					<TableInputSend {...props} />
-					<Button size="xl">Send</Button>
+					<Button size="xl">{`Send ${props.selectedCrypto.name}`}</Button>
 					<TabFooter
 						textLeft={`${props.selectedCrypto.symbol} balance`}
 						textRight={`${props.selectedCrypto.balance_coin} ${

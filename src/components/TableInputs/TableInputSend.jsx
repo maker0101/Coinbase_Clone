@@ -1,5 +1,4 @@
 import { MdEdit } from 'react-icons/md';
-import { SiEthereum } from 'react-icons/si';
 import { FaWallet } from 'react-icons/fa';
 import { Table, TableRowSelectAsset, TableRowInputText } from '..';
 

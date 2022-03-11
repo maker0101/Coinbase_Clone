@@ -10,7 +10,7 @@ const useMediaQuery = (query) => {
 	};
 
 	useEffect(() => {
-		const unsub = window.addEventListener('resize', setQueryMatch);
+		window.addEventListener('resize', setQueryMatch);
 		return () => window.removeEventListener('resize', setQueryMatch);
 	}, [matches, query]);
 

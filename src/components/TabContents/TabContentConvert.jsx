@@ -17,7 +17,7 @@ const TabContentConvert = (props) => {
 				<TabContent>
 					<InputAmountContainer />
 					<TableInputConvert {...props} />
-					<Button size="xl">Convert</Button>
+					<Button size="xl">{`Convert ${props.selectedCrypto.name}`}</Button>
 					<TabFooter
 						textLeft={`${props.selectedCrypto.symbol} balance`}
 						textRight={`${props.selectedCrypto.balance_coin} ${

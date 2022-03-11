@@ -13,11 +13,13 @@ import {
 } from '../components';
 import useMediaQuery from '../hooks/useMediaQuery';
 import useAssets from '../hooks/useAssets';
+import useSearch from '../hooks/useSearch';
 
 const Trade = () => {
 	let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
 	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
 	const { allCrypto } = useAssets();
+	const { searchResult, searchInput, handleSearch } = useSearch(allCrypto);
 
 	const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
 	const ASSET_TYPE = ['All assets', 'Watchlist'];
@@ -28,7 +30,11 @@ const Trade = () => {
 				<Section>
 					<SectionTitle title="All Assets" noBorderBottom />
 					<div className="trade__searchFilterRow">
-						<Search />
+						<Search
+							searchInput={searchInput}
+							handleSearch={handleSearch}
+							allItems={allCrypto}
+						/>
 						{isWidthMin800 && (
 							<div className="trade__filters">
 								<Dropdown
@@ -44,7 +50,7 @@ const Trade = () => {
 							</div>
 						)}
 					</div>
-					<TableAssets assets={allCrypto} />
+					<TableAssets assets={searchResult} />
 				</Section>
 			</ContentCenter>
 			<ContentRight>

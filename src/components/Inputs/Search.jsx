@@ -1,10 +1,7 @@
 import './Search.css';
-import { useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 
-const Search = () => {
-	const [searchInput, setSearchInput] = useState('');
-
+const Search = ({ searchInput, handleSearch, allItems }) => {
 	return (
 		<div className="Search">
 			<input
@@ -12,7 +9,7 @@ const Search = () => {
 				placeholder="Search all assets"
 				className="search__bar"
 				value={searchInput}
-				onChange={(e) => setSearchInput(e.target.value)}
+				onChange={(e) => handleSearch(e, allItems)}
 			/>
 			<IoSearchOutline className="search__icon" />
 		</div>

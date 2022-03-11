@@ -2,6 +2,7 @@ import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
 import useAssets from '../../hooks/useAssets';
+import useSearch from '../../hooks/useSearch';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TabContentSelectAsset = ({
@@ -15,16 +16,23 @@ const TabContentSelectAsset = ({
 	const { allCrypto, allFiat } = useAssets();
 	const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
 
+	const { searchResult, searchInput, handleSearch } = useSearch(assets);
+
 	return (
 		<TabContent>
 			<div className="tabContent__titleGrid">
 				<FaArrowLeft onClick={toggleIsSelectAssetOpen} />
 				<Text h3>Select Asset</Text>
 			</div>
-			<Search maxWidth={800} />
+			<Search
+				searchInput={searchInput}
+				handleSearch={handleSearch}
+				allItems={assets}
+				maxWidth={800}
+			/>
 			<Table hasSmallPadding hasBorderBottom={false}>
 				<tbody>
-					{assets.map((asset) => (
+					{searchResult.map((asset) => (
 						<tr
 							className={
 								checkIsSelected(asset, selectedCrypto, selectedFiat)

@@ -1,6 +1,5 @@
 import './TableReceive.css';
 import { FaAddressCard } from 'react-icons/fa';
-import { SiEthereum } from 'react-icons/si';
 import {
 	Table,
 	TableRowQR,
