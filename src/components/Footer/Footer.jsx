@@ -47,16 +47,16 @@ const Footer = () => {
 			)}
 
 			<ModalTrade
-				isModalOpen={isTradeModalOpen}
-				setIsModalOpen={setIsTradeModalOpen}
+				isOpen={isTradeModalOpen}
+				onClose={setIsTradeModalOpen}
 			/>
 			<ModalPay
-				isModalOpen={isPayModalOpen}
-				setIsModalOpen={setIsPayModalOpen}
+				isOpen={isPayModalOpen}
+				onClose={setIsPayModalOpen}
 			/>
 			<ModalDeposit
-				isModalOpen={isDepositModalOpen}
-				setIsModalOpen={setIsDepositModalOpen}
+				isOpen={isDepositModalOpen}
+				onClose={setIsDepositModalOpen}
 			/>
 		</div>
 	);

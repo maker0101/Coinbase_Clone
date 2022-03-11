@@ -11,8 +11,8 @@ const TableCellWatch = ({ onWatchlist }) => {
 			<Button onClick={openTradeModal}>Buy</Button>
 			<Star onWatchlist={onWatchlist} />
 			<ModalTrade
-				isModalOpen={isTradeModalOpen}
-				setIsModalOpen={setIsTradeModalOpen}
+				isOpen={isTradeModalOpen}
+				onClose={setIsTradeModalOpen}
 			/>
 		</div>
 	);

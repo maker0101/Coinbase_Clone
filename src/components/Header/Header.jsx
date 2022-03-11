@@ -39,12 +39,12 @@ const Header = () => {
 				</div>
 			)}
 			<ModalTrade
-				isModalOpen={isTradeModalOpen}
-				setIsModalOpen={setIsTradeModalOpen}
+				isOpen={isTradeModalOpen}
+				onClose={setIsTradeModalOpen}
 			/>
 			<ModalPay
-				isModalOpen={isPayModalOpen}
-				setIsModalOpen={setIsPayModalOpen}
+				isOpen={isPayModalOpen}
+				onClose={setIsPayModalOpen}
 			/>
 
 			<MenuMobile

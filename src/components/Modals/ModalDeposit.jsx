@@ -1,13 +1,13 @@
 import { Modal, TabDeposit, ModalClose } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const ModalDeposit = ({ isModalOpen, setIsModalOpen }) => {
+const ModalDeposit = ({ isOpen, onClose }) => {
 	let isWidthMax800 = useMediaQuery('(max-width: 800px)');
 
 	return (
-		<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+		<Modal isOpen={isOpen} onClose={onClose}>
 			<TabDeposit />
-			{isWidthMax800 && <ModalClose setIsModalOpen={setIsModalOpen} />}
+			{isWidthMax800 && <ModalClose onClose={onClose} />}
 		</Modal>
 	);
 };
