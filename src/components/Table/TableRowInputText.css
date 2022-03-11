@@ -1,3 +1,7 @@
+.TableRowInputText:hover td {
+	background-color: white;
+}
+
 .tableRowInputText__cellVerticalAligned {
 	display: flex;
 	align-items: center;
@@ -7,5 +11,3 @@
 	margin: 3px 16px 0 0;
 	color: #5b616e;
 }
-
-

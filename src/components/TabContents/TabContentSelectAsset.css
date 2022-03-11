@@ -11,6 +11,10 @@
 	cursor: pointer;
 }
 
+.tabContent__isSelectedAsset {
+	background-color: #eef0f3;
+}
+
 .tabContent__selectAssetCell {
 	display: flex;
 	justify-content: flex-end;
@@ -20,4 +24,10 @@
 
 .tabContent__selectAssetCell svg {
 	color: #2151f5;
+	margin-left: 8px;
+}
+
+.tabContent__selectAssetBalance {
+	display: flex;
+	flex-direction: column;
 }

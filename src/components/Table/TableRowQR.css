@@ -1,3 +1,7 @@
+.TableRowQR td:hover {
+	background: none;
+}
+
 .tableRowQR__iconWrapper {
 	display: flex;
 	justify-content: center;

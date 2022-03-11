@@ -37,8 +37,9 @@ const useSelectAsset = () => {
 		toggleIsSelectAssetOpen();
 	};
 
-	const showCheck = (asset, assetSelected1 = {}, assetSelected2 = {}) =>
-		assetSelected1?.name === asset.name || assetSelected2?.name === asset.name;
+	const checkIsSelected = (asset, assetSelected1 = {}, assetSelected2 = {}) =>
+		assetSelected1?.symbol === asset.symbol ||
+		assetSelected2?.symbol === asset.symbol;
 
 	return {
 		isSelectAssetOpen,
@@ -49,7 +50,7 @@ const useSelectAsset = () => {
 		toggleIsSelectAssetOpen,
 		handleSelectAssetOpenClick,
 		handleSelectAsset,
-		showCheck,
+		checkIsSelected,
 	};
 };
 

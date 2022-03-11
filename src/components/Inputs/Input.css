@@ -1,5 +1,7 @@
 .input__field {
 	border: none;
+	height: 40px;
+	font-size: 16px;
 }
 
 .input__field:focus {

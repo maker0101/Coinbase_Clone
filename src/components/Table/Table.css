@@ -20,6 +20,27 @@ tr {
 	cursor: pointer;
 }
 
+tbody tr:hover > td {
+	background: #f8f8f8;
+}
+
+tbody .tr-no-hover-bg tr:hover > td {
+	background: none;
+}
+
+tbody tr:first-child > td:first-child {
+	border-top-left-radius: 8px;
+}
+tbody tr:first-child > td:last-child {
+	border-top-right-radius: 8px;
+}
+tbody tr:last-child > td:first-child {
+	border-bottom-left-radius: 8px;
+}
+tbody tr:last-child > td:last-child {
+	border-bottom-right-radius: 8px;
+}
+
 th:last-child,
 td:last-child {
 	text-align: right;

@@ -10,7 +10,7 @@ const TabContentSelectAsset = ({
 	selectedFiat,
 	lastSelectAssetType,
 	handleSelectAsset,
-	showCheck,
+	checkIsSelected,
 }) => {
 	const { allCrypto, allFiat } = useAssets();
 	const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
@@ -22,10 +22,15 @@ const TabContentSelectAsset = ({
 				<Text h3>Select Asset</Text>
 			</div>
 			<Search maxWidth={800} />
-			<Table hasSmallPadding>
+			<Table hasSmallPadding hasBorderBottom={false}>
 				<tbody>
 					{assets.map((asset) => (
 						<tr
+							className={
+								checkIsSelected(asset, selectedCrypto, selectedFiat)
+									? 'tabContent__isSelectedAsset'
+									: ''
+							}
 							key={asset.symbol}
 							onClick={() => handleSelectAsset(asset, lastSelectAssetType)}>
 							<td>
@@ -37,10 +42,17 @@ const TabContentSelectAsset = ({
 							</td>
 							<td>
 								<div className="tabContent__selectAssetCell">
-									{lastSelectAssetType !== 'fiat' && (
-										<Text>{convertToCurrency(asset.price_eur)}</Text>
+									{lastSelectAssetType === 'fiat' ? (
+										<Text>{convertToCurrency(asset.balance_eur)}</Text>
+									) : (
+										<div className="tabContent__selectAssetBalance">
+											<Text>{`${asset.balance_coin} ${asset.symbol}`}</Text>
+											<Text color="grey" size="s">
+												{convertToCurrency(asset.balance_eur)}
+											</Text>
+										</div>
 									)}
-									{showCheck(asset, selectedCrypto, selectedFiat) && (
+									{checkIsSelected(asset, selectedCrypto, selectedFiat) && (
 										<FaCheck />
 									)}
 								</div>

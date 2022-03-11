@@ -8,7 +8,7 @@ const TableRowInputText = ({
 	iconSize,
 }) => {
 	return (
-		<tr>
+		<tr className="TableRowInputText">
 			<td>
 				<Text color="grey">{helperText}</Text>
 			</td>
