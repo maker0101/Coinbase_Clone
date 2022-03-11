@@ -2,23 +2,23 @@ import { Tab, TabContentBuy, TabContentSell, TabContentConvert } from '..';
 import useSelectAsset from '../../hooks/useSelectAsset';
 
 const TabTrade = () => {
-	const useSelectAssetObj = useSelectAsset();
+	const selectedAsset = useSelectAsset();
 
 	const TAB_TRADE_CONTENT = [
 		{
 			index: 1,
 			name: 'Buy',
-			content: <TabContentBuy {...useSelectAssetObj} />,
+			content: <TabContentBuy {...selectedAsset} />,
 		},
 		{
 			index: 2,
 			name: 'Sell',
-			content: <TabContentSell {...useSelectAssetObj} />,
+			content: <TabContentSell {...selectedAsset} />,
 		},
 		{
 			index: 3,
 			name: 'Convert',
-			content: <TabContentConvert {...useSelectAssetObj} />,
+			content: <TabContentConvert {...selectedAsset} />,
 		},
 	];
 

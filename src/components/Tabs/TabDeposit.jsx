@@ -2,18 +2,18 @@ import { Tab, TabContentAddCash, TabContentCashout } from '..';
 import useSelectAsset from '../../hooks/useSelectAsset';
 
 const TabDeposit = () => {
-	const useSelectAssetObj = useSelectAsset();
+	const selectedAsset = useSelectAsset();
 
 	const TAB_DEPOSIT_CONTENT = [
 		{
 			index: 1,
 			name: 'Add cash',
-			content: <TabContentAddCash {...useSelectAssetObj} />,
+			content: <TabContentAddCash {...selectedAsset} />,
 		},
 		{
 			index: 2,
 			name: 'Cashout',
-			content: <TabContentCashout {...useSelectAssetObj} />,
+			content: <TabContentCashout {...selectedAsset} />,
 		},
 	];
 
