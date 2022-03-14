@@ -36,3 +36,15 @@
   max-height: 410px;
   overflow: scroll;
 }
+
+.tabContent__selectAssetBody {
+  display: block;
+  width: 100%;
+  max-height: 390px;
+  overflow: auto;
+}
+
+.tabContent__selectAssetBody tr {
+  display: table;
+  width: 100%;
+}

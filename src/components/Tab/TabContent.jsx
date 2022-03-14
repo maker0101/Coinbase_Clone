@@ -1,11 +1,7 @@
 import './TabContent.css';
 
-const TabContent = ({ children, maxHeight }) => {
-  return (
-    <div className='TabContent' style={{ maxHeight: maxHeight }}>
-      {children}
-    </div>
-  );
+const TabContent = ({ children }) => {
+  return <div className='TabContent'>{children}</div>;
 };
 
 export default TabContent;
