@@ -1,19 +1,15 @@
 import './TableCellWatch.css';
-import { useState } from 'react';
-import { Button, Star, ModalTrade } from '..';
+import { useContext } from 'react';
+import { ModalContext } from '../../contexts/ModalContext';
+import { Button, Star } from '..';
 
 const TableCellWatch = ({ onWatchlist }) => {
-  const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
-  const openTradeModal = () => setIsTradeModalOpen(true);
+  const { handleOpen } = useContext(ModalContext);
 
   return (
     <div className='TableCellWatch'>
-      <Button onClick={openTradeModal}>Buy</Button>
+      <Button onClick={() => handleOpen('trade')}>Buy</Button>
       <Star onWatchlist={onWatchlist} />
-      <ModalTrade
-        isModalOpen={isTradeModalOpen}
-        setIsModalOpen={setIsTradeModalOpen}
-      />
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { Modal, ModalClose, TabPay } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const ModalPay = ({ isModalOpen, setIsModalOpen }) => {
+const ModalPay = () => {
   let isWidthMax800 = useMediaQuery('(max-width: 800px)');
 
   return (
-    <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <Modal >
       <TabPay />
-      {isWidthMax800 && <ModalClose setIsModalOpen={setIsModalOpen} />}
+      {isWidthMax800 && <ModalClose />}
     </Modal>
   );
 };

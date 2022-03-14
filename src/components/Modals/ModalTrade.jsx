@@ -1,13 +1,13 @@
 import { TabTrade, Modal, ModalClose } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const ModalTrade = ({ isModalOpen, setIsModalOpen }) => {
+const ModalTrade = () => {
   let isWidthMax800 = useMediaQuery('(max-width: 800px)');
 
   return (
-    <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <Modal>
       <TabTrade />
-      {isWidthMax800 && <ModalClose setIsModalOpen={setIsModalOpen} />}
+      {isWidthMax800 && <ModalClose />}
     </Modal>
   );
 };

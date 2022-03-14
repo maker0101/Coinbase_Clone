@@ -1,21 +1,16 @@
 import './Header.css';
-import { useState } from 'react';
+import { useContext } from 'react';
 import usePath from '../../hooks/usePath';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { RiAccountCircleFill } from 'react-icons/ri';
-import { Button, Text, ModalPay, ModalTrade, MenuMobile, Logo } from '..';
+import { Button, Text, Logo } from '..';
 import { IoMenuSharp } from 'react-icons/io5';
+import { ModalContext } from '../../contexts/ModalContext';
 
 const Header = () => {
   let isWidthMin800 = useMediaQuery('(min-width: 800px)');
   const { page } = usePath();
-  const [isPayModalOpen, setIsPayModalOpen] = useState(false);
-  const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
-  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-
-  const openPayModal = () => setIsPayModalOpen(true);
-  const openTradeModal = () => setIsTradeModalOpen(true);
-  const openMenuMobile = () => setIsMenuMobileOpen(true);
+  const { handleOpen } = useContext(ModalContext);
 
   return (
     <header className='Header'>
@@ -23,10 +18,10 @@ const Header = () => {
       <Text h1>{page}</Text>
       {isWidthMin800 && (
         <div className='header__right'>
-          <Button color='primary' onClick={openTradeModal}>
+          <Button color='primary' onClick={() => handleOpen('trade')}>
             Buy / Sell
           </Button>
-          <Button color='secondary' onClick={openPayModal}>
+          <Button color='secondary' onClick={() => handleOpen('pay')}>
             Send / Receive
           </Button>
           <div className='header__verticalLine'></div>
@@ -35,22 +30,12 @@ const Header = () => {
       )}
       {!isWidthMin800 && (
         <div className='header__right'>
-          <IoMenuSharp className='header__menu' onClick={openMenuMobile} />
+          <IoMenuSharp
+            className='header__menu'
+            onClick={() => handleOpen('menuMobile')}
+          />
         </div>
       )}
-      <ModalTrade
-        isModalOpen={isTradeModalOpen}
-        setIsModalOpen={setIsTradeModalOpen}
-      />
-      <ModalPay
-        isModalOpen={isPayModalOpen}
-        setIsModalOpen={setIsPayModalOpen}
-      />
-
-      <MenuMobile
-        isMenuMobileOpen={isMenuMobileOpen}
-        setIsMenuMobileOpen={setIsMenuMobileOpen}
-      />
     </header>
   );
 };

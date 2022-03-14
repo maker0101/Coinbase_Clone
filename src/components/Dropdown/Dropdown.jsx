@@ -3,7 +3,6 @@ import './Dropdown.css';
 const Dropdown = ({
   name,
   options,
-  initialValue = '',
   filterInput,
   handleFilter,
   filterQuery,

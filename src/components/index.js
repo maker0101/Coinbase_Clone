@@ -51,6 +51,7 @@ import TabContentCashout from './TabContents/TabContentCashout';
 import TabContentSelectAsset from './TabContents/TabContentSelectAsset';
 import ChartPortfolio from './Charts/ChartPortfolio';
 import LineChart from './Chart/LineChart';
+import ModalsManager from './ModalsManager/ModalsManager';
 import Modal from './Modal/Modal';
 import ModalClose from './Modal/ModalClose';
 import ModalPay from './Modals/ModalPay';
@@ -115,6 +116,7 @@ export {
   TabContentSelectAsset,
   ChartPortfolio,
   LineChart,
+  ModalsManager,
   Modal,
   ModalClose,
   ModalPay,

@@ -1,8 +1,9 @@
 import './Tab.css';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { ModalContext } from '../../contexts/ModalContext';
 
-const Tab = ({ data, initialTab = 1 }) => {
-  const [activeTab, setActiveTab] = useState(initialTab);
+const Tab = ({ data }) => {
+  const { activeTab, setActiveTab } = useContext(ModalContext);
 
   return (
     <div className='Tab'>

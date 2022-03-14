@@ -1,17 +1,35 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
-// TODO: useModal hook currently not used -> tried to integrate it but ran into problems
 const useModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const modalRef = useRef();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState('');
+  const [activeTab, setActiveTab] = useState(1);
 
-  const toggleModal = (e) => {
-    if (modalRef.current === e.target) {
-      setIsModalOpen(() => !isModalOpen);
-    }
+  const handleOpen = (modalName, activeTab = 1) => {
+    setActiveModal(modalName);
+    setActiveTab(activeTab);
+    setIsOpen(true);
   };
 
-  return { isModalOpen, toggleModal, modalRef };
+  const handleClose = () => {
+    setIsOpen(false);
+    setActiveTab(1);
+    setActiveModal('');
+  };
+
+  const handleCloseOnBgClick = (e, modalRef) => {
+    if (modalRef.current === e.target) handleClose();
+  };
+
+  return {
+    isOpen,
+    activeModal,
+    activeTab,
+    setActiveTab,
+    handleOpen,
+    handleClose,
+    handleCloseOnBgClick,
+  };
 };
 
 export default useModal;
