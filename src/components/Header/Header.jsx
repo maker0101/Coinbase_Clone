@@ -7,7 +7,7 @@ import { Button, Text, ModalPay, ModalTrade, MenuMobile, Logo } from '..';
 import { IoMenuSharp } from 'react-icons/io5';
 
 const Header = () => {
-	let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 	const { page } = usePath();
 	const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 	const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
@@ -39,12 +39,12 @@ const Header = () => {
 				</div>
 			)}
 			<ModalTrade
-				isModalOpen={isTradeModalOpen}
-				setIsModalOpen={setIsTradeModalOpen}
+				isOpen={isTradeModalOpen}
+				onClose={setIsTradeModalOpen}
 			/>
 			<ModalPay
-				isModalOpen={isPayModalOpen}
-				setIsModalOpen={setIsPayModalOpen}
+				isOpen={isPayModalOpen}
+				onClose={setIsPayModalOpen}
 			/>
 
 			<MenuMobile

@@ -6,7 +6,7 @@ import { Tooltip } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const SidebarNavItem = ({ to, icon, text, closeMenuMobile }) => {
-	let isWidthMax1300 = useMediaQuery('(max-width: 1300px)');
+	const isWidthMax1300 = useMediaQuery('(max-width: 1300px)');
 	const { page } = usePath();
 	const inMobileMenu = Boolean(closeMenuMobile);
 

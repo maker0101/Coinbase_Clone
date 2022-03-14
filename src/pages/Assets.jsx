@@ -12,7 +12,7 @@ import useMediaQuery from '../hooks/useMediaQuery';
 import useAssets from '../hooks/useAssets';
 
 const Assets = () => {
-	let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
+	const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
 	const { yourCrypto, watchlistCrypto } = useAssets();
 
 	return (

@@ -1,8 +1,8 @@
 import './ModalClose.css';
 import { FaArrowLeft } from 'react-icons/fa';
 
-const ModalClose = ({ setIsModalOpen }) => {
-	const closeModal = () => setIsModalOpen(false);
+const ModalClose = ({ onClose }) => {
+	const closeModal = () => onClose(false);
 
 	return (
 		<div className="ModalClose" onClick={closeModal}>
