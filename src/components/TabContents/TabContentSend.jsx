@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import {
 	TabContent,
 	Button,
@@ -8,21 +10,22 @@ import {
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentSend = (props) => {
+const TabContentSend = () => {
+	const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
 	return (
 		<>
-			{props.isSelectAssetOpen ? (
-				<TabContentSelectAsset {...props} />
+			{isSelectAssetOpen ? (
+				<TabContentSelectAsset />
 			) : (
 				<TabContent>
 					<InputAmountContainer />
-					<TableInputSend {...props} />
-					<Button size="xl">{`Send ${props.selectedCrypto.name}`}</Button>
+					<TableInputSend />
+					<Button size="xl">{`Send ${selectedCrypto.name}`}</Button>
 					<TabFooter
-						textLeft={`${props.selectedCrypto.symbol} balance`}
-						textRight={`${props.selectedCrypto.balance_coin} ${
-							props.selectedCrypto.symbol
-						} = ${convertToCurrency(props.selectedCrypto.balance_eur)}`}
+						textLeft={`${selectedCrypto.symbol} balance`}
+						textRight={`${selectedCrypto.balance_coin} ${
+							selectedCrypto.symbol
+						} = ${convertToCurrency(selectedCrypto.balance_eur)}`}
 					/>
 				</TabContent>
 			)}

@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import {
 	TabContent,
 	Button,
@@ -8,19 +10,21 @@ import {
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentAddCash = (props) => {
+const TabContentAddCash = () => {
+	const { isSelectAssetOpen, selectedFiat } = useContext(SelectAssetContext);
+
 	return (
 		<>
-			{props.isSelectAssetOpen ? (
-				<TabContentSelectAsset {...props} />
+			{isSelectAssetOpen ? (
+				<TabContentSelectAsset />
 			) : (
 				<TabContent>
 					<InputAmountContainer />
-					<TableInputAddCash {...props} />
+					<TableInputAddCash />
 					<Button size="xl">Add cash</Button>
 					<TabFooter
-						textLeft={`${props.selectedFiat.symbol} balance`}
-						textRight={convertToCurrency(props.selectedFiat.balance_eur)}
+						textLeft={`${selectedFiat.symbol} balance`}
+						textRight={convertToCurrency(selectedFiat.balance_eur)}
 					/>
 				</TabContent>
 			)}

@@ -1,8 +1,12 @@
 import { MdEdit } from 'react-icons/md';
 import { FaWallet } from 'react-icons/fa';
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset, TableRowInputText } from '..';
 
-const TableInputSend = ({ handleSelectAssetOpenClick, selectedCrypto }) => {
+const TableInputSend = () => {
+	const { handleSelectAssetOpenClick, selectedCrypto } =
+		useContext(SelectAssetContext);
 	return (
 		<Table isInputTable>
 			<tbody>

@@ -1,18 +1,21 @@
 import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import useAssets from '../../hooks/useAssets';
 import useSearch from '../../hooks/useSearch';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentSelectAsset = ({
-	toggleIsSelectAssetOpen,
-	selectedCrypto,
-	selectedFiat,
-	lastSelectAssetType,
-	handleSelectAsset,
-	checkIsSelected,
-}) => {
+const TabContentSelectAsset = () => {
+	const {
+		toggleIsSelectAssetOpen,
+		selectedCrypto,
+		selectedFiat,
+		lastSelectAssetType,
+		handleSelectAsset,
+		checkIsSelected,
+	} = useContext(SelectAssetContext);
 	const { allCrypto, allFiat } = useAssets();
 	const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
 

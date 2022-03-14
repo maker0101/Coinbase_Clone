@@ -1,10 +1,10 @@
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputSell = ({
-	handleSelectAssetOpenClick,
-	selectedCrypto,
-	selectedFiat,
-}) => {
+const TableInputSell = () => {
+	const { handleSelectAssetOpenClick, selectedCrypto, selectedFiat } =
+		useContext(SelectAssetContext);
 	return (
 		<Table isInputTable>
 			<tbody>

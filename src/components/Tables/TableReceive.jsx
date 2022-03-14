@@ -1,5 +1,7 @@
 import './TableReceive.css';
 import { FaAddressCard } from 'react-icons/fa';
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import {
 	Table,
 	TableRowQR,
@@ -7,7 +9,9 @@ import {
 	TableRowAssetAddress,
 } from '..';
 
-const TableReceive = ({ handleSelectAssetOpenClick, selectedCrypto }) => {
+const TableReceive = () => {
+	const { handleSelectAssetOpenClick, selectedCrypto } =
+		useContext(SelectAssetContext);
 	return (
 		<div className="TableReceive">
 			<Table isInputTable>

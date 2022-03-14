@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
 
-const TableInputCashout = ({ handleSelectAssetOpenClick, selectedFiat }) => {
+const TableInputCashout = () => {
+	const { handleSelectAssetOpenClick, selectedFiat } =
+		useContext(SelectAssetContext);
+
 	return (
 		<Table isInputTable>
 			<tbody>

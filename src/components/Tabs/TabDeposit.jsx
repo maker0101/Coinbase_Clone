@@ -1,23 +1,25 @@
 import { Tab, TabContentAddCash, TabContentCashout } from '..';
-import useSelectAsset from '../../hooks/useSelectAsset';
+import { SelectAssetProvider } from '../../contexts/SelectAssetContext';
 
 const TabDeposit = () => {
-	const useSelectAssetObj = useSelectAsset();
-
 	const TAB_DEPOSIT_CONTENT = [
 		{
 			index: 1,
 			name: 'Add cash',
-			content: <TabContentAddCash {...useSelectAssetObj} />,
+			content: <TabContentAddCash />,
 		},
 		{
 			index: 2,
 			name: 'Cashout',
-			content: <TabContentCashout {...useSelectAssetObj} />,
+			content: <TabContentCashout/>,
 		},
 	];
 
-	return <Tab data={TAB_DEPOSIT_CONTENT} />;
+	return (
+		<SelectAssetProvider>
+			<Tab data={TAB_DEPOSIT_CONTENT} />
+		</SelectAssetProvider>
+	);
 };
 
 export default TabDeposit;

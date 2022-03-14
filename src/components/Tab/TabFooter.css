@@ -1,4 +1,9 @@
 .TabFooter {
 	display: flex;
 	justify-content: space-between;
+	margin-top: 24px;
+}
+
+.tab-footer-margin-top-none {
+	margin-top: 0;
 }
