@@ -1,33 +1,38 @@
 .tabContent__titleGrid {
-	display: grid;
-	align-items: center;
-	grid-template-columns: 1fr 5fr 1fr;
-	height: 32px;
-	margin-bottom: 24px;
-	text-align: center;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 5fr 1fr;
+  height: 32px;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .tabContent__titleGrid > svg {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .tabContent__isSelectedAsset {
-	background-color: #eef0f3;
+  background-color: #eef0f3;
 }
 
 .tabContent__selectAssetCell {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
 }
 
 .tabContent__selectAssetCell svg {
-	color: #2151f5;
-	margin-left: 8px;
+  color: #2151f5;
+  margin-left: 8px;
 }
 
 .tabContent__selectAssetBalance {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabContent__selectAssetTableBody {
+  max-height: 410px;
+  overflow: scroll;
 }

@@ -22,7 +22,7 @@ const TabContentSelectAsset = () => {
   const { searchResult, searchInput, handleSearch } = useSearch(assets);
 
   return (
-    <TabContent>
+    <TabContent maxHeight={510}>
       <div className='tabContent__titleGrid'>
         <FaArrowLeft onClick={toggleIsSelectAssetOpen} />
         <Text h3>Select Asset</Text>
