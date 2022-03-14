@@ -37,7 +37,7 @@ const ChartPortfolio = () => {
                   className={`timeFrameBtn ${
                     activeTimeFrame === time && "timeFrameBtn__active"
                   }`}
-                  onClick={setActiveTimeFrame}
+                  onClick={() => setActiveTimeFrame(time)}
                 >
                   {time}
                 </div>
