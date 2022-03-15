@@ -1,4 +1,6 @@
 import './TableRowSelectAsset.css';
+import { useContext } from 'react';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import { Text } from '..';
 
@@ -6,9 +8,9 @@ const TableRowSelectAsset = ({
   helperText,
   assetName,
   assetIcon,
-  handleSelectAssetOpenClick,
   selectAssetType,
 }) => {
+  const { handleSelectAssetOpenClick } = useContext(SelectAssetContext);
   return (
     <tr
       className={selectAssetType}

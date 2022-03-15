@@ -16,8 +16,8 @@ const useSelectAsset = () => {
       setLastSelectAssetType('fiat');
     if (e?.target?.matches('.selectCrypto, .selectCrypto *'))
       setLastSelectAssetType('crypto');
-    if (e?.target?.matches('.selectCryptoConvertTo, .selectCryptoConvertTo *'))
-      setLastSelectAssetType('cryptoConvertTo');
+    if (e?.target?.matches('.selectCrypToConvertTo, .selectCrypToConvertTo *'))
+      setLastSelectAssetType('crypToConvertTo');
   };
 
   const toggleIsSelectAssetOpen = () =>
@@ -32,7 +32,7 @@ const useSelectAsset = () => {
     if (asset.isFiat) setSelectedFiat(asset);
     if (!asset.isFiat && lastSelectAssetType === 'crypto')
       setSelectedCrypto(asset);
-    if (!asset.isFiat && lastSelectAssetType === 'cryptoConvertTo')
+    if (!asset.isFiat && lastSelectAssetType === 'crypToConvertTo')
       setSelectedCryptoConvertTo(asset);
     toggleIsSelectAssetOpen();
   };
