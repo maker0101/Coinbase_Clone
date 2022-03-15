@@ -18,8 +18,8 @@ import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
 
 const Trade = () => {
-  let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
-  let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
   const { allCrypto } = useAssets();
   const { searchResult, searchInput, handleSearch } = useSearch(allCrypto);
   const { filterResult, filterInput, handleFilter } = useFilter(

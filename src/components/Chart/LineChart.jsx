@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-// Chart needs to be imported for react-chartjs-2 to work
-import { Chart as ChartJS } from 'chart.js/auto';
+import 'chart.js/auto';
 
 const LineChart = ({
   chartData,

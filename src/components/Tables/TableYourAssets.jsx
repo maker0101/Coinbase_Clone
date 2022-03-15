@@ -4,7 +4,7 @@ import { calculateAllocation } from '../../utilities/calculate-allocation';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TableYourAssets = ({ assets }) => {
-  let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <Table>

@@ -10,8 +10,8 @@ import {
 import useMediaQuery from '../hooks/useMediaQuery';
 
 const Pay = () => {
-  let isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
-  let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <>

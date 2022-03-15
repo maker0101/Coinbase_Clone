@@ -1,16 +1,16 @@
-import './ChartPortfolio.css';
-import { useState } from 'react';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
-import { PORTFOLIO_FOOTER_DATES } from '../../constants/portfolio-footer-dates';
-import { Text, LineChart, Dropdown } from '..';
-import useAssets from '../../hooks/useAssets';
-import { calculateBalanceTotal } from '../../utilities/calculate-balance-total';
-import { convertToCurrency } from '../../utilities/convert-to-currency';
+import "./ChartPortfolio.css";
+import { useState } from "react";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { PORTFOLIO_BALANCE } from "../../constants/portfolio-balance";
+import { PORTFOLIO_FOOTER_DATES } from "../../constants/portfolio-footer-dates";
+import { Text, LineChart, Dropdown } from "..";
+import useAssets from "../../hooks/useAssets";
+import { calculateBalanceTotal } from "../../utilities/calculate-balance-total";
+import { convertToCurrency } from "../../utilities/convert-to-currency";
 
 const ChartPortfolio = () => {
   const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
-  let isWidthMax600 = useMediaQuery('(max-width: 600px)');
+  const isWidthMax600 = useMediaQuery('(max-width: 600px)');
   const { yourCrypto } = useAssets();
   const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
 
