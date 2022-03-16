@@ -20,8 +20,8 @@ const TableReceive = () => {
           <TableRowSelectAsset
             handleSelectAssetOpenClick={handleSelectAssetOpenClick}
             helperText='Asset'
-            assetName={selectedCrypto.name}
-            assetIcon={selectedCrypto.icon}
+            assetName={selectedCrypto?.name}
+            assetIcon={selectedCrypto?.icon}
             selectAssetType='selectCrypto'
           />
           <TableRowAssetAddress

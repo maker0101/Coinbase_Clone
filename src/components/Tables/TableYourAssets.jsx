@@ -20,27 +20,27 @@ const TableYourAssets = ({ assets }) => {
       )}
       <tbody>
         {assets.map((asset) => (
-          <tr key={asset.symbol}>
+          <tr key={asset?.symbol}>
             <td>
               <TableCellCoinName
-                icon={asset.icon}
-                name={asset.name}
-                symbol={asset.symbol}
+                icon={asset?.icon}
+                name={asset?.name}
+                symbol={asset?.symbol}
               />
             </td>
             <td>
               <Text>{convertToCurrency(asset.balance_eur)}</Text>
               <Text color='grey' size='s'>
-                {`${asset.balance_coin} ${asset.symbol}`}
+                {`${asset?.balance_coin} ${asset?.symbol}`}
               </Text>
             </td>
             {isWidthMin800 && (
               <td>
-                <Text>{convertToCurrency(asset.price_eur)}</Text>
+                <Text>{convertToCurrency(asset?.price_eur)}</Text>
                 <Text
                   size='s'
-                  color={asset.price_change24h < 0 ? 'red' : 'green'}>
-                  {asset.price_change24h}%
+                  color={asset?.price_change24h < 0 ? 'red' : 'green'}>
+                  {asset?.price_change24h}%
                 </Text>
               </td>
             )}

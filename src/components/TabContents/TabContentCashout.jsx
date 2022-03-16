@@ -23,8 +23,8 @@ const TabContentCashout = () => {
           <TableInputCashout />
           <Button size='xl'>Cashout</Button>
           <TabFooter
-            textLeft={`${selectedFiat.symbol} balance`}
-            textRight={convertToCurrency(selectedFiat.balance_eur)}
+            textLeft={`${selectedFiat?.symbol} balance`}
+            textRight={convertToCurrency(selectedFiat?.balance_eur)}
           />
         </TabContent>
       )}

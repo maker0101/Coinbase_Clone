@@ -14,15 +14,15 @@ const TableInputConvert = () => {
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='From'
-          assetName={selectedCrypto.name}
-          assetIcon={selectedCrypto.icon}
+          assetName={selectedCrypto?.name}
+          assetIcon={selectedCrypto?.icon}
           selectAssetType='selectCrypto'
         />
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='To'
-          assetName={selectedCryptoConvertTo.name}
-          assetIcon={selectedCryptoConvertTo.icon}
+          assetName={selectedCryptoConvertTo?.name}
+          assetIcon={selectedCryptoConvertTo?.icon}
           selectAssetType='selectCryptoConvertTo'
         />
       </tbody>

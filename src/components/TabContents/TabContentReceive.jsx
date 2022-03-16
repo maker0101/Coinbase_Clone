@@ -14,10 +14,10 @@ const TabContentReceive = (props) => {
           <TableReceive {...props} />
           <TabFooter
             marginTopNone
-            textLeft={`${selectedCrypto.symbol} balance`}
-            textRight={`${selectedCrypto.balance_coin} ${
-              selectedCrypto.symbol
-            } = ${convertToCurrency(selectedCrypto.balance_eur)}`}
+            textLeft={`${selectedCrypto?.symbol} balance`}
+            textRight={`${selectedCrypto?.balance_coin} ${
+              selectedCrypto?.symbol
+            } = ${convertToCurrency(selectedCrypto?.balance_eur)}`}
           />
         </TabContent>
       )}

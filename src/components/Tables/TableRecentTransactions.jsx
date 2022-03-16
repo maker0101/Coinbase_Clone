@@ -19,16 +19,16 @@ const TableRecentTransactions = ({ transactions }) => {
     <Table>
       <tbody>
         {transactions.map((t) => (
-          <tr key={t.symbol}>
+          <tr key={t?.symbol}>
             <td>
               <div className='tableRecentTransactions__cell'>
-                <img className='tableRecentTransactions__icon' src={t.icon} />
+                <img className='tableRecentTransactions__icon' src={t?.icon} />
                 <div className='tableRecentTransactions__head'>
-                  <Text>{createHeadText(t.type, t.name)}</Text>
+                  <Text>{createHeadText(t?.type, t?.name)}</Text>
                 </div>
                 <div className='tableRecentTransactions__body'>
                   <Text color='grey' size='s'>
-                    {createBodyText(t.amount, t.symbol, t.date)}
+                    {createBodyText(t?.amount, t?.symbol, t?.date)}
                   </Text>
                 </div>
               </div>

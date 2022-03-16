@@ -11,15 +11,15 @@ const TableInputSell = () => {
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Sell'
-          assetName={selectedCrypto.name}
-          assetIcon={selectedCrypto.icon}
+          assetName={selectedCrypto?.name}
+          assetIcon={selectedCrypto?.icon}
           selectAssetType='selectCrypto'
         />
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Add to'
-          assetName={`${selectedFiat.symbol} wallet`}
-          assetIcon={selectedFiat.icon}
+          assetName={`${selectedFiat?.symbol} wallet`}
+          assetIcon={selectedFiat?.icon}
           selectAssetType='selectFiat'
         />
       </tbody>

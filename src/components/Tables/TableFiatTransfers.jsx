@@ -6,18 +6,18 @@ const TableFiatTransfers = ({ payments }) => {
     <Table>
       <tbody>
         {payments.map((p) => (
-          <tr key={p.id}>
+          <tr key={p?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <img className='tablePayments__icon' src={p.icon} />
+                <img className='tablePayments__icon' src={p?.icon} />
                 <div className='tablePayments__head'>
-                  <Text>{`${p.type === 'deposit' ? 'Deposited' : 'Withdrew'} ${
-                    p.amount
-                  } ${p.name}`}</Text>
+                  <Text>{`${p?.type === 'deposit' ? 'Deposited' : 'Withdrew'} ${
+                    p?.amount
+                  } ${p?.name}`}</Text>
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>
-                    {`On ${p.date}`}
+                    {`On ${p?.date}`}
                   </Text>
                 </div>
               </div>

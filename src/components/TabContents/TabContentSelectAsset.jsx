@@ -1,7 +1,7 @@
 import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import useAssets from '../../hooks/useAssets';
 import useSearch from '../../hooks/useSearch';
@@ -42,24 +42,24 @@ const TabContentSelectAsset = () => {
                   ? 'tabContent__isSelectedAsset'
                   : ''
               }
-              key={asset.symbol}
+              key={asset?.symbol}
               onClick={() => handleSelectAsset(asset, lastSelectAssetType)}>
               <td>
                 <TableCellCoinName
-                  icon={asset.icon}
-                  name={asset.name}
-                  symbol={asset.symbol}
+                  icon={asset?.icon}
+                  name={asset?.name}
+                  symbol={asset?.symbol}
                 />
               </td>
               <td>
                 <div className='tabContent__selectAssetCell'>
                   {lastSelectAssetType === 'fiat' ? (
-                    <Text>{convertToCurrency(asset.balance_eur)}</Text>
+                    <Text>{convertToCurrency(asset?.balance_eur)}</Text>
                   ) : (
                     <div className='tabContent__selectAssetBalance'>
-                      <Text>{`${asset.balance_coin} ${asset.symbol}`}</Text>
+                      <Text>{`${asset?.balance_coin} ${asset?.symbol}`}</Text>
                       <Text color='grey' size='s'>
-                        {convertToCurrency(asset.balance_eur)}
+                        {convertToCurrency(asset?.balance_eur)}
                       </Text>
                     </div>
                   )}

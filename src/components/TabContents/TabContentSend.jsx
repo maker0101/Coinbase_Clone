@@ -20,12 +20,12 @@ const TabContentSend = () => {
         <TabContent>
           <InputAmountContainer />
           <TableInputSend />
-          <Button size='xl'>{`Send ${selectedCrypto.name}`}</Button>
+          <Button size='xl'>{`Send ${selectedCrypto?.name}`}</Button>
           <TabFooter
-            textLeft={`${selectedCrypto.symbol} balance`}
-            textRight={`${selectedCrypto.balance_coin} ${
-              selectedCrypto.symbol
-            } = ${convertToCurrency(selectedCrypto.balance_eur)}`}
+            textLeft={`${selectedCrypto?.symbol} balance`}
+            textRight={`${selectedCrypto?.balance_coin} ${
+              selectedCrypto?.symbol
+            } = ${convertToCurrency(selectedCrypto?.balance_eur)}`}
           />
         </TabContent>
       )}

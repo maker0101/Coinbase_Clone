@@ -1,27 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ALL_ASSETS } from '../constants/all-assets';
-
-const REQUEST_OPTIONS = {
-  method: 'GET',
-  url: 'https://coinranking1.p.rapidapi.com/coins',
-  params: {
-    referenceCurrencyUuid: '5k-_VTxqtCEI', //euro
-    timePeriod: '24h',
-    tiers: '1,2',
-    orderBy: 'marketCap',
-    orderDirection: 'desc',
-    limit: '100',
-    offset: '0',
-  },
-  headers: {
-    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-    'x-rapidapi-key': '64ea0e9616msha5082e01bdaa101p11219ajsnf796c1accd2f',
-  },
-};
+import { YOUR_CRYPTO } from '../constants/your-crypto';
+import { REQUEST_OPTIONS } from '../constants/request-options';
 
 const useGetCrypto = () => {
-  const [cryptoAssets, setCryptoAssets] = useState(ALL_ASSETS);
+  const [cryptoAssets, setCryptoAssets] = useState([]);
 
   const fetchCrypto = async (options) => {
     try {
@@ -33,36 +16,59 @@ const useGetCrypto = () => {
     }
   };
 
-  const transformCrypto = (assets) => {
-    const transformedAssets = [];
-    assets.forEach((asset) => {
-      const sparklineNums = asset.sparkline.map((num) => Number(num));
+  const transformSparkline = (asset) => {
+    const newSparkline = [];
+    let i = 0;
+    asset.sparkline.forEach((price) => {
+      i += 1;
+      newSparkline.push({
+        price: Number(price),
+        time: String(i),
+      });
+    });
+    return newSparkline;
+  };
 
-      let newAsset = {
+  const findAsset = (symbol, assets) =>
+    assets.find((asset) => asset.symbol === symbol);
+
+  const calcBalanceEur = (balanceCoin, priceEUR) =>
+    balanceCoin * Number(priceEUR) || 0;
+
+  const transformCrypto = (fetchedCrypto, yourCrypto) => {
+    const transformedCrypto = [];
+    fetchedCrypto.forEach((asset) => {
+      const balanceCoin =
+        findAsset(asset.symbol, yourCrypto)?.balance_coin || 0;
+      const onWatchList =
+        findAsset(asset.symbol, yourCrypto)?.onWatchlist || false;
+
+      let tranformedAsset = {
         name: asset.name,
         symbol: asset.symbol,
         isFiat: false,
         icon: asset.iconUrl,
         color: asset.color,
-        balance_eur: 10986.74,
-        balance_coin: 0.84433661,
+        balance_eur: calcBalanceEur(balanceCoin, asset.price),
+        balance_coin: balanceCoin,
         price_eur: Number(asset.price),
         price_change24h: Number(asset.change),
         market_cap: Number(asset.marketCap),
-        onWatchlist: false,
-        sparkline: sparklineNums,
+        onWatchlist: onWatchList,
+        sparkline: transformSparkline(asset),
       };
-      transformedAssets.push(newAsset);
+      transformedCrypto.push(tranformedAsset);
     });
-    return transformedAssets;
+    return transformedCrypto;
   };
 
   const handleGetCrypto = async (requestOptions) => {
     const fetchedCrypto = await fetchCrypto(requestOptions);
-    const transformedCrypto = transformCrypto(fetchedCrypto);
+    const transformedCrypto = transformCrypto(fetchedCrypto, YOUR_CRYPTO);
     setCryptoAssets(transformedCrypto);
   };
 
+  //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCrypto'."
   useEffect(() => {
     handleGetCrypto(REQUEST_OPTIONS);
   }, []);

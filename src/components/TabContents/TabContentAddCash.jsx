@@ -23,8 +23,8 @@ const TabContentAddCash = () => {
           <TableInputAddCash />
           <Button size='xl'>Add cash</Button>
           <TabFooter
-            textLeft={`${selectedFiat.symbol} balance`}
-            textRight={convertToCurrency(selectedFiat.balance_eur)}
+            textLeft={`${selectedFiat?.symbol} balance`}
+            textRight={convertToCurrency(selectedFiat?.balance_eur)}
           />
         </TabContent>
       )}

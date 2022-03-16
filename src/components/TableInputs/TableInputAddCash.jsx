@@ -11,8 +11,8 @@ const TableInputAddCash = () => {
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Add to'
-          assetName={`${selectedFiat.symbol} wallet`}
-          assetIcon={selectedFiat.icon}
+          assetName={`${selectedFiat?.symbol} wallet`}
+          assetIcon={selectedFiat?.icon}
           selectAssetType='selectFiat'
         />
       </tbody>

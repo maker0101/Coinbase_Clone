@@ -13,8 +13,8 @@ const TableInputSend = () => {
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Pay with'
-          assetName={selectedCrypto.name}
-          assetIcon={selectedCrypto.icon}
+          assetName={selectedCrypto?.name}
+          assetIcon={selectedCrypto?.icon}
           selectAssetType='selectCrypto'
         />
         <TableRowInputText

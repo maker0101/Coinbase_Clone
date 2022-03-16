@@ -12,8 +12,8 @@ const TableInputCashout = () => {
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='With'
-          assetName={`${selectedFiat.symbol} wallet`}
-          assetIcon={selectedFiat.icon}
+          assetName={`${selectedFiat?.symbol} wallet`}
+          assetIcon={selectedFiat?.icon}
           selectAssetType='selectFiat'
         />
       </tbody>
