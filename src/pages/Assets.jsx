@@ -10,13 +10,13 @@ import {
 } from '../components';
 import useMediaQuery from '../hooks/useMediaQuery';
 import useAssets from '../hooks/useAssets';
-import useCryptoApi from '../hooks/useCryptoApi';
+import useGetCrypto from '../hooks/useGetCrypto';
 
 const Assets = () => {
   let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   const { yourCrypto, watchlistCrypto } = useAssets();
 
-  useCryptoApi();
+  useGetCrypto();
 
   return (
     <>

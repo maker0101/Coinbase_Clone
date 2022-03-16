@@ -22,7 +22,7 @@ const TableRecentTransactions = ({ transactions }) => {
           <tr key={t.symbol}>
             <td>
               <div className='tableRecentTransactions__cell'>
-                <div className='tableRecentTransactions__icon'>{t.icon}</div>
+                <img className='tableRecentTransactions__icon' src={t.icon} />
                 <div className='tableRecentTransactions__head'>
                   <Text>{createHeadText(t.type, t.name)}</Text>
                 </div>

@@ -16,11 +16,14 @@ import useAssets from '../hooks/useAssets';
 import useSearch from '../hooks/useSearch';
 import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
+import useGetCrypto from '../hooks/useGetCrypto';
 
 const Trade = () => {
   let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   let isWidthMin800 = useMediaQuery('(min-width: 800px)');
   const { allCrypto } = useAssets();
+
+  console.log(allCrypto);
   const { searchResult, searchInput, handleSearch } = useSearch(allCrypto);
   const { filterResult, filterInput, handleFilter } = useFilter(
     allCrypto,

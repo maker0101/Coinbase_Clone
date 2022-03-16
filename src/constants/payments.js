@@ -1,12 +1,10 @@
-import { RiPieChartFill } from 'react-icons/ri';
-
 export const PAYMENTS = [
   {
     id: 1,
     adress: 'satoshi@gmail.com',
     name: 'Bitcoin',
     symbol: 'BTC',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'send',
     date: 'Oct 19, 2021',
     amount: 0.432565,
@@ -16,7 +14,7 @@ export const PAYMENTS = [
     adress: 'elon.musk@yahoo.com',
     name: 'Bitcoin',
     symbol: 'BTC',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'send',
     date: 'Oct 21, 2021',
     amount: 17.432565,
@@ -26,7 +24,7 @@ export const PAYMENTS = [
     adress: 'vitalik@buterin.com',
     name: 'Etheruem',
     symbol: 'ETH',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'send',
     date: 'Nov 03, 2021',
     amount: 70.432565,

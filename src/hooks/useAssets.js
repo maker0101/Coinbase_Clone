@@ -1,26 +1,24 @@
-import { useState } from 'react';
-import { ALL_ASSETS } from '../constants/all-assets';
+import { FIAT_ASSETS } from '../constants/fiat-assets';
+import useGetCrypto from './useGetCrypto';
 
 const useAssets = () => {
-  const [allAssets] = useState(ALL_ASSETS);
+  const { cryptoAssets } = useGetCrypto();
 
-  const allCrypto = allAssets
-    .filter((asset) => asset.isFiat === false)
-    .sort((prev, next) => next.market_cap - prev.market_cap);
+  const allCrypto = cryptoAssets.sort(
+    (prev, next) => next.market_cap - prev.market_cap
+  );
 
-  const yourCrypto = allAssets
-    .filter((asset) => asset.isFiat === false)
+  const yourCrypto = cryptoAssets
     .filter((asset) => asset.balance_coin > 0)
     .sort((prev, next) => next.balance_eur - prev.balance_eur);
 
-  const watchlistCrypto = allAssets
-    .filter((asset) => asset.isFiat === false)
+  const watchlistCrypto = cryptoAssets
     .filter((asset) => asset.onWatchlist)
     .sort((prev, next) => next.market_cap - prev.market_cap);
 
-  const allFiat = allAssets
-    .filter((asset) => asset.isFiat === true)
-    .sort((prev, next) => next.balance_eur - prev.balance_eur);
+  const allFiat = FIAT_ASSETS.sort(
+    (prev, next) => next.balance_eur - prev.balance_eur
+  );
 
   return { allCrypto, yourCrypto, watchlistCrypto, allFiat };
 };

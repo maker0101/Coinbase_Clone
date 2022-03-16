@@ -18,7 +18,7 @@ const TableRowSelectAsset = ({
       </td>
       <td>
         <div className='tableRowSelectAsset__cellVerticalAligned'>
-          <div className='tableRowSelectAsset__iconAsset'>{assetIcon}</div>
+          <img className='tableRowSelectAsset__iconAsset' src={assetIcon} />
           <Text>{assetName}</Text>
         </div>
       </td>

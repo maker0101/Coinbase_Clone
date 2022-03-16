@@ -1,12 +1,10 @@
-import { RiPieChartFill } from 'react-icons/ri';
-
 export const FIAT_TRANSFERS = [
   {
     id: 1,
     adress: 'satoshi@gmail.com',
     name: 'Euro',
     symbol: 'EUR',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'deposit',
     date: 'Oct 19, 2021',
     amount: 400,
@@ -16,7 +14,7 @@ export const FIAT_TRANSFERS = [
     adress: 'elon.musk@yahoo.com',
     name: 'Euro',
     symbol: 'EUR',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'deposit',
     date: 'Oct 21, 2021',
     amount: 1700,
@@ -26,7 +24,7 @@ export const FIAT_TRANSFERS = [
     adress: 'vitalik@buterin.com',
     name: 'Euro',
     symbol: 'EUR',
-    icon: <RiPieChartFill />,
+    icon: 'https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg',
     type: 'withdraw',
     date: 'Nov 03, 2021',
     amount: 700,

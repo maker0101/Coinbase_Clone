@@ -9,7 +9,7 @@ const TablePayments = ({ payments }) => {
           <tr key={p.id}>
             <td>
               <div className='tablePayments__cell'>
-                <div className='tablePayments__icon'>{p.icon}</div>
+                <img className='tablePayments__icon' src={p.icon} />
                 <div className='tablePayments__head'>
                   <Text>{`Sent ${p.name}`}</Text>
                 </div>
