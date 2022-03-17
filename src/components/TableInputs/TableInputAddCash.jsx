@@ -3,13 +3,11 @@ import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
 
 const TableInputAddCash = () => {
-  const { handleSelectAssetOpenClick, selectedFiat } =
-    useContext(SelectAssetContext);
+  const { selectedFiat } = useContext(SelectAssetContext);
   return (
     <Table isInputTable>
       <tbody>
         <TableRowSelectAsset
-          handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Add to'
           assetName={`${selectedFiat?.symbol} wallet`}
           assetIcon={selectedFiat?.icon}

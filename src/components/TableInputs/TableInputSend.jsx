@@ -5,13 +5,11 @@ import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset, TableRowInputText } from '..';
 
 const TableInputSend = () => {
-  const { handleSelectAssetOpenClick, selectedCoin } =
-    useContext(SelectAssetContext);
+  const { selectedCoin } = useContext(SelectAssetContext);
   return (
     <Table isInputTable>
       <tbody>
         <TableRowSelectAsset
-          handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='Pay with'
           assetName={selectedCoin?.name}
           assetIcon={selectedCoin?.icon}

@@ -16,7 +16,7 @@ const useCombineSearchFilter = (searchResult, filterResult, key) => {
   useEffect(() => {
     const sharedItems = getSharedItems(searchResult, filterResult, key);
     setSearchFilterResult(sharedItems);
-  }, [searchResult, filterResult]);
+  }, [searchResult, filterResult, key]);
 
   return { searchFilterResult };
 };

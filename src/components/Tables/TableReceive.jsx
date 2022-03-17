@@ -10,15 +10,13 @@ import {
 } from '..';
 
 const TableReceive = () => {
-  const { handleSelectAssetOpenClick, selectedCoin } =
-    useContext(SelectAssetContext);
+  const { selectedCoin } = useContext(SelectAssetContext);
   return (
     <div className='TableReceive'>
       <Table isInputTable>
         <tbody>
           <TableRowQR />
           <TableRowSelectAsset
-            handleSelectAssetOpenClick={handleSelectAssetOpenClick}
             helperText='Asset'
             assetName={selectedCoin?.name}
             assetIcon={selectedCoin?.icon}

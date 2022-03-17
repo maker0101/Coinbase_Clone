@@ -7,17 +7,13 @@ import { Text, LineChart, Dropdown } from '..';
 import useAssets from '../../hooks/useAssets';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import classNames from 'classnames';
 
 const ChartPortfolio = () => {
   const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
-  let isWidthMax600 = useMediaQuery('(max-width: 600px)');
+  const isWidthMax600 = useMediaQuery('(max-width: 600px)');
   const { yourCoins } = useAssets();
   const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
-
-  const selectTimeFrame = (index) => {
-    setActiveTimeFrame(index);
-  };
-
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
 
   return (
@@ -36,16 +32,21 @@ const ChartPortfolio = () => {
               />
             )}
             {!isWidthMax600 &&
-              TIMEFRAMES.map((time) => (
-                <div
-                  key={time}
-                  className={`timeFrameBtn ${
-                    activeTimeFrame === time && 'timeFrameBtn__active'
-                  }`}
-                  onClick={() => selectTimeFrame(time)}>
-                  {time}
-                </div>
-              ))}
+              TIMEFRAMES.map((time) => {
+                const timeFrameBtnClasses = classNames({
+                  timeFrameBtn: true,
+                  timeFrameBtn__active: activeTimeFrame === time,
+                });
+
+                return (
+                  <div
+                    key={time}
+                    className={timeFrameBtnClasses}
+                    onClick={() => setActiveTimeFrame(time)}>
+                    {time}
+                  </div>
+                );
+              })}
           </div>
         </div>
         <Text h1 size='xxl'>

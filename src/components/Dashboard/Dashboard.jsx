@@ -5,7 +5,7 @@ import useMediaQuery from '../../hooks/useMediaQuery';
 import { ModalProvider } from '../../contexts/ModalContext';
 
 const Dashboard = () => {
-  let isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <div className='Dashboard'>

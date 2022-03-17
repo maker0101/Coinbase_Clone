@@ -5,8 +5,8 @@ import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { formatMarketCap } from '../../utilities/format-market-cap';
 
 const TableAssets = ({ assets }) => {
-  let isWidthMin800 = useMediaQuery('(min-width: 800px)');
-  let isWidthMin400 = useMediaQuery('(min-width: 400px)');
+	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+	const isWidthMin400 = useMediaQuery('(min-width: 400px)');
 
   return (
     <Table>
