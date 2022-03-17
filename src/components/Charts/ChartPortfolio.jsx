@@ -11,14 +11,14 @@ import { convertToCurrency } from '../../utilities/convert-to-currency';
 const ChartPortfolio = () => {
   const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
   let isWidthMax600 = useMediaQuery('(max-width: 600px)');
-  const { yourCrypto } = useAssets();
+  const { yourCoins } = useAssets();
   const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
 
   const selectTimeFrame = (index) => {
     setActiveTimeFrame(index);
   };
 
-  const portfolioBalance = convertToCurrency(calculateBalanceTotal(yourCrypto));
+  const portfolioBalance = convertToCurrency(calculateBalanceTotal(yourCoins));
 
   return (
     <div>

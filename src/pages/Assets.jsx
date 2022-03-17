@@ -10,13 +10,13 @@ import {
 } from '../components';
 import useMediaQuery from '../hooks/useMediaQuery';
 import useAssets from '../hooks/useAssets';
-import useGetCrypto from '../hooks/useGetCrypto';
+import useGetCoins from '../hooks/useGetCoins';
 
 const Assets = () => {
   let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
-  const { yourCrypto, watchlistCrypto } = useAssets();
+  const { yourCoins, coinsOnWatchlist } = useAssets();
 
-  useGetCrypto();
+  useGetCoins();
 
   return (
     <>
@@ -26,11 +26,11 @@ const Assets = () => {
         </Section>
         <Section>
           <SectionTitle title='Your Assets' />
-          <TableYourAssets assets={yourCrypto} />
+          <TableYourAssets assets={yourCoins} />
         </Section>
         <Section>
           <SectionTitle title='Watchlist' />
-          <TableAssets assets={watchlistCrypto} />
+          <TableAssets assets={coinsOnWatchlist} />
         </Section>
       </ContentCenter>
       {isWidthMin1150 && (

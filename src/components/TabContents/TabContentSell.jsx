@@ -10,7 +10,7 @@ import {
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
-const TabContentSell = (props) => {
+const TabContentSell = () => {
   const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
   return (
     <>

@@ -1,4 +1,4 @@
-export const YOUR_CRYPTO = [
+export const YOUR_COINS = [
   {
     symbol: 'BTC',
     balance_coin: 0.14433661,

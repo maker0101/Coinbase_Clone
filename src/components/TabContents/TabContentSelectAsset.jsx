@@ -1,7 +1,7 @@
 import './TabContentSelectAsset.css';
 import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import useAssets from '../../hooks/useAssets';
 import useSearch from '../../hooks/useSearch';
@@ -16,8 +16,8 @@ const TabContentSelectAsset = () => {
     handleSelectAsset,
     checkIsSelected,
   } = useContext(SelectAssetContext);
-  const { allCrypto, allFiat } = useAssets();
-  const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
+  const { allCoins, allFiat } = useAssets();
+  const assets = lastSelectAssetType === 'fiat' ? allFiat : allCoins;
 
   const { searchResult, searchInput, handleSearch } = useSearch(assets);
 

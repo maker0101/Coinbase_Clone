@@ -2,12 +2,12 @@ import { useState } from 'react';
 import useAssets from './useAssets';
 
 const useSelectAsset = () => {
-  const { allCrypto, allFiat } = useAssets();
+  const { allCoins, allFiat } = useAssets();
   const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
   const [lastSelectAssetType, setLastSelectAssetType] = useState('crypto');
-  const [selectedCrypto, setSelectedCrypto] = useState(allCrypto[0]);
+  const [selectedCrypto, setSelectedCrypto] = useState(allCoins[0]);
   const [selectedCryptoConvertTo, setSelectedCryptoConvertTo] = useState(
-    allCrypto[1]
+    allCoins[1]
   );
   const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
 

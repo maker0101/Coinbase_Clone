@@ -20,11 +20,11 @@ import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
 const Trade = () => {
   let isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   let isWidthMin800 = useMediaQuery('(min-width: 800px)');
-  const { allCrypto } = useAssets();
+  const { allCoins } = useAssets();
 
-  const { searchResult, searchInput, handleSearch } = useSearch(allCrypto);
+  const { searchResult, searchInput, handleSearch } = useSearch(allCoins);
   const { filterResult, filterInput, handleFilter } = useFilter(
-    allCrypto,
+    allCoins,
     'All assets'
   );
   const { searchFilterResult } = useCombineSearchFilter(
@@ -46,7 +46,7 @@ const Trade = () => {
             <Search
               searchInput={searchInput}
               handleSearch={handleSearch}
-              allItems={allCrypto}
+              allItems={allCoins}
             />
             {isWidthMin800 && (
               <div className='trade__filters'>
@@ -62,7 +62,7 @@ const Trade = () => {
                   filterInput={filterInput}
                   handleFilter={handleFilter}
                   filterQuery={watchlistQuery}
-                  allItems={allCrypto}
+                  allItems={allCoins}
                 />
               </div>
             )}
@@ -70,7 +70,7 @@ const Trade = () => {
           {/*FIXME: Code below triggers browser warning "[Violation] Forced reflow
           while executing JavaScript took 82ms" and "[Violation] 'message'
             handler took 215ms" */}
-          <TableAssets assets={searchInput ? searchFilterResult : allCrypto} />
+          <TableAssets assets={searchInput ? searchFilterResult : allCoins} />
         </Section>
       </ContentCenter>
       <ContentRight>

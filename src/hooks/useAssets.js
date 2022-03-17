@@ -1,18 +1,18 @@
 import { FIAT_ASSETS } from '../constants/fiat-assets';
-import useGetCrypto from './useGetCrypto';
+import useGetCoins from './useGetCoins';
 
 const useAssets = () => {
-  const { cryptoAssets } = useGetCrypto();
+  const { coins } = useGetCoins();
 
-  const allCrypto = cryptoAssets.sort(
+  const allCoins = coins.sort(
     (prev, next) => next.market_cap - prev.market_cap
   );
 
-  const yourCrypto = cryptoAssets
+  const yourCoins = coins
     .filter((asset) => asset.balance_coin > 0)
     .sort((prev, next) => next.balance_eur - prev.balance_eur);
 
-  const watchlistCrypto = cryptoAssets
+  const coinsOnWatchlist = coins
     .filter((asset) => asset.onWatchlist)
     .sort((prev, next) => next.market_cap - prev.market_cap);
 
@@ -20,7 +20,7 @@ const useAssets = () => {
     (prev, next) => next.balance_eur - prev.balance_eur
   );
 
-  return { allCrypto, yourCrypto, watchlistCrypto, allFiat };
+  return { allCoins, yourCoins, coinsOnWatchlist, allFiat };
 };
 
 export default useAssets;
