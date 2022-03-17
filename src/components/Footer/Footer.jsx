@@ -1,65 +1,47 @@
-import { useState } from 'react';
-import { Button, ModalPay, ModalTrade, ModalDeposit } from '..';
+import { useContext } from 'react';
+import { ModalContext } from '../../contexts/ModalContext';
+import { Button } from '..';
 import './Footer.css';
 import usePath from '../../hooks/usePath';
 
 const Footer = () => {
-	const { page } = usePath();
-	const [isPayModalOpen, setIsPayModalOpen] = useState(false);
-	const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
-	const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
+  const { page } = usePath();
+  const { handleOpen } = useContext(ModalContext);
 
-	const openPayModal = () => setIsPayModalOpen(true);
-	const openTradeModal = () => setIsTradeModalOpen(true);
-	const openDepositModal = () => setIsDepositModalOpen(true);
-
-	return (
-		<div className="Footer">
-			{['Assets', 'Trade'].includes(page) && (
-				<>
-					<Button onClick={openTradeModal} stretch>
-						Buy
-					</Button>
-					<Button onClick={openTradeModal} stretch>
-						Sell
-					</Button>
-				</>
-			)}
-			{page === 'Pay' && (
-				<>
-					<Button onClick={openPayModal} stretch>
-						Send
-					</Button>
-					<Button onClick={openPayModal} stretch>
-						Receive
-					</Button>
-				</>
-			)}
-			{page === 'Deposit' && (
-				<>
-					<Button onClick={openDepositModal} stretch>
-						Add cash
-					</Button>
-					<Button onClick={openDepositModal} stretch>
-						Cashout
-					</Button>
-				</>
-			)}
-
-			<ModalTrade
-				isOpen={isTradeModalOpen}
-				onClose={setIsTradeModalOpen}
-			/>
-			<ModalPay
-				isOpen={isPayModalOpen}
-				onClose={setIsPayModalOpen}
-			/>
-			<ModalDeposit
-				isOpen={isDepositModalOpen}
-				onClose={setIsDepositModalOpen}
-			/>
-		</div>
-	);
+  return (
+    <div className='Footer'>
+      {['Assets', 'Trade'].includes(page) && (
+        <>
+          <Button onClick={() => handleOpen('trade')} stretch>
+            Buy
+          </Button>
+          <Button onClick={() => handleOpen('trade', 2)} stretch>
+            Sell
+          </Button>
+        </>
+      )}
+      {page === 'Pay' && (
+        <>
+          <Button onClick={() => handleOpen('pay')} stretch>
+            Send
+          </Button>
+          <Button onClick={() => handleOpen('pay', 2)} stretch>
+            Receive
+          </Button>
+        </>
+      )}
+      {page === 'Deposit' && (
+        <>
+          <Button onClick={() => handleOpen('deposit')} stretch>
+            Add cash
+          </Button>
+          <Button onClick={() => handleOpen('deposit', 2)} stretch>
+            Cashout
+          </Button>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Footer;

@@ -1,24 +1,23 @@
 import './Modal.css';
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { ModalContext } from '../../contexts/ModalContext';
 
-const Modal = ({ children, isOpen, onClose }) => {
-	const modalRef = useRef();
+const Modal = ({ children }) => {
+  const { isOpen, handleCloseOnBgClick } = useContext(ModalContext);
+  const modalRef = useRef();
 
-	const closeModal = (e) => {
-		if (modalRef.current === e.target) {
-			onClose(false);
-		}
-  };
-
-	return (
-		<>
-			{isOpen && (
-				<div className="Modal" onClick={closeModal} ref={modalRef}>
-					<div className="modal__content">{children}</div>
-				</div>
-			)}
-		</>
-	);
+  return (
+    <>
+      {isOpen && (
+        <div
+          className='Modal'
+          onClick={(e) => handleCloseOnBgClick(e, modalRef)}
+          ref={modalRef}>
+          <div className='modal__content'>{children}</div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Modal;

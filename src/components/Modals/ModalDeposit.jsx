@@ -1,15 +1,15 @@
 import { Modal, TabDeposit, ModalClose } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
-const ModalDeposit = ({ isOpen, onClose }) => {
-	const isWidthMax800 = useMediaQuery('(max-width: 800px)');
+const ModalDeposit = () => {
+  const isWidthMax800 = useMediaQuery('(max-width: 800px)');
 
-	return (
-		<Modal isOpen={isOpen} onClose={onClose}>
-			<TabDeposit />
-			{isWidthMax800 && <ModalClose onClose={onClose} />}
-		</Modal>
-	);
+  return (
+    <Modal>
+      <TabDeposit />
+      {isWidthMax800 && <ModalClose />}
+    </Modal>
+  );
 };
 
 export default ModalDeposit;

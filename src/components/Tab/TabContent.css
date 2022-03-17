@@ -1,20 +1,7 @@
 .TabContent {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: space-between;
-}
-
-@media (min-width: 800px) {
-	.ContentRight .TabContent,
-	.Modal .TabContent {
-		max-height: 440px;
-		overflow: scroll;
-	}
-
-	.ContentCenter .TabContent {
-		max-height: 510px;
-		overflow: scroll;
-	}
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
 }
