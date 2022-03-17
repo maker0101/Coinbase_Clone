@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useAssets from './useAssets';
 
 const useSelectAsset = () => {
@@ -39,6 +39,22 @@ const useSelectAsset = () => {
   const checkIsSelected = (asset, assetSelected1 = {}, assetSelected2 = {}) =>
     assetSelected1?.symbol === asset.symbol ||
     assetSelected2?.symbol === asset.symbol;
+
+  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
+  const reInitializeSelectedCoin = (initialState) =>
+    setSelectedCoin(initialState);
+
+  useEffect(() => {
+    if (!selectedCoin) reInitializeSelectedCoin(allCoins[0]);
+  }, [allCoins]);
+
+  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
+  const reInitializeSelectedCoinConvertTo = (initialState) =>
+    setSelectedCoinConvertTo(initialState);
+
+  useEffect(() => {
+    if (!selectedCoinConvertTo) reInitializeSelectedCoinConvertTo(allCoins[1]);
+  }, [allCoins]);
 
   return {
     isSelectAssetOpen,

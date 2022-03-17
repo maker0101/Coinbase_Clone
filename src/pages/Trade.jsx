@@ -32,6 +32,10 @@ const Trade = () => {
     filterResult,
     'symbol'
   );
+
+  const assetsInTable =
+    searchInput || filterInput !== 'All assets' ? searchFilterResult : allCoins;
+
   const watchlistQuery = (asset) => asset.onWatchlist === true;
 
   const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
@@ -58,7 +62,7 @@ const Trade = () => {
                 <Dropdown
                   name='assetType'
                   options={ASSET_TYPE}
-                  initialValue='Tradeable Assets'
+                  initialValue='All Assets'
                   filterInput={filterInput}
                   handleFilter={handleFilter}
                   filterQuery={watchlistQuery}
@@ -70,7 +74,7 @@ const Trade = () => {
           {/*FIXME: Code below triggers browser warning "[Violation] Forced reflow
           while executing JavaScript took 82ms" and "[Violation] 'message'
             handler took 215ms" */}
-          <TableAssets assets={searchInput ? searchFilterResult : allCoins} />
+          <TableAssets assets={assetsInTable} />
         </Section>
       </ContentCenter>
       <ContentRight>
