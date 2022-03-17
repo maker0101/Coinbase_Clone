@@ -11,7 +11,7 @@ import {
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TabContentSell = () => {
-  const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
+  const { isSelectAssetOpen, selectedCoin } = useContext(SelectAssetContext);
   return (
     <>
       {isSelectAssetOpen ? (
@@ -20,12 +20,12 @@ const TabContentSell = () => {
         <TabContent>
           <InputAmountContainer />
           <TableInputSell />
-          <Button size='xl'>{`Sell ${selectedCrypto?.name}`}</Button>
+          <Button size='xl'>{`Sell ${selectedCoin?.name}`}</Button>
           <TabFooter
-            textLeft={`${selectedCrypto?.symbol} balance`}
-            textRight={`${selectedCrypto?.balance_coin} ${
-              selectedCrypto?.symbol
-            } = ${convertToCurrency(selectedCrypto?.balance_eur)}`}
+            textLeft={`${selectedCoin?.symbol} balance`}
+            textRight={`${selectedCoin?.balance_coin} ${
+              selectedCoin?.symbol
+            } = ${convertToCurrency(selectedCoin?.balance_eur)}`}
           />
         </TabContent>
       )}

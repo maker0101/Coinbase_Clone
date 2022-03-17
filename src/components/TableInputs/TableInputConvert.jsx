@@ -3,27 +3,24 @@ import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
 
 const TableInputConvert = () => {
-  const {
-    handleSelectAssetOpenClick,
-    selectedCrypto,
-    selectedCryptoConvertTo,
-  } = useContext(SelectAssetContext);
+  const { handleSelectAssetOpenClick, selectedCoin, selectedCoinConvertTo } =
+    useContext(SelectAssetContext);
   return (
     <Table isInputTable>
       <tbody>
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='From'
-          assetName={selectedCrypto?.name}
-          assetIcon={selectedCrypto?.icon}
-          selectAssetType='selectCrypto'
+          assetName={selectedCoin?.name}
+          assetIcon={selectedCoin?.icon}
+          selectAssetType='selectCoin'
         />
         <TableRowSelectAsset
           handleSelectAssetOpenClick={handleSelectAssetOpenClick}
           helperText='To'
-          assetName={selectedCryptoConvertTo?.name}
-          assetIcon={selectedCryptoConvertTo?.icon}
-          selectAssetType='selectCryptoConvertTo'
+          assetName={selectedCoinConvertTo?.name}
+          assetIcon={selectedCoinConvertTo?.icon}
+          selectAssetType='selectCoinConvertTo'
         />
       </tbody>
     </Table>

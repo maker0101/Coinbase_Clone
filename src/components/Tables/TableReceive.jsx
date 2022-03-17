@@ -10,7 +10,7 @@ import {
 } from '..';
 
 const TableReceive = () => {
-  const { handleSelectAssetOpenClick, selectedCrypto } =
+  const { handleSelectAssetOpenClick, selectedCoin } =
     useContext(SelectAssetContext);
   return (
     <div className='TableReceive'>
@@ -20,9 +20,9 @@ const TableReceive = () => {
           <TableRowSelectAsset
             handleSelectAssetOpenClick={handleSelectAssetOpenClick}
             helperText='Asset'
-            assetName={selectedCrypto?.name}
-            assetIcon={selectedCrypto?.icon}
-            selectAssetType='selectCrypto'
+            assetName={selectedCoin?.name}
+            assetIcon={selectedCoin?.icon}
+            selectAssetType='selectCoin'
           />
           <TableRowAssetAddress
             helperText='Address'

@@ -8,16 +8,16 @@ import {
   TabContentBuyEmpty,
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
-import { calculateBalanceTotal } from '../../utilities/calculate-balance-total';
+import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { useContext } from 'react';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import useAssets from '../../hooks/useAssets';
 
 const TabContentBuy = () => {
-  const { isSelectAssetOpen, selectedCrypto, selectedFiat } =
+  const { isSelectAssetOpen, selectedCoin, selectedFiat } =
     useContext(SelectAssetContext);
   const { allFiat } = useAssets();
-  const hasNoFiat = Boolean(!calculateBalanceTotal(allFiat));
+  const hasNoFiat = Boolean(!calculateTotalBalance(allFiat));
 
   if (hasNoFiat) {
     return <TabContentBuyEmpty />;
@@ -28,7 +28,7 @@ const TabContentBuy = () => {
       <TabContent>
         <InputAmountContainer />
         <TableInputBuy />
-        <Button size='xl'>{`Buy ${selectedCrypto?.name}`}</Button>
+        <Button size='xl'>{`Buy ${selectedCoin?.name}`}</Button>
         <TabFooter
           textLeft={`${selectedFiat?.symbol} balance`}
           textRight={convertToCurrency(selectedFiat?.balance_eur)}

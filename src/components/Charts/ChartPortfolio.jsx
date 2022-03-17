@@ -5,7 +5,7 @@ import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
 import { PORTFOLIO_FOOTER_DATES } from '../../constants/portfolio-footer-dates';
 import { Text, LineChart, Dropdown } from '..';
 import useAssets from '../../hooks/useAssets';
-import { calculateBalanceTotal } from '../../utilities/calculate-balance-total';
+import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const ChartPortfolio = () => {
@@ -18,7 +18,7 @@ const ChartPortfolio = () => {
     setActiveTimeFrame(index);
   };
 
-  const portfolioBalance = convertToCurrency(calculateBalanceTotal(yourCoins));
+  const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
 
   return (
     <div>

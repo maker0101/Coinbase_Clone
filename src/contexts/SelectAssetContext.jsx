@@ -7,8 +7,8 @@ const SelectAssetProvider = ({ children }) => {
   const {
     isSelectAssetOpen,
     lastSelectAssetType,
-    selectedCrypto,
-    selectedCryptoConvertTo,
+    selectedCoin,
+    selectedCoinConvertTo,
     selectedFiat,
     toggleIsSelectAssetOpen,
     handleSelectAssetOpenClick,
@@ -21,8 +21,8 @@ const SelectAssetProvider = ({ children }) => {
       value={{
         isSelectAssetOpen,
         lastSelectAssetType,
-        selectedCrypto,
-        selectedCryptoConvertTo,
+        selectedCoin,
+        selectedCoinConvertTo,
         selectedFiat,
         toggleIsSelectAssetOpen,
         handleSelectAssetOpenClick,

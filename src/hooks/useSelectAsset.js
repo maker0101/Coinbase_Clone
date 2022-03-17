@@ -4,9 +4,9 @@ import useAssets from './useAssets';
 const useSelectAsset = () => {
   const { allCoins, allFiat } = useAssets();
   const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
-  const [lastSelectAssetType, setLastSelectAssetType] = useState('crypto');
-  const [selectedCrypto, setSelectedCrypto] = useState(allCoins[0]);
-  const [selectedCryptoConvertTo, setSelectedCryptoConvertTo] = useState(
+  const [lastSelectAssetType, setLastSelectAssetType] = useState('coin');
+  const [selectedCoin, setSelectedCoin] = useState(allCoins[0]);
+  const [selectedCoinConvertTo, setSelectedCoinConvertTo] = useState(
     allCoins[1]
   );
   const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
@@ -14,10 +14,10 @@ const useSelectAsset = () => {
   const setSelectAssetType = (e) => {
     if (e?.target?.matches('.selectFiat, .selectFiat *'))
       setLastSelectAssetType('fiat');
-    if (e?.target?.matches('.selectCrypto, .selectCrypto *'))
-      setLastSelectAssetType('crypto');
-    if (e?.target?.matches('.selectCryptoConvertTo, .selectCryptoConvertTo *'))
-      setLastSelectAssetType('cryptoConvertTo');
+    if (e?.target?.matches('.selectCoin, .selectCoin *'))
+      setLastSelectAssetType('coin');
+    if (e?.target?.matches('.selectCoinConvertTo, .selectCoinConvertTo *'))
+      setLastSelectAssetType('coinConvertTo');
   };
 
   const toggleIsSelectAssetOpen = () =>
@@ -30,10 +30,9 @@ const useSelectAsset = () => {
 
   const handleSelectAsset = (asset, lastSelectAssetType) => {
     if (asset.isFiat) setSelectedFiat(asset);
-    if (!asset.isFiat && lastSelectAssetType === 'crypto')
-      setSelectedCrypto(asset);
-    if (!asset.isFiat && lastSelectAssetType === 'cryptoConvertTo')
-      setSelectedCryptoConvertTo(asset);
+    if (!asset.isFiat && lastSelectAssetType === 'coin') setSelectedCoin(asset);
+    if (!asset.isFiat && lastSelectAssetType === 'coinConvertTo')
+      setSelectedCoinConvertTo(asset);
     toggleIsSelectAssetOpen();
   };
 
@@ -44,8 +43,8 @@ const useSelectAsset = () => {
   return {
     isSelectAssetOpen,
     lastSelectAssetType,
-    selectedCrypto,
-    selectedCryptoConvertTo,
+    selectedCoin,
+    selectedCoinConvertTo,
     selectedFiat,
     toggleIsSelectAssetOpen,
     handleSelectAssetOpenClick,

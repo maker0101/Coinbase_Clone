@@ -10,7 +10,7 @@ import { convertToCurrency } from '../../utilities/convert-to-currency';
 const TabContentSelectAsset = () => {
   const {
     toggleIsSelectAssetOpen,
-    selectedCrypto,
+    selectedCoin,
     selectedFiat,
     lastSelectAssetType,
     handleSelectAsset,
@@ -38,7 +38,7 @@ const TabContentSelectAsset = () => {
           {searchResult.map((asset) => (
             <tr
               className={
-                checkIsSelected(asset, selectedCrypto, selectedFiat)
+                checkIsSelected(asset, selectedCoin, selectedFiat)
                   ? 'tabContent__isSelectedAsset'
                   : ''
               }
@@ -63,7 +63,7 @@ const TabContentSelectAsset = () => {
                       </Text>
                     </div>
                   )}
-                  {checkIsSelected(asset, selectedCrypto, selectedFiat) && (
+                  {checkIsSelected(asset, selectedCoin, selectedFiat) && (
                     <FaCheck />
                   )}
                 </div>

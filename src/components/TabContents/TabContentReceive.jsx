@@ -4,7 +4,7 @@ import { TabContent, TableReceive, TabFooter, TabContentSelectAsset } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
 const TabContentReceive = (props) => {
-  const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
+  const { isSelectAssetOpen, selectedCoin } = useContext(SelectAssetContext);
   return (
     <>
       {isSelectAssetOpen ? (
@@ -14,10 +14,10 @@ const TabContentReceive = (props) => {
           <TableReceive {...props} />
           <TabFooter
             marginTopNone
-            textLeft={`${selectedCrypto?.symbol} balance`}
-            textRight={`${selectedCrypto?.balance_coin} ${
-              selectedCrypto?.symbol
-            } = ${convertToCurrency(selectedCrypto?.balance_eur)}`}
+            textLeft={`${selectedCoin?.symbol} balance`}
+            textRight={`${selectedCoin?.balance_coin} ${
+              selectedCoin?.symbol
+            } = ${convertToCurrency(selectedCoin?.balance_eur)}`}
           />
         </TabContent>
       )}
