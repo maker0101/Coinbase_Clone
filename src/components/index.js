@@ -61,6 +61,7 @@ import MenuMobile from './MenuMobile/MenuMobile';
 import Tooltip from './Tooltip/Tooltip';
 import Logo from './Logo/Logo';
 import Footer from './Footer/Footer';
+import TransactionForm from './TransactionForm/TransactionForm';
 
 export {
   Dashboard,
@@ -126,4 +127,5 @@ export {
   Tooltip,
   Logo,
   Footer,
+  TransactionForm,
 };

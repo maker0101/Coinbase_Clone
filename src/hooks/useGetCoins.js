@@ -1,9 +1,26 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GET_COINS_OPTIONS } from '../constants/request-options';
 import { adaptFetchedCoins } from '../utilities/adapt-fetched-coins';
 import { onSnapshot, query, collection } from 'firebase/firestore';
 import { db } from '../firebase-config';
+
+const REQUEST_OPTIONS = {
+  method: 'GET',
+  url: 'https://coinranking1.p.rapidapi.com/coins',
+  params: {
+    referenceCurrencyUuid: '5k-_VTxqtCEI',
+    timePeriod: '24h',
+    tiers: '1,2',
+    orderBy: 'marketCap',
+    orderDirection: 'desc',
+    limit: '100',
+    offset: '0',
+  },
+  headers: {
+    'x-rapidapi-host': process.env.REACT_APP_X_RAPIDAPI_HOST,
+    'x-rapidapi-key': process.env.REACT_APP_X_RAPIDAPI_KEY,
+  },
+};
 
 const useGetCoins = () => {
   const [coins, setCoins] = useState([]);
@@ -41,7 +58,7 @@ const useGetCoins = () => {
 
   //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCoins'."
   useEffect(() => {
-    handleGetCoins(GET_COINS_OPTIONS, yourCoins);
+    handleGetCoins(REQUEST_OPTIONS, yourCoins);
   }, [yourCoins]);
 
   return { coins };

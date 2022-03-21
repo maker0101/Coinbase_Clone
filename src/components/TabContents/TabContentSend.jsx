@@ -7,6 +7,7 @@ import {
   TableInputSend,
   TabFooter,
   TabContentSelectAsset,
+  TransactionForm,
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 
@@ -18,9 +19,11 @@ const TabContentSend = () => {
         <TabContentSelectAsset />
       ) : (
         <TabContent>
-          <InputAmountContainer />
-          <TableInputSend />
-          <Button size='xl'>{`Send ${selectedCoin?.name}`}</Button>
+          <TransactionForm type='sendCoin'>
+            <InputAmountContainer />
+            <TableInputSend />
+            <Button size='xl'>{`Send ${selectedCoin?.name}`}</Button>
+          </TransactionForm>
           <TabFooter
             textLeft={`${selectedCoin?.symbol} balance`}
             textRight={`${selectedCoin?.balance_coin} ${

@@ -1,14 +1,18 @@
 import './TableRecentTransactions.css';
 import { Text, Table } from '..';
+import useTransactions from '../../hooks/useTransactions';
 
 const TableRecentTransactions = ({ transactions }) => {
-  const createHeadText = (transactionType, assetName) => {
-    let transactionTypePastTense;
-    if (transactionType === 'buy') transactionTypePastTense = 'Bought';
-    if (transactionType === 'sell') transactionTypePastTense = 'Sold';
-    if (transactionType === 'convert') transactionTypePastTense = 'Converted';
+  const { tradeTransactions } = useTransactions();
+  console.log(tradeTransactions);
 
-    return `${transactionTypePastTense} ${assetName}`;
+  const createHeadText = (transactionType, assetName) => {
+    let pastTense;
+    if (transactionType === 'buy') pastTense = 'Bought';
+    if (transactionType === 'sell') pastTense = 'Sold';
+    if (transactionType === 'convert') pastTense = 'Converted';
+
+    return `${pastTense} ${assetName}`;
   };
 
   const createBodyText = (transactionAmount, assetSymbol, transactionDate) => {
@@ -22,7 +26,11 @@ const TableRecentTransactions = ({ transactions }) => {
           <tr key={t?.symbol}>
             <td>
               <div className='tableRecentTransactions__cell'>
-                <img className='tableRecentTransactions__icon' src={t?.icon} />
+                <img
+                  className='tableRecentTransactions__icon'
+                  src={t?.icon}
+                  alt={`${t.name} icon`}
+                />
                 <div className='tableRecentTransactions__head'>
                   <Text>{createHeadText(t?.type, t?.name)}</Text>
                 </div>

@@ -17,6 +17,9 @@ import useSearch from '../hooks/useSearch';
 import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
 
+const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
+const ASSET_TYPE = ['All assets', 'Watchlist'];
+
 const Trade = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   const isWidthMin800 = useMediaQuery('(min-width: 800px)');
@@ -37,9 +40,6 @@ const Trade = () => {
     searchInput || filterInput !== 'All assets' ? searchFilterResult : allCoins;
 
   const watchlistQuery = (asset) => asset.onWatchlist === true;
-
-  const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
-  const ASSET_TYPE = ['All assets', 'Watchlist'];
 
   return (
     <>

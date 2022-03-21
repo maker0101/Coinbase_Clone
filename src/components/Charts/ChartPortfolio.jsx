@@ -2,15 +2,23 @@ import './ChartPortfolio.css';
 import { useState } from 'react';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
-import { PORTFOLIO_FOOTER_DATES } from '../../constants/portfolio-footer-dates';
 import { Text, LineChart, Dropdown } from '..';
 import useAssets from '../../hooks/useAssets';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import classNames from 'classnames';
 
+const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
+const PORTFOLIO_FOOTER_DATES = [
+  'JAN 27',
+  'FEB 1',
+  'FEB 6',
+  'FEB 11',
+  'FEB 17',
+  'FEB 22',
+];
+
 const ChartPortfolio = () => {
-  const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
   const { yourCoins } = useAssets();
   const [activeTimeFrame, setActiveTimeFrame] = useState('1W');

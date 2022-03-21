@@ -4,23 +4,17 @@ const useFilter = (allItems, defaultValue) => {
   const [filterResult, setFilterResult] = useState(allItems);
   const [filterInput, setFilterInput] = useState(defaultValue);
 
-  const filterItems = (allItems, query) => allItems.filter(query);
-
   const handleFilter = (e, allItems, query) => {
     const filterValue = e.target.value;
     setFilterInput(filterValue);
 
-    const filteredAssets = filterItems(allItems, query);
+    const filteredAssets = allItems.filter(query);
     setFilterResult(filterValue !== defaultValue ? filteredAssets : allItems);
   };
 
-  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
-  const clearFilterResult = (initialState) => {
-    setFilterResult(initialState);
-  };
-
+  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
-    if (filterInput === defaultValue) clearFilterResult(allItems);
+    if (filterInput === defaultValue) setFilterResult(allItems);
   }, [allItems]);
 
   return { filterResult, filterInput, handleFilter };

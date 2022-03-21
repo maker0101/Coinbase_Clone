@@ -4,6 +4,7 @@ import { Table, TableRowSelectAsset } from '..';
 
 const TableInputAddCash = () => {
   const { selectedFiat } = useContext(SelectAssetContext);
+
   return (
     <Table isInputTable>
       <tbody>

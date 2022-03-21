@@ -17,12 +17,9 @@ const useSearch = (allItems) => {
     setSearchResult(searchTerm ? filteredItems : allItems);
   };
 
-  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
-  const reInitializeSearchResult = (initialState) =>
-    setSearchResult(initialState);
-
+  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
-    if (!searchInput) reInitializeSearchResult(allItems);
+    if (!searchInput) setSearchResult(allItems);
   }, [allItems]);
 
   return { searchResult, searchInput, handleSearch };

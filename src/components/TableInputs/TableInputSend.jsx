@@ -17,12 +17,14 @@ const TableInputSend = () => {
         />
         <TableRowInputText
           helperText='To'
+          name='address'
           inputPlaceholder={'Mobile, email or address'}
           icon={<FaWallet />}
           iconSize={16}
         />
         <TableRowInputText
           helperText='Note'
+          name='note'
           inputPlaceholder={'Optional message'}
           icon={<MdEdit />}
           iconSize={21}

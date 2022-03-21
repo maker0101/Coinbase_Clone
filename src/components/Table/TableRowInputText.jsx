@@ -3,6 +3,7 @@ import { Text, Input } from '..';
 
 const TableRowInputText = ({
   helperText,
+  name,
   inputPlaceholder,
   icon,
   iconSize,
@@ -19,7 +20,7 @@ const TableRowInputText = ({
             style={{ fontSize: iconSize + 'px' }}>
             {icon}
           </div>
-          <Input placeholder={inputPlaceholder} />
+          <Input placeholder={inputPlaceholder} name={name} />
         </div>
       </td>
       <td></td>

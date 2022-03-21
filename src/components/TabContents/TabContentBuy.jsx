@@ -6,6 +6,7 @@ import {
   TabFooter,
   TabContentSelectAsset,
   TabContentBuyEmpty,
+  TransactionForm,
 } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
@@ -26,9 +27,11 @@ const TabContentBuy = () => {
   } else {
     return (
       <TabContent>
-        <InputAmountContainer />
-        <TableInputBuy />
-        <Button size='xl'>{`Buy ${selectedCoin?.name}`}</Button>
+        <TransactionForm type='buyCoin'>
+          <InputAmountContainer />
+          <TableInputBuy />
+          <Button size='xl'>{`Buy ${selectedCoin?.name}`}</Button>
+        </TransactionForm>
         <TabFooter
           textLeft={`${selectedFiat?.symbol} balance`}
           textRight={convertToCurrency(selectedFiat?.balance_eur)}

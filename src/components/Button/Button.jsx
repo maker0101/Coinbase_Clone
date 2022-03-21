@@ -9,6 +9,7 @@ const Button = ({
   size,
   stretch,
   onClick,
+  type,
 }) => {
   const btnClasses = classNames({
     Button: true,
@@ -24,7 +25,7 @@ const Button = ({
   });
 
   return (
-    <button className={btnClasses} onClick={onClick}>
+    <button className={btnClasses} onClick={onClick} type={type}>
       {children}
     </button>
   );

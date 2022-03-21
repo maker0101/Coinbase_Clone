@@ -1,8 +1,9 @@
-import { FIAT_ASSETS } from '../constants/fiat-assets';
 import useGetCoins from './useGetCoins';
+import useGetFiat from './useGetFiat';
 
 const useAssets = () => {
   const { coins } = useGetCoins();
+  const { fiat } = useGetFiat();
 
   const allCoins = coins.sort(
     (prev, next) => next.market_cap - prev.market_cap
@@ -16,7 +17,7 @@ const useAssets = () => {
     .filter((asset) => asset.onWatchlist)
     .sort((prev, next) => next.market_cap - prev.market_cap);
 
-  const allFiat = FIAT_ASSETS.sort(
+  const allFiat = fiat.sort(
     (prev, next) => next.balance_eur - prev.balance_eur
   );
 

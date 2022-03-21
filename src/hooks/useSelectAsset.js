@@ -5,11 +5,11 @@ const useSelectAsset = () => {
   const { allCoins, allFiat } = useAssets();
   const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
   const [lastSelectAssetType, setLastSelectAssetType] = useState('coin');
+  const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
   const [selectedCoin, setSelectedCoin] = useState(allCoins[0]);
   const [selectedCoinConvertTo, setSelectedCoinConvertTo] = useState(
     allCoins[1]
   );
-  const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
 
   const setSelectAssetType = (e) => {
     if (e?.target?.matches('.selectFiat, .selectFiat *'))
@@ -40,21 +40,12 @@ const useSelectAsset = () => {
     assetSelected1?.symbol === asset.symbol ||
     assetSelected2?.symbol === asset.symbol;
 
-  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
-  const reInitializeSelectedCoin = (initialState) =>
-    setSelectedCoin(initialState);
-
+  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
-    if (!selectedCoin) reInitializeSelectedCoin(allCoins[0]);
-  }, [allCoins]);
-
-  // TODO: Can/should I avoid reinitializing state with useEffect (doing it because state initialized empty first, because data still fetching)?
-  const reInitializeSelectedCoinConvertTo = (initialState) =>
-    setSelectedCoinConvertTo(initialState);
-
-  useEffect(() => {
-    if (!selectedCoinConvertTo) reInitializeSelectedCoinConvertTo(allCoins[1]);
-  }, [allCoins]);
+    setSelectedCoin(allCoins[0]);
+    setSelectedCoinConvertTo(allCoins[1]);
+    setSelectedFiat(allFiat[0]);
+  }, [allCoins, allFiat]);
 
   return {
     isSelectAssetOpen,
