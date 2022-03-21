@@ -15,6 +15,8 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
         ...transaction,
         in_symbol: selectedAssets.coin.symbol,
         out_symbol: selectedAssets.fiat.symbol,
+        in_name: selectedAssets.coin.name,
+        out_name: selectedAssets.fiat.name,
         amount_coin_in: calculateCoinAmount(
           transaction.amount_fiat,
           selectedAssets.coin.symbol,
@@ -27,6 +29,8 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
         ...transaction,
         in_symbol: selectedAssets.fiat.symbol,
         out_symbol: selectedAssets.coin.symbol,
+        in_name: selectedAssets.fiat.name,
+        out_name: selectedAssets.coin.name,
         amount_coin_out: calculateCoinAmount(
           transaction.amount_fiat,
           selectedAssets.coin.symbol,
@@ -39,6 +43,8 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
         ...transaction,
         in_symbol: selectedAssets.coinConvertTo.symbol,
         out_symbol: selectedAssets.coin.symbol,
+        in_name: selectedAssets.coinConvertTo.name,
+        out_name: selectedAssets.coin.name,
         amount_coin_in: calculateCoinAmount(
           transaction.amount_fiat,
           selectedAssets.coinConvertTo.symbol,
@@ -55,6 +61,7 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
       return {
         ...transaction,
         out_symbol: selectedAssets.coin.symbol,
+        out_name: selectedAssets.coin.name,
         amount_coin_out: calculateCoinAmount(
           transaction.amount_fiat,
           selectedAssets.coin.symbol,

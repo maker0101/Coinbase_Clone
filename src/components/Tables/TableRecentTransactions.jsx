@@ -1,42 +1,59 @@
 import './TableRecentTransactions.css';
 import { Text, Table } from '..';
 import useTransactions from '../../hooks/useTransactions';
+import { timestampToDayMonth } from '../../utilities/transform-dates';
 
-const TableRecentTransactions = ({ transactions }) => {
+const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();
   console.log(tradeTransactions);
 
-  const createHeadText = (transactionType, assetName) => {
-    let pastTense;
-    if (transactionType === 'buy') pastTense = 'Bought';
-    if (transactionType === 'sell') pastTense = 'Sold';
-    if (transactionType === 'convert') pastTense = 'Converted';
-
-    return `${pastTense} ${assetName}`;
+  const getAssetName = (transaction) => {
+    if (transaction?.type === 'buyCoin') return transaction?.in_name;
+    if (transaction?.type === 'sellCoin') return transaction?.out_name;
+    if (transaction?.type === 'convertCoin') return transaction?.out_name;
   };
 
-  const createBodyText = (transactionAmount, assetSymbol, transactionDate) => {
-    return `${transactionAmount} ${assetSymbol} on ${transactionDate}`;
+  const createHeadText = (transaction) => {
+    let action;
+    let assetName = getAssetName(transaction);
+
+    if (transaction?.type === 'buyCoin') action = 'Bought';
+    if (transaction?.type === 'sellCoin') action = 'Sold';
+    if (transaction?.type === 'convertCoin') action = 'Converted';
+
+    return `${action} ${assetName}`;
+  };
+
+  const createBodyText = (transaction) => {
+    let symbol;
+
+    if (transaction?.type === 'buyCoin') symbol = transaction?.in_symbol;
+    if (transaction?.type === 'sellCoin') symbol = transaction?.out_name;
+    if (transaction?.type === 'convertCoin') symbol = transaction?.out_name;
+
+    return `${transaction?.amount_fiat} ${symbol} on ${timestampToDayMonth(
+      transaction.timestamp
+    )}`;
   };
 
   return (
     <Table>
       <tbody>
-        {transactions.map((t) => (
-          <tr key={t?.symbol}>
+        {tradeTransactions.map((t) => (
+          <tr key={t?.id}>
             <td>
               <div className='tableRecentTransactions__cell'>
                 <img
                   className='tableRecentTransactions__icon'
                   src={t?.icon}
-                  alt={`${t.name} icon`}
+                  alt={`${getAssetName(t)} icon`}
                 />
                 <div className='tableRecentTransactions__head'>
-                  <Text>{createHeadText(t?.type, t?.name)}</Text>
+                  <Text>{createHeadText(t)}</Text>
                 </div>
                 <div className='tableRecentTransactions__body'>
                   <Text color='grey' size='s'>
-                    {createBodyText(t?.amount, t?.symbol, t?.date)}
+                    {createBodyText(t)}
                   </Text>
                 </div>
               </div>

@@ -1,5 +1,4 @@
 import './Trade.css';
-import { RECENT_TRANSACTIONS } from '../constants/recent-transactions';
 import {
   ContentCenter,
   ContentRight,
@@ -85,7 +84,7 @@ const Trade = () => {
         )}
         <Section>
           <SectionTitle title='Recent transactions' />
-          <TableRecentTransactions transactions={RECENT_TRANSACTIONS} />
+          <TableRecentTransactions />
         </Section>
       </ContentRight>
     </>
