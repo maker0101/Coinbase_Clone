@@ -12,7 +12,15 @@ const useTransactions = () => {
     )
     .sort((prev, next) => next.timestamp - prev.timestamp);
 
-  return { tradeTransactions };
+  const sendTransactions = transactions
+    .filter((t) => t.type === 'sendCoin')
+    .sort((prev, next) => next.timestamp - prev.timestamp);
+
+  const fiatTransactions = transactions
+    .filter((t) => t.type === 'depositFiat' || t.type === 'cashoutFiat')
+    .sort((prev, next) => next.timestamp - prev.timestamp);
+
+  return { tradeTransactions, sendTransactions, fiatTransactions };
 };
 
 export default useTransactions;

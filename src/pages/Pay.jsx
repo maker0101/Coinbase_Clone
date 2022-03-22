@@ -1,4 +1,3 @@
-import { PAYMENTS } from '../constants/payments';
 import {
   ContentCenter,
   ContentRight,
@@ -28,7 +27,7 @@ const Pay = () => {
             title='Send again'
             subtitle='Easily send to a recent destination'
           />
-          <TablePayments payments={PAYMENTS} />
+          <TablePayments />
         </Section>
       </ContentRight>
     </>

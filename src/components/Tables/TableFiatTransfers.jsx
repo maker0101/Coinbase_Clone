@@ -1,23 +1,27 @@
 import './TablePayments.css';
 import { Text, Table } from '..';
+import useTransactions from '../../hooks/useTransactions';
+import { timestampToMonthDayYear } from '../../utilities/transform-dates';
 
-const TableFiatTransfers = ({ payments }) => {
+const TableFiatTransfers = () => {
+  const { fiatTransactions } = useTransactions();
+
   return (
     <Table>
       <tbody>
-        {payments.map((p) => (
-          <tr key={p?.id}>
+        {fiatTransactions.map((t) => (
+          <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <img className='tablePayments__icon' src={p?.icon} />
+                <img className='tablePayments__icon' src={t?.icon} />
                 <div className='tablePayments__head'>
-                  <Text>{`${p?.type === 'deposit' ? 'Deposited' : 'Withdrew'} ${
-                    p?.amount
-                  } ${p?.name}`}</Text>
+                  <Text>{`${
+                    t?.type === 'depositFiat' ? 'Deposited' : 'Withdrew'
+                  } ${t?.amount_fiat} ${t?.in_symbol || t?.out_symbol}`}</Text>
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>
-                    {`On ${p?.date}`}
+                    {`On ${timestampToMonthDayYear(t?.timestamp)}`}
                   </Text>
                 </div>
               </div>

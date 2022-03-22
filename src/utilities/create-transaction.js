@@ -70,9 +70,19 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
         icon: selectedAssets.coin.icon,
       };
     case 'depositFiat':
-      return { ...transaction, in: selectedAssets.fiat.symbol };
+      return {
+        ...transaction,
+        in_symbol: selectedAssets.fiat.symbol,
+        in_name: selectedAssets.fiat.name,
+        icon: selectedAssets.fiat.icon,
+      };
     case 'cashoutFiat':
-      return { ...transaction, out: selectedAssets.fiat.symbol };
+      return {
+        ...transaction,
+        out_symbol: selectedAssets.fiat.symbol,
+        out_name: selectedAssets.fiat.name,
+        icon: selectedAssets.fiat.icon,
+      };
     default:
       break;
   }

@@ -1,4 +1,3 @@
-import { FIAT_TRANSFERS } from '../constants/fiat-transfers';
 import {
   ContentCenter,
   ContentRight,
@@ -10,8 +9,8 @@ import {
 import useMediaQuery from '../hooks/useMediaQuery';
 
 const Deposit = () => {
-	const isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
-	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <>
@@ -25,7 +24,7 @@ const Deposit = () => {
       <ContentRight>
         <Section width={isWidthMax1150 ? 's' : ''}>
           <SectionTitle title='Recent fiat transfers' />
-          <TableFiatTransfers payments={FIAT_TRANSFERS} />
+          <TableFiatTransfers />
         </Section>
       </ContentRight>
     </>

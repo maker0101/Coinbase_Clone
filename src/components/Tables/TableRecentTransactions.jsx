@@ -1,7 +1,7 @@
 import './TableRecentTransactions.css';
 import { Text, Table } from '..';
 import useTransactions from '../../hooks/useTransactions';
-import { timestampToDayMonth } from '../../utilities/transform-dates';
+import { timestampToMonthDayYear } from '../../utilities/transform-dates';
 
 const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();
@@ -28,10 +28,12 @@ const TableRecentTransactions = () => {
     let symbol;
 
     if (transaction?.type === 'buyCoin') symbol = transaction?.in_symbol;
-    if (transaction?.type === 'sellCoin') symbol = transaction?.out_name;
-    if (transaction?.type === 'convertCoin') symbol = transaction?.out_name;
+    if (transaction?.type === 'sellCoin') symbol = transaction?.out_symbol;
+    if (transaction?.type === 'convertCoin') symbol = transaction?.out_symbol;
 
-    return `${transaction?.amount_fiat} ${symbol} on ${timestampToDayMonth(
+    return `${(
+      transaction?.amount_coin_in || transaction?.amount_coin_out
+    ).toFixed(4)} ${symbol} on ${timestampToMonthDayYear(
       transaction.timestamp
     )}`;
   };
