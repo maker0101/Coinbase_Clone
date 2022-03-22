@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
-import { createTransaction } from '../../utilities/create-transaction';
 import useAssets from '../../hooks/useAssets';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase-config';
+import { createTransaction } from '../../utilities/create-transaction';
+import { validateTransaction } from '../../utilities/validate-transaction';
 
 const TransactionForm = ({ children, type }) => {
-  const { allCoins } = useAssets();
+  const { allCoins, yourCoins, allFiat } = useAssets();
   const { selectedCoin, selectedCoinConvertTo, selectedFiat } =
     useContext(SelectAssetContext);
 
@@ -16,22 +17,9 @@ const TransactionForm = ({ children, type }) => {
     fiat: selectedFiat,
   };
 
-  const validateTransaction = () => {
-    console.log('validate');
-
-    const result = {
-      status: 'valid',
-      error: '',
-    };
-
-    return result;
-  };
-
   const addTransaction = async (transaction) => {
     try {
-      await addDoc(collection(db, 'transactions'), {
-        ...transaction,
-      });
+      await addDoc(collection(db, 'transactions'), { ...transaction });
     } catch (err) {
       console.error(err);
     }
@@ -40,19 +28,18 @@ const TransactionForm = ({ children, type }) => {
   const updateFiat = () => console.log('update fiat');
   const updateCoins = () => console.log('update coins');
   const clearForm = () => console.log('clear form');
-  const showError = (error) => console.log(error);
+  const showError = (error) => console.error(error);
 
   const handleSubmit = (e, type, selectedAssets) => {
     e.preventDefault();
     const transaction = createTransaction(e, type, selectedAssets, allCoins);
-    const result = validateTransaction(transaction);
+    const result = validateTransaction(transaction, allFiat, yourCoins);
 
-    if (result?.status === 'valid') {
+    if (result?.isValid) {
       addTransaction(transaction);
       updateFiat(transaction);
       updateCoins(transaction);
       clearForm();
-      console.log(transaction);
     } else {
       showError(result.error);
     }

@@ -1,6 +1,6 @@
 import './Input.css';
 
-const Input = ({ type, placeholder, name }) => {
+const Input = ({ type, placeholder, name, required = false }) => {
   return (
     <div className='Input'>
       <input
@@ -8,6 +8,7 @@ const Input = ({ type, placeholder, name }) => {
         placeholder={placeholder || 'Type here'}
         className='input__field'
         name={name}
+        required={required}
       />
     </div>
   );

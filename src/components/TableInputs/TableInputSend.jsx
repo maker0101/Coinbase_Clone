@@ -21,6 +21,7 @@ const TableInputSend = () => {
           inputPlaceholder={'Mobile, email or address'}
           icon={<FaWallet />}
           iconSize={16}
+          required={true}
         />
         <TableRowInputText
           helperText='Note'

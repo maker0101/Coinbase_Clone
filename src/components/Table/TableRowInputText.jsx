@@ -7,6 +7,7 @@ const TableRowInputText = ({
   inputPlaceholder,
   icon,
   iconSize,
+  required,
 }) => {
   return (
     <tr className='TableRowInputText'>
@@ -20,7 +21,11 @@ const TableRowInputText = ({
             style={{ fontSize: iconSize + 'px' }}>
             {icon}
           </div>
-          <Input placeholder={inputPlaceholder} name={name} />
+          <Input
+            placeholder={inputPlaceholder}
+            name={name}
+            required={required}
+          />
         </div>
       </td>
       <td></td>
