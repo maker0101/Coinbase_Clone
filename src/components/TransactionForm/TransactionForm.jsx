@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import useAssets from '../../hooks/useAssets';
 import { db } from '../../firebase-config';
@@ -7,11 +7,14 @@ import { validateTransaction } from '../../utilities/validate-transaction';
 import { addTransaction } from '../../utilities/add-transaction';
 import { updateFiatBalance } from '../../utilities/update-fiat-balance';
 import { updateCoins } from '../../utilities/update-coins';
+import { AmountContext } from '../../contexts/AmountContext';
 
 const TransactionForm = ({ children, type }) => {
   const { allCoins, yourCoins, allFiat } = useAssets();
   const { selectedCoin, selectedCoinConvertTo, selectedFiat } =
     useContext(SelectAssetContext);
+  const [amount, setAmount] = useState(0);
+  const [amountError, setAmountError] = useState('');
 
   const selectedAssets = {
     fiat: selectedFiat,
@@ -19,10 +22,7 @@ const TransactionForm = ({ children, type }) => {
     coinConvertTo: selectedCoinConvertTo,
   };
 
-  const clearForm = () => {
-    console.log('clear form');
-  };
-  const showError = (error) => {
+  const showFormError = (error) => {
     console.error(error);
   };
 
@@ -35,16 +35,20 @@ const TransactionForm = ({ children, type }) => {
       addTransaction(db, transaction);
       updateFiatBalance(db, transaction, allFiat);
       updateCoins(db, transaction, yourCoins);
-      clearForm();
+      setAmount(0);
     } else {
-      showError(result.error);
+      showFormError(result.error);
     }
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e, type, selectedAssets)}>
-      {children}
-    </form>
+    <AmountContext.Provider value={{ amount, setAmount }}>
+      <form
+        onSubmit={(e) => handleSubmit(e, type, selectedAssets)}
+        onChange={() => setAmountError('')}>
+        {children}
+      </form>
+    </AmountContext.Provider>
   );
 };
 
