@@ -5,8 +5,8 @@ import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { formatMarketCap } from '../../utilities/format-market-cap';
 
 const TableAssets = ({ assets }) => {
-	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
-	const isWidthMin400 = useMediaQuery('(min-width: 400px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMin400 = useMediaQuery('(min-width: 400px)');
 
   return (
     <Table>
@@ -64,7 +64,7 @@ const TableAssets = ({ assets }) => {
                   <Text>{formatMarketCap(asset?.market_cap)}</Text>
                 </td>
                 <td>
-                  <TableCellWatch onWatchlist={asset?.onWatchlist} />
+                  <TableCellWatch coin={asset} />
                 </td>
               </>
             )}

@@ -1,20 +1,12 @@
 import './Star.css';
-import { useState, useEffect } from 'react';
 import { HiStar, HiOutlineStar } from 'react-icons/hi';
+import { toggleOnWatchlist } from '../../utilities/toggle-on-watchlist';
+import { db } from '../../firebase-config';
 
-const Star = ({ onWatchlist }) => {
-  const [isOnWatchlist, setisOnWatchlist] = useState(onWatchlist);
-
-  const toggleisOnWatchlist = () => setisOnWatchlist(() => !isOnWatchlist);
-
-  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
-  useEffect(() => {
-    setisOnWatchlist(onWatchlist);
-  }, [onWatchlist]);
-
+const Star = ({ coin }) => {
   return (
-    <div className='Star' onClick={toggleisOnWatchlist}>
-      {isOnWatchlist ? (
+    <div className='Star' onClick={() => toggleOnWatchlist(db, coin)}>
+      {coin?.onWatchlist ? (
         <HiStar className='star__filled' />
       ) : (
         <HiOutlineStar className='star__empty' />

@@ -7,9 +7,8 @@ const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();
 
   const createHeadText = (transaction) => {
+    const assetName = transaction?.coin?.name;
     let action;
-    let assetName = transaction?.coin?.name;
-
     if (transaction?.type === 'buyCoin') action = 'Bought';
     if (transaction?.type === 'sellCoin') action = 'Sold';
     if (transaction?.type === 'convertCoin') action = 'Converted';
@@ -18,14 +17,9 @@ const TableRecentTransactions = () => {
   };
 
   const createBodyText = (transaction) => {
-    let symbol;
+    const symbol = transaction?.coin?.symbol;
     const amount = transaction?.coin?.amount?.toFixed(6);
     const time = timestampToMonthDayYear(transaction?.timestamp);
-
-    if (transaction?.type === 'buyCoin' || transaction?.type === 'sellCoin')
-      symbol = transaction?.coin?.symbol;
-    if (transaction?.type === 'convertCoin')
-      symbol = transaction?.coinConvertTo?.symbol;
 
     return `${amount} ${symbol} on ${time}`;
   };
@@ -33,7 +27,7 @@ const TableRecentTransactions = () => {
   return (
     <Table>
       <tbody>
-        {tradeTransactions.map((t) => (
+        {tradeTransactions.slice(0, 5).map((t) => (
           <tr key={t?.id}>
             <td>
               <div className='tableRecentTransactions__cell'>

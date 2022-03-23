@@ -1,5 +1,5 @@
-export const createCoin = (symbol, balance) => ({
+export const createCoin = (symbol, balance = 0, onWatchlist = false) => ({
   symbol: symbol,
   balance_coin: balance,
-  onWatchlist: false,
+  onWatchlist: onWatchlist,
 });

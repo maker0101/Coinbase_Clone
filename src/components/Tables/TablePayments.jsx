@@ -9,7 +9,7 @@ const TablePayments = () => {
   return (
     <Table>
       <tbody>
-        {sendTransactions.map((t) => (
+        {sendTransactions.slice(0, 5).map((t) => (
           <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>

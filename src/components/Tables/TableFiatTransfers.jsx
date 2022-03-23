@@ -9,7 +9,7 @@ const TableFiatTransfers = () => {
   return (
     <Table>
       <tbody>
-        {fiatTransactions.map((t) => (
+        {fiatTransactions.slice(0, 5).map((t) => (
           <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
