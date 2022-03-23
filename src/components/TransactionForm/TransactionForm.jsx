@@ -7,7 +7,7 @@ import { validateTransaction } from '../../utilities/validate-transaction';
 import { addTransaction } from '../../utilities/add-transaction';
 import { updateFiatBalance } from '../../utilities/update-fiat-balance';
 import { updateCoins } from '../../utilities/update-coins';
-import { AmountContext } from '../../contexts/AmountContext';
+import { TransactionFormContext } from '../../contexts/TransactionFormContext';
 
 const TransactionForm = ({ children, type }) => {
   const { allCoins, yourCoins, allFiat } = useAssets();
@@ -22,10 +22,6 @@ const TransactionForm = ({ children, type }) => {
     coinConvertTo: selectedCoinConvertTo,
   };
 
-  const showFormError = (error) => {
-    console.error(error);
-  };
-
   const handleSubmit = (e, type, selectedAssets) => {
     e.preventDefault();
     const transaction = createTransaction(e, type, selectedAssets, allCoins);
@@ -37,18 +33,18 @@ const TransactionForm = ({ children, type }) => {
       updateCoins(db, transaction, yourCoins);
       setAmount(0);
     } else {
-      showFormError(result.error);
+      setAmountError(result.error);
     }
   };
 
   return (
-    <AmountContext.Provider value={{ amount, setAmount }}>
+    <TransactionFormContext.Provider value={{ amount, setAmount, amountError }}>
       <form
         onSubmit={(e) => handleSubmit(e, type, selectedAssets)}
         onChange={() => setAmountError('')}>
         {children}
       </form>
-    </AmountContext.Provider>
+    </TransactionFormContext.Provider>
   );
 };
 

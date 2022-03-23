@@ -1,24 +1,37 @@
 .InputAmountContainer {
-	display: flex;
-	justify-content: center;
-	margin: 48px 0;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 48px 0 8px 0;
+  width: 100%;
+}
+
+.inputAmountContainer_amount {
+  display: flex;
+  justify-content: center;
 }
 
 .inputAmountContainer_currency {
-	font-size: 40px;
-	font-weight: 600;
-	color: #5b616e;
+  font-size: 40px;
+  font-weight: 600;
+  color: #5b616e;
+}
+
+.inputAmountContainer_amountError {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  min-height: 24px;
 }
 
 @media (max-width: 800px) {
-	.InputAmountContainer {
-		margin: 8% 0;
-	}
+  .InputAmountContainer {
+    margin: 8% 0;
+  }
 }
 
 @media (max-width: 600px) {
-	.InputAmountContainer {
-		margin: 16% 0;
-	}
+  .InputAmountContainer {
+    margin: 16% 0;
+  }
 }

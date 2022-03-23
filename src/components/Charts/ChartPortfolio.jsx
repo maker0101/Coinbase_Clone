@@ -21,7 +21,7 @@ const PORTFOLIO_FOOTER_DATES = [
 const ChartPortfolio = () => {
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
   const { yourCoins } = useAssets();
-  const [activeTimeFrame, setActiveTimeFrame] = useState('1W');
+  const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
 
   return (

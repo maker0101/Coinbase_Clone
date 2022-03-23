@@ -1,9 +1,9 @@
 import './InputAmountDynamicWidth.css';
 import { useState, useContext, useEffect } from 'react';
-import { AmountContext } from '../../contexts/AmountContext';
+import { TransactionFormContext } from '../../contexts/TransactionFormContext';
 
 const InputAmountDynamicWidth = () => {
-  const { amount, setAmount } = useContext(AmountContext);
+  const { amount, setAmount } = useContext(TransactionFormContext);
   const [chars, setChars] = useState(0);
   const inputWidth = (chars) => (chars === 0 ? 50 : chars * 50);
 
