@@ -7,8 +7,10 @@ export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
   fetchedCoins.forEach((coin) => {
     const coinBalance = findAsset(coin.symbol, yourCoins)?.balance_coin || 0;
     const onWatchList = findAsset(coin.symbol, yourCoins)?.onWatchlist || false;
+    const coinId = findAsset(coin.symbol, yourCoins)?.id || '';
 
     let coinAsset = {
+      id: coinId,
       name: coin.name,
       symbol: coin.symbol,
       isFiat: false,

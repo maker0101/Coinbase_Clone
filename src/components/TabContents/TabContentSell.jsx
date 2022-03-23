@@ -27,7 +27,7 @@ const TabContentSell = () => {
           </TransactionForm>
           <TabFooter
             textLeft={`${selectedCoin?.symbol} balance`}
-            textRight={`${selectedCoin?.balance_coin} ${
+            textRight={`${selectedCoin?.balance_coin?.toFixed(6)} ${
               selectedCoin?.symbol
             } = ${convertToCurrency(selectedCoin?.balance_eur)}`}
           />

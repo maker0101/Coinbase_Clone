@@ -5,17 +5,10 @@ import { timestampToMonthDayYear } from '../../utilities/transform-dates';
 
 const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();
-  console.log(tradeTransactions);
-
-  const getAssetName = (transaction) => {
-    if (transaction?.type === 'buyCoin') return transaction?.in_name;
-    if (transaction?.type === 'sellCoin') return transaction?.out_name;
-    if (transaction?.type === 'convertCoin') return transaction?.out_name;
-  };
 
   const createHeadText = (transaction) => {
     let action;
-    let assetName = getAssetName(transaction);
+    let assetName = transaction?.coin?.name;
 
     if (transaction?.type === 'buyCoin') action = 'Bought';
     if (transaction?.type === 'sellCoin') action = 'Sold';
@@ -26,16 +19,15 @@ const TableRecentTransactions = () => {
 
   const createBodyText = (transaction) => {
     let symbol;
+    const amount = transaction?.coin?.amount?.toFixed(6);
+    const time = timestampToMonthDayYear(transaction?.timestamp);
 
-    if (transaction?.type === 'buyCoin') symbol = transaction?.in_symbol;
-    if (transaction?.type === 'sellCoin') symbol = transaction?.out_symbol;
-    if (transaction?.type === 'convertCoin') symbol = transaction?.out_symbol;
+    if (transaction?.type === 'buyCoin' || transaction?.type === 'sellCoin')
+      symbol = transaction?.coin?.symbol;
+    if (transaction?.type === 'convertCoin')
+      symbol = transaction?.coinConvertTo?.symbol;
 
-    return `${(
-      transaction?.amount_coin_in || transaction?.amount_coin_out
-    ).toFixed(4)} ${symbol} on ${timestampToMonthDayYear(
-      transaction.timestamp
-    )}`;
+    return `${amount} ${symbol} on ${time}`;
   };
 
   return (
@@ -47,8 +39,8 @@ const TableRecentTransactions = () => {
               <div className='tableRecentTransactions__cell'>
                 <img
                   className='tableRecentTransactions__icon'
-                  src={t?.icon}
-                  alt={`${getAssetName(t)} icon`}
+                  src={t?.coin?.icon}
+                  alt={`${t?.coin?.name} icon`}
                 />
                 <div className='tableRecentTransactions__head'>
                   <Text>{createHeadText(t)}</Text>

@@ -13,11 +13,11 @@ const TableFiatTransfers = () => {
           <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <img className='tablePayments__icon' src={t?.icon} />
+                <img className='tablePayments__icon' src={t?.fiat?.icon} />
                 <div className='tablePayments__head'>
                   <Text>{`${
                     t?.type === 'depositFiat' ? 'Deposited' : 'Withdrew'
-                  } ${t?.amount_fiat} ${t?.in_symbol || t?.out_symbol}`}</Text>
+                  } ${t?.fiat?.amount} ${t?.fiat?.symbol}`}</Text>
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>

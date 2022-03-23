@@ -1,90 +1,69 @@
 import { calculateCoinAmount } from './calculate-coin-amount';
 
 export const createTransaction = (e, type, selectedAssets, allCoins) => {
-  let transaction = {
+  const transaction = {
     type: type,
-    amount_fiat: Number(e.target.amount?.value) || 0,
     timestamp: Date.now(),
     note: e.target.note?.value || '',
     address: e.target.address?.value || '',
   };
 
+  const fiat = {
+    symbol: selectedAssets.fiat?.symbol,
+    name: selectedAssets.fiat?.name,
+    icon: selectedAssets.fiat?.icon,
+    amount: Number(e.target.amount?.value) || 0,
+  };
+
+  const coin = {
+    symbol: selectedAssets.coin?.symbol,
+    name: selectedAssets.coin?.name,
+    icon: selectedAssets.coin?.icon,
+    amount: calculateCoinAmount(
+      fiat.amount,
+      selectedAssets.coin?.symbol,
+      allCoins
+    ),
+  };
+
+  const coinConvertTo = {
+    symbol: selectedAssets.coinConvertTo?.symbol,
+    name: selectedAssets.coinConvertTo?.name,
+    icon: selectedAssets.coinConvertTo?.icon,
+    amount: calculateCoinAmount(
+      fiat.amount,
+      selectedAssets.coinConvertTo?.symbol,
+      allCoins
+    ),
+  };
+
   switch (type) {
-    case 'buyCoin':
+    case 'depositFiat':
+    case 'cashoutFiat':
       return {
         ...transaction,
-        in_symbol: selectedAssets.coin.symbol,
-        out_symbol: selectedAssets.fiat.symbol,
-        in_name: selectedAssets.coin.name,
-        out_name: selectedAssets.fiat.name,
-        amount_coin_in: calculateCoinAmount(
-          transaction.amount_fiat,
-          selectedAssets.coin.symbol,
-          allCoins
-        ),
-        icon: selectedAssets.coin.icon,
+        fiat: fiat,
       };
+    case 'buyCoin':
     case 'sellCoin':
       return {
         ...transaction,
-        in_symbol: selectedAssets.fiat.symbol,
-        out_symbol: selectedAssets.coin.symbol,
-        in_name: selectedAssets.fiat.name,
-        out_name: selectedAssets.coin.name,
-        amount_coin_out: calculateCoinAmount(
-          transaction.amount_fiat,
-          selectedAssets.coin.symbol,
-          allCoins
-        ),
-        icon: selectedAssets.coin.icon,
-      };
-    case 'convertCoin':
-      return {
-        ...transaction,
-        in_symbol: selectedAssets.coinConvertTo.symbol,
-        out_symbol: selectedAssets.coin.symbol,
-        in_name: selectedAssets.coinConvertTo.name,
-        out_name: selectedAssets.coin.name,
-        amount_coin_in: calculateCoinAmount(
-          transaction.amount_fiat,
-          selectedAssets.coinConvertTo.symbol,
-          allCoins
-        ),
-        amount_coin_out: calculateCoinAmount(
-          transaction.amount_fiat,
-          selectedAssets.coin.symbol,
-          allCoins
-        ),
-        icon: selectedAssets.coin.icon,
+        fiat: fiat,
+        coin: coin,
       };
     case 'sendCoin':
       return {
         ...transaction,
-        out_symbol: selectedAssets.coin.symbol,
-        out_name: selectedAssets.coin.name,
-        amount_coin_out: calculateCoinAmount(
-          transaction.amount_fiat,
-          selectedAssets.coin.symbol,
-          allCoins
-        ),
-        icon: selectedAssets.coin.icon,
+        coin: coin,
       };
-    case 'depositFiat':
+    case 'convertCoin':
       return {
         ...transaction,
-        in_symbol: selectedAssets.fiat.symbol,
-        in_name: selectedAssets.fiat.name,
-        icon: selectedAssets.fiat.icon,
-      };
-    case 'cashoutFiat':
-      return {
-        ...transaction,
-        out_symbol: selectedAssets.fiat.symbol,
-        out_name: selectedAssets.fiat.name,
-        icon: selectedAssets.fiat.icon,
+        coin: coin,
+        coinConvertTo: coinConvertTo,
       };
     default:
+      console.error('Unsupported transaction type');
       break;
   }
-  return transaction;
 };

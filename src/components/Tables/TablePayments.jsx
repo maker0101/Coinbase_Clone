@@ -13,10 +13,10 @@ const TablePayments = () => {
           <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <img className='tablePayments__icon' src={t?.icon} />
+                <img className='tablePayments__icon' src={t?.coin?.icon} />
                 <div className='tablePayments__head'>
-                  <Text>{`Sent ${t?.amount_coin_out.toFixed(4)} ${
-                    t?.out_symbol
+                  <Text>{`Sent ${t?.coin?.amount?.toFixed(6)} ${
+                    t?.coin?.symbol
                   }`}</Text>
                 </div>
                 <div className='tablePayments__body'>

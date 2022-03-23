@@ -1,42 +1,55 @@
 import { findAsset } from './find-asset';
 
-export const validateTransaction = (t, fiatAssets, coinAssets) => {
-  let isValid = false;
-  let error = '';
+const validateSufficientFiatBalance = (transaction, fiatAssets) => {
+  const fiat = findAsset(transaction?.fiat?.symbol, fiatAssets);
+  const fiatBalance = fiat?.balance_eur;
 
-  switch (t.type) {
+  if (fiat && fiatBalance >= transaction?.fiat?.amount) {
+    return {
+      isValid: true,
+      error: '',
+    };
+  } else {
+    return {
+      isValid: false,
+      error: `Non-sufficient ${transaction?.fiat?.name} funds`,
+    };
+  }
+};
+
+const validateSufficientCoinBalance = (transaction, coinAssets) => {
+  const coin = findAsset(transaction?.coin?.symbol, coinAssets);
+  const coinBalance = coin?.balance_coin;
+
+  if (coin && coinBalance >= transaction.coin.amount) {
+    return {
+      isValid: true,
+      error: '',
+    };
+  } else {
+    return {
+      isValid: false,
+      error: `Non-sufficient ${transaction.coin.name} funds`,
+    };
+  }
+};
+
+export const validateTransaction = (transaction, fiatAssets, coinAssets) => {
+  switch (transaction.type) {
     case 'buyCoin':
     case 'cashoutFiat':
-      const fiatBalance = findAsset(t.out_symbol, fiatAssets)?.balance_eur;
-      if (fiatBalance && fiatBalance >= t.amount_fiat) {
-        isValid = true;
-      } else {
-        isValid = false;
-        error = `Non-sufficient ${t.out_name} funds`;
-      }
-      break;
+      return validateSufficientFiatBalance(transaction, fiatAssets);
     case 'sellCoin':
     case 'convertCoin':
     case 'sendCoin':
-      const coinBalance = findAsset(t.out_symbol, coinAssets)?.balance_coin;
-
-      if (coinBalance && coinBalance >= t.amount_coin_out) {
-        isValid = true;
-      } else {
-        isValid = false;
-        error = `Non-sufficient ${t.out_name} funds`;
-      }
-      break;
+      return validateSufficientCoinBalance(transaction, coinAssets);
     case 'depositFiat':
-      isValid = true;
-      break;
+      return {
+        isValid: true,
+        error: '',
+      };
     default:
       console.error('Unknown transaction type');
       break;
   }
-
-  return {
-    isValid: isValid,
-    error: error,
-  };
 };
