@@ -24,7 +24,7 @@ const REQUEST_OPTIONS = {
 
 const useGetCoins = () => {
   const [coins, setCoins] = useState([]);
-  const [allCoins, setYourCoins] = useState([]);
+  const [allCoins, setAllCoins] = useState([]);
 
   const fetchCoins = async (options) => {
     try {
@@ -40,7 +40,7 @@ const useGetCoins = () => {
     const yourCoinsQuery = query(collection(db, 'yourCoins'));
 
     return onSnapshot(yourCoinsQuery, (querySnapshot) => {
-      setYourCoins(
+      setAllCoins(
         querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
     });
@@ -51,6 +51,8 @@ const useGetCoins = () => {
     const adaptedCoins = adaptFetchedCoins(fetchedCoins, allCoins);
     setCoins(adaptedCoins);
   };
+
+  console.log(coins);
 
   useEffect(() => {
     fetchYourCoins(db);

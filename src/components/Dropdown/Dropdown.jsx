@@ -3,17 +3,15 @@ import './Dropdown.css';
 const Dropdown = ({
   name,
   options,
-  filterInput,
-  handleFilter,
-  filterQuery,
-  allItems,
+  value,
+  onChange,
 }) => {
   return (
     <select
       className='Dropdown'
       name={name}
-      value={filterInput}
-      onChange={(e) => handleFilter(e, allItems, filterQuery)}>
+      value={value}
+      onChange={onChange}>
       {options.map((option) => (
         <option key={option} value={option}>
           {option}

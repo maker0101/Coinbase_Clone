@@ -10,6 +10,7 @@ export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
     const coinId = findAsset(coin.symbol, yourCoins)?.id || '';
 
     let coinAsset = {
+      uuid: coin.uuid,
       id: coinId,
       name: coin.name,
       symbol: coin.symbol,
