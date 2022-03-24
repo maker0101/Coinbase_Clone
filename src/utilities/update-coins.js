@@ -15,7 +15,7 @@ export const updateCoins = (db, transaction, coinAssets) => {
           ? updateCoinBalance(db, coin?.id, newCoinBalance)
           : addCoin(
               db,
-              createCoin(transaction?.coin?.symbol, transaction?.coin?.amount)
+              createCoin(transaction?.coin, transaction?.coin?.amount)
             );
         break;
       case 'sendCoin':

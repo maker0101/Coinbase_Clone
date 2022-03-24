@@ -9,30 +9,33 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
   };
 
   const fiat = {
-    symbol: selectedAssets.fiat?.symbol,
-    name: selectedAssets.fiat?.name,
-    icon: selectedAssets.fiat?.icon,
+    id: selectedAssets?.coin?.id,
+    symbol: selectedAssets?.fiat?.symbol,
+    name: selectedAssets?.fiat?.name,
+    icon: selectedAssets?.fiat?.icon,
     amount: Number(e.target.amount?.value) || 0,
   };
 
   const coin = {
-    symbol: selectedAssets.coin?.symbol,
-    name: selectedAssets.coin?.name,
-    icon: selectedAssets.coin?.icon,
+    id: selectedAssets?.coin?.id,
+    symbol: selectedAssets?.coin?.symbol,
+    name: selectedAssets?.coin?.name,
+    icon: selectedAssets?.coin?.icon,
     amount: calculateCoinAmount(
-      fiat.amount,
-      selectedAssets.coin?.symbol,
+      fiat?.amount,
+      selectedAssets?.coin?.symbol,
       allCoins
     ),
   };
 
   const coinConvertTo = {
-    symbol: selectedAssets.coinConvertTo?.symbol,
-    name: selectedAssets.coinConvertTo?.name,
-    icon: selectedAssets.coinConvertTo?.icon,
+    id: selectedAssets?.coinConvertTo?.id,
+    symbol: selectedAssets?.coinConvertTo?.symbol,
+    name: selectedAssets?.coinConvertTo?.name,
+    icon: selectedAssets?.coinConvertTo?.icon,
     amount: calculateCoinAmount(
-      fiat.amount,
-      selectedAssets.coinConvertTo?.symbol,
+      fiat?.amount,
+      selectedAssets?.coinConvertTo?.symbol,
       allCoins
     ),
   };

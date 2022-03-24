@@ -11,7 +11,7 @@ const REQUEST_OPTIONS = {
   },
 };
 
-const YOUR_COIN_UUIDS = ['Qwsogvtv82FCd'];
+const YOUR_COIN_UUIDS = ['Qwsogvtv82FCd', 'razxDUgYGNAdQ'];
 
 const useGetCoinPriceHistory = () => {
   const [coinPriceHistories, setCoinPriceHistories] = useState([]);
@@ -46,8 +46,6 @@ const useGetCoinPriceHistory = () => {
   useEffect(() => {
     handleGetCoinPriceHistories(YOUR_COIN_UUIDS, REQUEST_OPTIONS);
   }, [YOUR_COIN_UUIDS, REQUEST_OPTIONS]);
-
-  console.log(coinPriceHistories);
 
   return { coinPriceHistories };
 };
