@@ -5,7 +5,7 @@ import { updateCoinBalance } from './update-coin-balance';
 
 export const updateCoins = (db, transaction, coinAssets) => {
   try {
-    const coin = findAsset(transaction?.coin?.symbol, coinAssets);
+    const coin = findAsset(transaction?.coin?.id, coinAssets);
     let newCoinBalance;
 
     switch (transaction.type) {
@@ -25,7 +25,7 @@ export const updateCoins = (db, transaction, coinAssets) => {
         break;
       case 'convertCoin':
         const coinConvertTo = findAsset(
-          transaction?.coinConvertTo?.symbol,
+          transaction?.coinConvertTo?.id,
           coinAssets
         );
 

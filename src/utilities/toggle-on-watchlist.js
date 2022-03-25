@@ -7,7 +7,6 @@ export const toggleOnWatchlist = async (db, coin) => {
     const coin = await getDoc(doc(db, 'yourCoins', coinId));
     return coin.exists();
   };
-
   const isYourCoin = await checkIsYourCoin(db, coin?.id);
 
   try {
@@ -17,7 +16,6 @@ export const toggleOnWatchlist = async (db, coin) => {
         onWatchlist: !coin?.onWatchlist,
       });
     } else {
-      console.log('adding coin');
       await addCoin(db, createCoin(coin, 0, true));
     }
   } catch (error) {

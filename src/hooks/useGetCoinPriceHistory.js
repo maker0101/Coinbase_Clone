@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import useAssets from './useAssets';
+import dayjs from 'dayjs';
 
+const YOUR_COIN_UUIDS = ['Qwsogvtv82FCd', 'razxDUgYGNAdQ'];
 const REQUEST_OPTIONS = {
   method: 'GET',
   url: '',
-  params: { referenceCurrencyUuid: '5k-_VTxqtCEI', timePeriod: '24h' },
+  params: { referenceCurrencyUuid: '5k-_VTxqtCEI', timePeriod: '30d' },
   headers: {
     'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
     'X-RapidAPI-Key': '3b41687c24mshc8f3e84a583efc7p133f24jsnc123081c735c',
   },
 };
 
-const YOUR_COIN_UUIDS = ['Qwsogvtv82FCd', 'razxDUgYGNAdQ'];
-
 const useGetCoinPriceHistory = () => {
-  const [coinPriceHistories, setCoinPriceHistories] = useState([]);
+  const [yourCoinHistories, setYourCoinHistories] = useState([]);
+  const [totalBalanceHistory, setTotalBalanceHistory] = useState([]);
+  const { yourCoins } = useAssets();
 
   const fetchCoinPriceHistory = async (coin, options) => {
     const url = `https://coinranking1.p.rapidapi.com/coin/${coin}/history`;
@@ -28,26 +31,58 @@ const useGetCoinPriceHistory = () => {
     }
   };
 
-  const fetchCoinPriceHistories = (coins, options) => {
-    const priceHistories = [];
-    coins.forEach(async (coin) => {
-      const priceHistory = await fetchCoinPriceHistory(coin, options);
-      priceHistories.push(priceHistory);
+  const createCoinHistories = (yourCoins, options) => {
+    const coinHistories = [];
+    yourCoins.forEach(async (coin) => {
+      const priceHistory = await fetchCoinPriceHistory(coin?.id, options);
+      const coinHistory = {
+        id: coin?.id,
+        name: coin?.name,
+        priceHistory: priceHistory,
+        balanceHistoryEur: priceHistory.map(
+          (data) => data?.price * coin.balance_coin
+        ),
+      };
+
+      coinHistories.push(coinHistory);
     });
-
-    return priceHistories;
+    return coinHistories;
   };
 
-  const handleGetCoinPriceHistories = (coins, options) => {
-    const priceHistories = fetchCoinPriceHistories(coins, options);
-    setCoinPriceHistories(priceHistories);
+  const createTotalBalanceHistory = (coinHistories) => {
+    const result = coinHistories[0]?.balanceHistoryEur.map(
+      (balance, balanceIndex) => ({
+        balance: Number(
+          (balance + coinHistories[1]?.balanceHistoryEur[balanceIndex]).toFixed(
+            2
+          )
+        ),
+        timestamp: dayjs
+          .unix(coinHistories[0]?.priceHistory[balanceIndex]?.timestamp)
+          .format('MMM D'),
+      })
+    );
+    return result;
   };
 
+  //TODO: Needed to use 'yourCoinHistories' instead of 'coinHistories', otherwise 'totalBalanceHistory' will remain undefined. Can't pass 'yourCoinHistories' as parameter either
+  const handleGetCoinPriceHistories = async (yourCoins, options) => {
+    const coinHistories = await createCoinHistories(yourCoins, options);
+    setYourCoinHistories(coinHistories);
+    const totalHistory = createTotalBalanceHistory(yourCoinHistories);
+    setTotalBalanceHistory(totalHistory);
+  };
+
+  console.log(yourCoins);
+  console.log(yourCoinHistories);
+  console.log(totalBalanceHistory);
+
+  //TODO: Why is programming running in a loop when I replace 'YOUR_COIN_UUIDS' with 'your coins' in the dependecy array?
   useEffect(() => {
-    handleGetCoinPriceHistories(YOUR_COIN_UUIDS, REQUEST_OPTIONS);
-  }, [YOUR_COIN_UUIDS, REQUEST_OPTIONS]);
+    handleGetCoinPriceHistories(yourCoins, REQUEST_OPTIONS);
+  }, []);
 
-  return { coinPriceHistories };
+  return { yourCoinHistories };
 };
 
 export default useGetCoinPriceHistory;

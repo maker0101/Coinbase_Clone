@@ -1,2 +1,2 @@
-export const findAsset = (symbol, assets) =>
-  assets.find((asset) => asset.symbol === symbol);
+export const findAsset = (id, assets) =>
+  assets.find((asset) => asset.id === id);

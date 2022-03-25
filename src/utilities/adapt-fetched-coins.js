@@ -5,8 +5,8 @@ import { calculateCoinBalance } from '../utilities/calculate-coin-balance';
 export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
   const adaptedCoins = [];
   fetchedCoins.forEach((coin) => {
-    const coinBalance = findAsset(coin.symbol, yourCoins)?.balance_coin || 0;
-    const onWatchList = findAsset(coin.symbol, yourCoins)?.onWatchlist || false;
+    const coinBalance = findAsset(coin?.uuid, yourCoins)?.balance_coin || 0;
+    const onWatchList = findAsset(coin?.uuid, yourCoins)?.onWatchlist || false;
 
     let coinAsset = {
       id: coin.uuid,

@@ -19,7 +19,7 @@ const ChartPortfolio = () => {
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
   const chartTimes = createChartTimes();
 
-  useGetCoinPriceHistory();
+  //useGetCoinPriceHistory();
 
   return (
     <div>

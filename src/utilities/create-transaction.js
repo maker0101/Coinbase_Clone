@@ -9,7 +9,7 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
   };
 
   const fiat = {
-    id: selectedAssets?.coin?.id,
+    id: selectedAssets?.fiat?.id,
     symbol: selectedAssets?.fiat?.symbol,
     name: selectedAssets?.fiat?.name,
     icon: selectedAssets?.fiat?.icon,
@@ -23,7 +23,7 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
     icon: selectedAssets?.coin?.icon,
     amount: calculateCoinAmount(
       fiat?.amount,
-      selectedAssets?.coin?.symbol,
+      selectedAssets?.coin?.id,
       allCoins
     ),
   };
@@ -35,7 +35,7 @@ export const createTransaction = (e, type, selectedAssets, allCoins) => {
     icon: selectedAssets?.coinConvertTo?.icon,
     amount: calculateCoinAmount(
       fiat?.amount,
-      selectedAssets?.coinConvertTo?.symbol,
+      selectedAssets?.coinConvertTo?.id,
       allCoins
     ),
   };
