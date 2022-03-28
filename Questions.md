@@ -1,5 +1,14 @@
 # Questions
 
+## Unable to consistently fetch coin price histories and create balance history object?
+
+I've worked on dynamicall calculating the data for the Portfolio Balance Chart in `useBalanceHistory` hook.
+However, I encountered multiple problems:
+
+1. Sometimes everything works and I get the desired `balanceHistory` array - but most of the time, I get undefined not. Can't manage to figure out whats causing the inconsistency.
+
+Multiple other problems/questions in the `useBalanceHistory` file as comments.
+
 ## Can I avoid "reinitializing" state?
 
 Situation:

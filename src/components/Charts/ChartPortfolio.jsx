@@ -1,6 +1,6 @@
 import './ChartPortfolio.css';
-import { useState } from 'react';
-import useAssets from '../../hooks/useAssets';
+import { useState, useContext } from 'react';
+import { YourCoinsContext } from '../../contexts/YouCoinsContext';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
 import { Text, LineChart, Dropdown } from '..';
@@ -8,18 +8,18 @@ import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import classNames from 'classnames';
 import { createChartTimes } from '../../utilities/create-chart-times';
-import useGetCoinPriceHistory from '../../hooks/useGetCoinPriceHistory';
+import useBalanceHistory from '../../hooks/useBalanceHistory';
 
 const TIMEFRAME_OPTIONS = ['1H', '1D', '1W', '1M', '1Y'];
 
 const ChartPortfolio = () => {
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
-  const { yourCoins } = useAssets();
+  const { yourCoins } = useContext(YourCoinsContext);
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
   const chartTimes = createChartTimes();
 
-  //useGetCoinPriceHistory();
+  //useBalanceHistory();
 
   return (
     <div>
