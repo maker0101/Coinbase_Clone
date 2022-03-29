@@ -16,7 +16,6 @@ const REQUEST_OPTIONS = {
 
 const useBalanceHistory = () => {
   const { yourCoins } = useContext(YourCoinsContext);
-  const [coinHistories, setCoinHistories] = useState([]);
   const [balanceHistory, setBalanceHistory] = useState([]);
 
   const fetchCoinPriceHistory = async (coin, options) => {
@@ -31,47 +30,53 @@ const useBalanceHistory = () => {
     }
   };
 
-  const createCoinHistories = (yourCoins, options) => {
+  const createCoinHistories = async (yourCoins, options) => {
     const coinHistories = [];
-    yourCoins.forEach(async (coin) => {
+
+    for (const coin of yourCoins) {
       const priceHistory = await fetchCoinPriceHistory(coin?.id, options);
+      const reversedPriceHistory = priceHistory.slice().reverse();
+
       const coinHistory = {
         id: coin?.id,
         name: coin?.name,
-        priceHistory: priceHistory,
-        balanceHistoryEur: priceHistory.map(
+        priceHistory: reversedPriceHistory,
+        balanceHistoryEur: reversedPriceHistory.map(
           (data) => data?.price * coin.balance_coin
         ),
       };
-
       coinHistories.push(coinHistory);
-    });
+    }
     return coinHistories;
   };
 
-  // TODO: Code currently only works for an array of 2 coins. I will generalize it later, but would like to fix the other issues first.
   const createTotalBalanceHistory = (coinHistories) => {
-    const result = coinHistories[0]?.balanceHistoryEur.map((balance, i) => ({
-      balance: Number(
-        (balance + coinHistories[1]?.balanceHistoryEur[i]).toFixed(2)
-      ),
-      timestamp: dayjs
-        .unix(coinHistories[0]?.priceHistory[i]?.timestamp)
-        .format('MMM D'),
-    }));
+    const numCoins = coinHistories.length;
+    if (numCoins === 0) return;
+
+    const result = coinHistories[0]?.balanceHistoryEur.map(
+      (balance, pointsInTime) => {
+        let balanceSum = 0;
+        for (let i = 0; i < numCoins; i++) {
+          balanceSum += coinHistories[i]?.balanceHistoryEur[pointsInTime];
+        }
+
+        return {
+          balance: Number(balanceSum.toFixed(2)),
+          timestamp: dayjs
+            .unix(coinHistories[0]?.priceHistory[pointsInTime]?.timestamp)
+            .format('MMM D, HH:mm'),
+        };
+      }
+    );
     return result;
   };
 
-  //TODO: Needed to use 'coinHistories' state instead of 'yourCoinHistories', otherwise 'balanceHistory' will remain undefined. Why? Can't pass 'yourCoinHistories' as parameter either.
   const handleGetCoinPriceHistories = async (yourCoins, options) => {
-    const yourCoinHistories = createCoinHistories(yourCoins, options);
-    setCoinHistories(yourCoinHistories);
-    const totalHistory = createTotalBalanceHistory(coinHistories);
+    const yourCoinHistories = await createCoinHistories(yourCoins, options);
+    const totalHistory = await createTotalBalanceHistory(yourCoinHistories);
     setBalanceHistory(totalHistory);
   };
-
-  // QUESTION: Sometimes I get a result for 'balanceHistory', but most of the time I get 'undefined'. Why?
-  console.log(balanceHistory);
 
   //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCoinPriceHistories'."
   useEffect(() => {

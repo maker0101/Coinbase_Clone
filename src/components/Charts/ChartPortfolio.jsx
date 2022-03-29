@@ -2,7 +2,6 @@ import './ChartPortfolio.css';
 import { useState, useContext } from 'react';
 import { YourCoinsContext } from '../../contexts/YouCoinsContext';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
 import { Text, LineChart, Dropdown } from '..';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
@@ -18,8 +17,7 @@ const ChartPortfolio = () => {
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
   const chartTimes = createChartTimes();
-
-  //useBalanceHistory();
+  const { balanceHistory } = useBalanceHistory();
 
   return (
     <div>
@@ -60,11 +58,13 @@ const ChartPortfolio = () => {
         </Text>
       </div>
       <div className='chartPortfolio__chartWrapper'>
-        <LineChart
-          chartData={PORTFOLIO_BALANCE}
-          labelsKey='timestamp'
-          datasetsKey='price'
-        />
+        {balanceHistory.length && (
+          <LineChart
+            chartData={balanceHistory}
+            labelsKey='timestamp'
+            datasetsKey='balance'
+          />
+        )}
       </div>
       <div className='chartPortfolio__footer'>
         {chartTimes[activeTimeFrame].map((date) => (
