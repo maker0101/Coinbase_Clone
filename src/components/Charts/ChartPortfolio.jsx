@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { createChartTimes } from '../../utilities/create-chart-times';
 import useBalanceHistory from '../../hooks/useBalanceHistory';
 
-const TIMEFRAME_OPTIONS = ['1H', '1D', '1W', '1M', '1Y'];
+const TIMEFRAME_OPTIONS = ['1D', '1W', '1M', '1Y'];
 
 const ChartPortfolio = () => {
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
@@ -17,7 +17,7 @@ const ChartPortfolio = () => {
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
   const chartTimes = createChartTimes();
-  const { balanceHistory } = useBalanceHistory();
+  const { balanceHistory } = useBalanceHistory(activeTimeFrame);
 
   return (
     <div>
@@ -58,13 +58,11 @@ const ChartPortfolio = () => {
         </Text>
       </div>
       <div className='chartPortfolio__chartWrapper'>
-        {balanceHistory.length && (
-          <LineChart
-            chartData={balanceHistory}
-            labelsKey='timestamp'
-            datasetsKey='balance'
-          />
-        )}
+        <LineChart
+          chartData={balanceHistory}
+          labelsKey='timestamp'
+          datasetsKey='balance'
+        />
       </div>
       <div className='chartPortfolio__footer'>
         {chartTimes[activeTimeFrame].map((date) => (
