@@ -4,7 +4,11 @@ import { Text } from '..';
 const TableCellCoinName = ({ icon, name, symbol }) => {
   return (
     <div className='TableCellCoinName'>
-      <img className='tableCellCoinName__icon' src={icon} />
+      <img
+        className='tableCellCoinName__icon'
+        src={icon}
+        alt={`${name} icon`}
+      />
       <div className='tableCellCoinName__name'>
         <Text>{name}</Text>
       </div>

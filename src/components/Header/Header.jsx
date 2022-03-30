@@ -2,7 +2,6 @@ import './Header.css';
 import { useContext } from 'react';
 import usePath from '../../hooks/usePath';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { RiAccountCircleFill } from 'react-icons/ri';
 import { Button, Text, Logo } from '..';
 import { IoMenuSharp } from 'react-icons/io5';
 import { ModalContext } from '../../contexts/ModalContext';
