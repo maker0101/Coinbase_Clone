@@ -1,31 +1,27 @@
+import './ModalProfile.css';
 import { useContext } from 'react';
-import { VscAccount } from 'react-icons/vsc';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from '../../firebase-config';
 import { UserContext } from '../../contexts/UserContext';
-import { Modal, ModalClose } from '..';
+import { Modal, ModalClose, Text, Button } from '..';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import Avvvatars from 'avvvatars-react';
+import useAuth from '../../hooks/useAuth';
 
 const ModalProfile = () => {
   const isWidthMax800 = useMediaQuery('(max-width: 800px)');
-
-  //TODO: move to useAuth and import fromm there
-  const { user, setUser } = useContext(UserContext);
-  const signout = () => signOut(auth);
-  onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
+  const { user } = useContext(UserContext);
+  const { signout } = useAuth();
 
   return (
     <Modal>
-      <div>Modal Profile</div>
-      <div className='account'>
-        <div className='account_row account_userInfo'>
-          <VscAccount />
-          {user?.email || 'Guest'}
-        </div>
-        <hr />
-        <button onClick={signout}>Log out</button>
+      <div className='ModalProfile__content'>
+        <Text h1>Profile</Text>
+        <Avvvatars value={user?.email || 'Guest'} size={72} />
+        <Text className='ModalProfile__userName'>{user?.email || 'Guest'}</Text>
+        <Button onClick={signout} size='xl'>
+          Log out
+        </Button>
+        {isWidthMax800 && <ModalClose />}
       </div>
-      {isWidthMax800 && <ModalClose />}
     </Modal>
   );
 };

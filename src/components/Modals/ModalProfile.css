@@ -1,0 +1,15 @@
+.ModalProfile__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 24px;
+}
+
+.ModalProfile__content > h1 {
+  margin-bottom: 32px;
+}
+
+.ModalProfile__content > p {
+  margin: 8px 0 32px 0;
+}

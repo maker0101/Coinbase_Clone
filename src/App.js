@@ -26,6 +26,7 @@ function App() {
               <Route path='trade' element={<Trade />} />
               <Route path='pay' element={<Pay />} />
               <Route path='deposit' element={<Deposit />} />
+              <Route path='*' element={<Assets />} />
             </Route>
           </Route>
         </Routes>

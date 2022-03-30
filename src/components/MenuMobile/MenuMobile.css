@@ -1,25 +1,29 @@
 .MenuMobile {
-	height: 100vh;
-	width: 100vw;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: white;
-	z-index: 11;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 11;
 }
 
 .menuMobile__navItems {
-	margin: 24px 16px;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  margin: 24px 16px;
+  justify-content: space-between;
 }
 
 .menuMobile__close {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	font-size: 28px;
-	margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 28px;
+  margin-bottom: 24px;
 }
 
 .menuMobile__close > svg {
-	cursor: pointer;
+  cursor: pointer;
 }

@@ -1,16 +1,18 @@
 import { useState, useContext } from 'react';
 import {
   signInWithEmailAndPassword,
-  signInWithPopup,
   signInAnonymously,
   createUserWithEmailAndPassword,
   getAuth,
+  signOut,
   GoogleAuthProvider,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { UserContext } from '../contexts/UserContext';
+import { auth } from '../firebase-config';
 
 const useAuth = () => {
-  const { user, authError, setAuthError } = useContext(UserContext);
+  const { user, setUser, authError, setAuthError } = useContext(UserContext);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -71,6 +73,10 @@ const useAuth = () => {
     }
   };
 
+  const signout = () => signOut(auth);
+
+  onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
+
   return {
     signInEmail,
     setSignInEmail,
@@ -84,6 +90,7 @@ const useAuth = () => {
     setAuthError,
     handleSignIn,
     handleSignUp,
+    signout,
     isNewUser,
   };
 };
