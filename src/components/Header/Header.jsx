@@ -25,7 +25,10 @@ const Header = () => {
             Send / Receive
           </Button>
           <div className='header__verticalLine'></div>
-          <RiAccountCircleFill className='header__account' />
+          <RiAccountCircleFill
+            className='header__account'
+            onClick={() => handleOpen('profile')}
+          />
         </div>
       )}
       {!isWidthMin800 && (

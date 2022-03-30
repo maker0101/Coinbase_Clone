@@ -1,0 +1,13 @@
+.AuthError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cf202f;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.AuthError > svg {
+  color: white;
+  margin-right: 16px;
+}
