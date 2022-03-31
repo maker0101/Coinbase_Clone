@@ -14,8 +14,6 @@ const Header = () => {
   const { handleOpen } = useContext(ModalContext);
   const { user } = useContext(UserContext);
 
-  console.log(user.uid);
-
   return (
     <header className='Header'>
       {!isWidthMin800 && <Logo />}

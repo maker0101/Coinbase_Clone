@@ -32,6 +32,7 @@ const LineChart = ({
         },
       },
       y: {
+        beginAtZero: false,
         display: false,
       },
     },

@@ -1,5 +1,20 @@
 # Questions
 
+## Do I need to change my 'yourCoin' ids to support multiple users? How to structure data?
+
+Situation:
+
+- In Firestore, the documents in the 'yourCoins' collection get their id's from the Coinranking API
+- e.g. When I fetch Bitcoin prices from Coinranking, I get a Bitcoin Id (e.g. 123) and I take that Id and use it in Firebase to store the Bitcoin object (including the coin balance the user currently holds)
+- This worked well (and made my code simple) until I tried adding multi-user support
+- Now e.g. 2 users can hold Bitcoin and thus I would need 2 Bitcoin objects with unique ids
+- While it would be possible to do that, my code would become more complicated, e.g. when I try to exchange information between Coinranking and Firestore
+
+Questions:
+
+- Do I need to refactor my Firestore Ids / Id generation process or is there another way?
+- Would you just change the ids to make them unique or change the data structure as awhole?
+
 ## Why can't I move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop?
 
 1. // Why can't I just move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop? It's just a constant. your suggested workaround with putting it inside a function is awesome, but I would like to understand what's going on here.
