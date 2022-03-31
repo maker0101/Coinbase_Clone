@@ -14,6 +14,7 @@ Questions:
 
 - Do I need to refactor my Firestore Ids / Id generation process or is there another way?
 - Would you just change the ids to make them unique or change the data structure as awhole?
+- Would you recommend to calculate everything from a single source of truth (e.g. transactions collection), even if it makes some of the code more complicated? (e.g. I would need to recalculate the current Bitcoin coin balance each time from transactions instead getting it directly from 'yourCoins' collection)
 
 ## Why can't I move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop?
 
@@ -108,4 +109,7 @@ Situation:
 
 Question:
 
-- Can you point me to some guiding priciples/best practices/ressources to decide for which object structure to use when? When to use nesting and when not?
+- Can you point me to some guiding priciples/best practices/ressources to decide for which object / data / database structure to use when?
+- When to use nesting and when not?
+- When to calculate everything from a single source of truth? When to use 'helper' collections?
+- ...
