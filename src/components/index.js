@@ -1,3 +1,7 @@
+import AuthLayout from './Auth/AuthLayout';
+import SignUpForm from './Auth/SignUpForm';
+import SignInForm from './Auth/SignInForm';
+import AuthError from './Auth/AuthError';
 import Dashboard from './Dashboard/Dashboard';
 import Main from './Main/Main';
 import Sidebar from './Sidebar/Sidebar';
@@ -57,6 +61,7 @@ import ModalClose from './Modal/ModalClose';
 import ModalPay from './Modals/ModalPay';
 import ModalTrade from './Modals/ModalTrade';
 import ModalDeposit from './Modals/ModalDeposit';
+import ModalProfile from './Modals/ModalProfile';
 import MenuMobile from './MenuMobile/MenuMobile';
 import Tooltip from './Tooltip/Tooltip';
 import Logo from './Logo/Logo';
@@ -64,6 +69,10 @@ import Footer from './Footer/Footer';
 import TransactionForm from './TransactionForm/TransactionForm';
 
 export {
+  AuthLayout,
+  SignUpForm,
+  SignInForm,
+  AuthError,
   Dashboard,
   Main,
   Sidebar,
@@ -123,6 +132,7 @@ export {
   ModalPay,
   ModalTrade,
   ModalDeposit,
+  ModalProfile,
   MenuMobile,
   Tooltip,
   Logo,

@@ -3,10 +3,12 @@ import { YourCoinsContext } from '../contexts/YouCoinsContext';
 import { translateSelectedTimeframe } from '../utilities/translate-selected-timeframe';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import useTransactions from './useTransactions';
 
 const useBalanceHistory = (activeTimeFrame) => {
   const { yourCoins } = useContext(YourCoinsContext);
   const [balanceHistory, setBalanceHistory] = useState([]);
+  const { coinTransactions } = useTransactions();
 
   const createRequestOptions = (coin, timeFrame) => {
     const timePeriod = translateSelectedTimeframe(timeFrame);
@@ -28,11 +30,42 @@ const useBalanceHistory = (activeTimeFrame) => {
     const requestOptions = createRequestOptions(coin, timeFrame);
     try {
       const response = await axios.request(requestOptions);
-      const priceHistory = await response.data.data.history;
+      const priceHistoryTurned = await response.data.data.history;
+      const priceHistory = priceHistoryTurned.slice().reverse();
       return priceHistory;
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const createCoinBalanceHistory = (coinId, priceHistory, transactions) => {
+    const coinBalanceHistory = priceHistory.map((data) => {
+      const filteredTransactions = transactions
+        .filter((t) => coinId === t?.coin?.id || t?.coinConvertTo?.id)
+        .filter((t) => data.timestamp * 1000 > t.timestamp);
+
+      const balance = filteredTransactions.reduce((accum, curr) => {
+        switch (curr.type) {
+          case 'buyCoin':
+            return accum + curr.coin?.amount;
+          case 'sellCoin':
+          case 'sendCoin':
+            return accum - curr.coin?.amount;
+          case 'convertCoin':
+            if (coinId === curr.coin?.id) return accum - curr.coin?.amount;
+            if (coinId === curr.coinConvertTo?.id)
+              return accum + curr.coinConvertTo?.amount;
+          default:
+            return accum;
+        }
+      }, 0);
+
+      return {
+        timestamp: data?.timestamp,
+        balance: balance,
+      };
+    });
+    return coinBalanceHistory;
   };
 
   const createCoinHistories = async (yourCoins, timeFrame) => {
@@ -40,14 +73,19 @@ const useBalanceHistory = (activeTimeFrame) => {
 
     for (const coin of yourCoins) {
       const priceHistory = await fetchCoinPriceHistory(coin?.id, timeFrame);
-      const reversedPriceHistory = priceHistory.slice().reverse();
+      const balanceHistory = createCoinBalanceHistory(
+        coin?.id,
+        priceHistory,
+        coinTransactions
+      );
 
       const coinHistory = {
         id: coin?.id,
         name: coin?.name,
-        priceHistory: reversedPriceHistory,
-        balanceHistoryEur: reversedPriceHistory.map(
-          (data) => data?.price * coin.balance_coin
+        priceHistory: priceHistory,
+        coinBalanceHistory: balanceHistory,
+        balanceHistoryEur: priceHistory.map(
+          (time, index) => time?.price * balanceHistory[index]?.balance
         ),
       };
       coinHistories.push(coinHistory);

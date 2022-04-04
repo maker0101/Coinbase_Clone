@@ -1,5 +1,21 @@
 # Questions
 
+## Do I need to change my 'yourCoin' ids to support multiple users? How to structure data?
+
+Situation:
+
+- In Firestore, the documents in the 'yourCoins' collection get their id's from the Coinranking API
+- e.g. When I fetch Bitcoin prices from Coinranking, I get a Bitcoin Id (e.g. 123) and I take that Id and use it in Firebase to store the Bitcoin object (including the coin balance the user currently holds)
+- This worked well (and made my code simple) until I tried adding multi-user support
+- Now e.g. 2 users can hold Bitcoin and thus I would need 2 Bitcoin objects with unique ids
+- While it would be possible to do that, my code would become more complicated, e.g. when I try to exchange information between Coinranking and Firestore
+
+Questions:
+
+- Do I need to refactor my Firestore Ids / Id generation process or is there another way?
+- Would you just change the ids to make them unique or change the data structure as awhole?
+- Would you recommend to calculate everything from a single source of truth (e.g. transactions collection), even if it makes some of the code more complicated? (e.g. I would need to recalculate the current Bitcoin coin balance each time from transactions instead getting it directly from 'yourCoins' collection)
+
 ## Why can't I move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop?
 
 1. // Why can't I just move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop? It's just a constant. your suggested workaround with putting it inside a function is awesome, but I would like to understand what's going on here.
@@ -93,4 +109,7 @@ Situation:
 
 Question:
 
-- Can you point me to some guiding priciples/best practices/ressources to decide for which object structure to use when? When to use nesting and when not?
+- Can you point me to some guiding priciples/best practices/ressources to decide for which object / data / database structure to use when?
+- When to use nesting and when not?
+- When to calculate everything from a single source of truth? When to use 'helper' collections?
+- ...
