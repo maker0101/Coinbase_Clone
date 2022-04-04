@@ -1,12 +1,5 @@
-export const transformSparkline = (asset) => {
-  const newSparkline = [];
-  let i = 0;
-  asset.sparkline.forEach((price) => {
-    i += 1;
-    newSparkline.push({
-      price: Number(price),
-      time: String(i),
-    });
-  });
-  return newSparkline;
-};
+export const transformSparkline = (asset) =>
+  asset.sparkline.map((price, i) => ({
+    price: Number(price),
+    time: String(i),
+  }));

@@ -3,12 +3,11 @@ import { findAsset } from '../utilities/find-asset';
 import { calculateCoinBalance } from '../utilities/calculate-coin-balance';
 
 export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
-  const adaptedCoins = [];
-  fetchedCoins.forEach((coin) => {
+  const adaptedCoins = fetchedCoins.map((coin) => {
     const coinBalance = findAsset(coin?.uuid, yourCoins)?.balance_coin || 0;
     const onWatchList = findAsset(coin?.uuid, yourCoins)?.onWatchlist || false;
 
-    let coinAsset = {
+    return {
       id: coin.uuid,
       name: coin.name,
       symbol: coin.symbol,
@@ -23,7 +22,6 @@ export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
       onWatchlist: onWatchList,
       sparkline: transformSparkline(coin),
     };
-    adaptedCoins.push(coinAsset);
   });
   return adaptedCoins;
 };

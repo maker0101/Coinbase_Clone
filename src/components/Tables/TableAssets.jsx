@@ -24,7 +24,7 @@ const TableAssets = ({ assets }) => {
       )}
       <tbody>
         {assets.map((asset) => (
-          <tr key={asset.symbol}>
+          <tr key={asset?.symbol}>
             <td>
               <TableCellCoinName
                 icon={asset?.icon}

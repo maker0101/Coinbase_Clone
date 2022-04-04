@@ -37,7 +37,7 @@ const Trade = () => {
   const assetsInTable =
     searchInput || filterInput !== 'All assets' ? searchFilterResult : allCoins;
 
-  const watchlistQuery = (asset) => asset.onWatchlist === true;
+  const watchlistQuery = (asset) => asset.onWatchlist;
 
   return (
     <>

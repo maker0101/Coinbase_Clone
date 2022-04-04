@@ -12,11 +12,9 @@ export const toggleOnWatchlist = async (db, coin) => {
   try {
     if (isYourCoin) {
       const coinDoc = doc(db, 'yourCoins', coin?.id);
-      await updateDoc(coinDoc, {
-        onWatchlist: !coin?.onWatchlist,
-      });
+      updateDoc(coinDoc, { onWatchlist: !coin?.onWatchlist });
     } else {
-      await addCoin(db, createCoin(coin, 0, true));
+      addCoin(db, createCoin(coin, 0, true));
     }
   } catch (error) {
     console.error(error);
