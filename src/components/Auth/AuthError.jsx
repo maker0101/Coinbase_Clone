@@ -6,8 +6,6 @@ import { Text } from '../index';
 const AuthError = () => {
   const { authError } = useAuth();
 
-  console.log(authError);
-
   return (
     <div className='AuthError'>
       <RiErrorWarningFill />

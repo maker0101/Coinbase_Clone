@@ -1,5 +1,6 @@
 import AuthLayout from './Auth/AuthLayout';
-import AuthForm from './Auth/AuthForm';
+import SignUpForm from './Auth/SignUpForm';
+import SignInForm from './Auth/SignInForm';
 import AuthError from './Auth/AuthError';
 import Dashboard from './Dashboard/Dashboard';
 import Main from './Main/Main';
@@ -69,7 +70,8 @@ import TransactionForm from './TransactionForm/TransactionForm';
 
 export {
   AuthLayout,
-  AuthForm,
+  SignUpForm,
+  SignInForm,
   AuthError,
   Dashboard,
   Main,

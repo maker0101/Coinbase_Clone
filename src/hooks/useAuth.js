@@ -12,14 +12,11 @@ import { UserContext } from '../contexts/UserContext';
 import { auth } from '../firebase-config';
 
 const useAuth = () => {
-  const { user, setUser, authError, setAuthError } = useContext(UserContext);
+  const { setUser, authError, setAuthError } = useContext(UserContext);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
-
-  const isNewUser = () =>
-    user?.metadata.creationTime === user?.metadata.lastSignInTime;
 
   const handleSignIn = async (signInMethod, e = {}) => {
     const provider = new GoogleAuthProvider();
@@ -30,10 +27,12 @@ const useAuth = () => {
         case 'email':
           e.preventDefault();
           await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
+          setAuthError('');
           break;
 
         case 'guest':
           await signInAnonymously(auth);
+          setAuthError('');
           break;
 
         default:
@@ -58,10 +57,12 @@ const useAuth = () => {
             signUpEmail,
             signUpPassword
           );
+          setAuthError('');
           break;
 
         case 'guest':
           await signInAnonymously(auth);
+          setAuthError('');
           break;
 
         default:
@@ -91,7 +92,6 @@ const useAuth = () => {
     handleSignIn,
     handleSignUp,
     signout,
-    isNewUser,
   };
 };
 

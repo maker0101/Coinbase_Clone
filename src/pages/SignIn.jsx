@@ -4,7 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase-config';
 import { UserContext } from '../contexts/UserContext';
 import useAuth from '../hooks/useAuth';
-import { AuthLayout, AuthForm, AuthError, Text, Button } from '../components';
+import { AuthLayout, SignInForm, AuthError, Text, Button } from '../components';
 
 const SignIn = () => {
   const { user, setUser } = useContext(UserContext);
@@ -26,7 +26,7 @@ const SignIn = () => {
         Continue as guest
       </Button>
       <Text color='white'>OR</Text>
-      <AuthForm isSignin />
+      <SignInForm />
       {authError && <AuthError />}
     </AuthLayout>
   );

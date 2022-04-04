@@ -1,4 +1,4 @@
-.AuthForm {
+.SignUpForm {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -8,29 +8,29 @@
   border-radius: 8px;
 }
 
-.AuthForm > .Input {
+.SignUpForm > .Input {
   border: 1px solid #dedfd2;
   border-radius: 8px;
   margin-bottom: 8px;
   padding: 0 8px;
 }
 
-.AuthForm > .Input > input {
+.SignUpForm > .Input > input {
   width: 100%;
 }
 
-.AuthForm > .Button {
+.SignUpForm > .Button {
   margin: 8px 0;
 }
 
-.AuthForm > p {
+.SignUpForm > p {
   text-align: center;
 }
 
-.AuthForm > p > a {
+.SignUpForm > p > a {
   color: #2151f5;
 }
 
-.AuthForm > p > a:hover {
+.SignUpForm > p > a:hover {
   color: #1d48d6;
 }
