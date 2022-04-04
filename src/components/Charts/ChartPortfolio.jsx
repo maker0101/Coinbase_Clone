@@ -17,7 +17,7 @@ const ChartPortfolio = () => {
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
   const chartTimes = createChartTimes();
-  const { balanceHistory } = useBalanceHistory(activeTimeFrame);
+  const balanceHistory = useBalanceHistory(activeTimeFrame);
 
   return (
     <div>
