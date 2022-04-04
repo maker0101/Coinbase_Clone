@@ -16,8 +16,7 @@ import useSearch from '../hooks/useSearch';
 import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
 
-const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
-const ASSET_TYPE = ['All assets', 'Watchlist'];
+const ASSET_OPTIONS = ['All assets', 'Watchlist'];
 
 const Trade = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
@@ -54,25 +53,14 @@ const Trade = () => {
             {isWidthMin800 && (
               <div className='trade__filters'>
                 <Dropdown
-                  name='timeframe'
-                  options={OPTIONS_TIME}
-                  initialValue='1d'
-                />
-                <Dropdown
-                  name='assetType'
-                  options={ASSET_TYPE}
-                  initialValue='All Assets'
-                  filterInput={filterInput}
-                  handleFilter={handleFilter}
-                  filterQuery={watchlistQuery}
-                  allItems={allCoins}
+                  name='assetOptions'
+                  options={ASSET_OPTIONS}
+                  value={filterInput}
+                  onChange={(e) => handleFilter(e, allCoins, watchlistQuery)}
                 />
               </div>
             )}
           </div>
-          {/*FIXME: Code below triggers browser warning "[Violation] Forced reflow
-          while executing JavaScript took 82ms" and "[Violation] 'message'
-            handler took 215ms" */}
           <TableAssets assets={assetsInTable} />
         </Section>
       </ContentCenter>

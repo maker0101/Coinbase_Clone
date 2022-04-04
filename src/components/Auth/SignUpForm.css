@@ -1,0 +1,36 @@
+.SignUpForm {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: white;
+  padding: 24px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.SignUpForm > .Input {
+  border: 1px solid #dedfd2;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+
+.SignUpForm > .Input > input {
+  width: 100%;
+}
+
+.SignUpForm > .Button {
+  margin: 8px 0;
+}
+
+.SignUpForm > p {
+  text-align: center;
+}
+
+.SignUpForm > p > a {
+  color: #2151f5;
+}
+
+.SignUpForm > p > a:hover {
+  color: #1d48d6;
+}

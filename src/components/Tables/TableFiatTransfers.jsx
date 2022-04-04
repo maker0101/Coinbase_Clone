@@ -1,7 +1,7 @@
 import './TablePayments.css';
 import { Text, Table } from '..';
 import useTransactions from '../../hooks/useTransactions';
-import { timestampToMonthDayYear } from '../../utilities/transform-dates';
+import { transactionTime } from '../../utilities/transform-dates';
 
 const TableFiatTransfers = () => {
   const { fiatTransactions } = useTransactions();
@@ -25,7 +25,7 @@ const TableFiatTransfers = () => {
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>
-                    {`On ${timestampToMonthDayYear(t?.timestamp)}`}
+                    {`On ${transactionTime(t?.timestamp)}`}
                   </Text>
                 </div>
               </div>

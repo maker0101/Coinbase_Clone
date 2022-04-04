@@ -16,11 +16,26 @@ const useTransactions = () => {
     .filter((t) => t.type === 'sendCoin')
     .sort((prev, next) => next.timestamp - prev.timestamp);
 
+  const coinTransactions = transactions
+    .filter(
+      (t) =>
+        t.type === 'buyCoin' ||
+        t.type === 'sellCoin' ||
+        t.type === 'convertCoin' ||
+        t.type === 'sendCoin'
+    )
+    .sort((prev, next) => next.timestamp - prev.timestamp);
+
   const fiatTransactions = transactions
     .filter((t) => t.type === 'depositFiat' || t.type === 'cashoutFiat')
     .sort((prev, next) => next.timestamp - prev.timestamp);
 
-  return { tradeTransactions, sendTransactions, fiatTransactions };
+  return {
+    tradeTransactions,
+    sendTransactions,
+    coinTransactions,
+    fiatTransactions,
+  };
 };
 
 export default useTransactions;

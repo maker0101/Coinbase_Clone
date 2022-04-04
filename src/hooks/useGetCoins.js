@@ -24,7 +24,7 @@ const REQUEST_OPTIONS = {
 
 const useGetCoins = () => {
   const [coins, setCoins] = useState([]);
-  const [allCoins, setYourCoins] = useState([]);
+  const [yourCoins, setYourCoins] = useState([]);
 
   const fetchCoins = async (options) => {
     try {
@@ -46,9 +46,9 @@ const useGetCoins = () => {
     });
   };
 
-  const handleGetCoins = async (requestOptions, allCoins) => {
+  const handleGetAllCoins = async (requestOptions, yourCoins) => {
     const fetchedCoins = await fetchCoins(requestOptions);
-    const adaptedCoins = adaptFetchedCoins(fetchedCoins, allCoins);
+    const adaptedCoins = adaptFetchedCoins(fetchedCoins, yourCoins);
     setCoins(adaptedCoins);
   };
 
@@ -58,8 +58,8 @@ const useGetCoins = () => {
 
   //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCoins'."
   useEffect(() => {
-    handleGetCoins(REQUEST_OPTIONS, allCoins);
-  }, [allCoins]);
+    handleGetAllCoins(REQUEST_OPTIONS, yourCoins);
+  }, [yourCoins]);
 
   return { coins };
 };

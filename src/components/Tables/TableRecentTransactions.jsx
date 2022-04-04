@@ -1,7 +1,7 @@
 import './TableRecentTransactions.css';
 import { Text, Table } from '..';
 import useTransactions from '../../hooks/useTransactions';
-import { timestampToMonthDayYear } from '../../utilities/transform-dates';
+import { transactionTime } from '../../utilities/transform-dates';
 
 const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();
@@ -19,7 +19,7 @@ const TableRecentTransactions = () => {
   const createBodyText = (transaction) => {
     const symbol = transaction?.coin?.symbol;
     const amount = transaction?.coin?.amount?.toFixed(6);
-    const time = timestampToMonthDayYear(transaction?.timestamp);
+    const time = transactionTime(transaction?.timestamp);
 
     return `${amount} ${symbol} on ${time}`;
   };

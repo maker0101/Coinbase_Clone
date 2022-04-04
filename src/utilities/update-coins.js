@@ -5,27 +5,32 @@ import { updateCoinBalance } from './update-coin-balance';
 
 export const updateCoins = (db, transaction, coinAssets) => {
   try {
-    const coin = findAsset(transaction?.coin?.symbol, coinAssets);
+    const coin = findAsset(transaction?.coin?.id, coinAssets);
     let newCoinBalance;
 
     switch (transaction.type) {
       case 'buyCoin':
         newCoinBalance = coin?.balance_coin + transaction?.coin?.amount;
-        coin
-          ? updateCoinBalance(db, coin?.id, newCoinBalance)
-          : addCoin(
-              db,
-              createCoin(transaction?.coin?.symbol, transaction?.coin?.amount)
-            );
+        if (coin) {
+          updateCoinBalance(db, coin?.id, newCoinBalance);
+        } else {
+          const newCoin = createCoin(
+            transaction?.coin,
+            transaction?.coin?.amount
+          );
+          addCoin(db, newCoin);
+        }
         break;
+
       case 'sendCoin':
       case 'sellCoin':
         newCoinBalance = coin?.balance_coin - transaction?.coin?.amount;
         updateCoinBalance(db, coin.id, newCoinBalance);
         break;
+
       case 'convertCoin':
         const coinConvertTo = findAsset(
-          transaction?.coinConvertTo?.symbol,
+          transaction?.coinConvertTo?.id,
           coinAssets
         );
 
@@ -38,13 +43,11 @@ export const updateCoins = (db, transaction, coinAssets) => {
           updateCoinBalance(db, coinConvertTo?.id, newCoinConvertToBalance);
         } else {
           updateCoinBalance(db, coin.id, newCoinBalance);
-          addCoin(
-            db,
-            createCoin(
-              transaction?.coinConvertTo?.symbol,
-              transaction?.coinConvertTo?.amount
-            )
+          const newCoin = createCoin(
+            transaction?.coinConvertTo,
+            transaction?.coinConvertTo?.amount
           );
+          addCoin(db, newCoin);
         }
         break;
       case 'cashoutFiat':

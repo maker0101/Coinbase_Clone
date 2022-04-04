@@ -1,8 +1,8 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 
 export const addCoin = async (db, coin) => {
   try {
-    await addDoc(collection(db, 'yourCoins'), { ...coin });
+    await setDoc(doc(db, 'yourCoins', coin.id), { ...coin });
   } catch (err) {
     console.error(err);
   }

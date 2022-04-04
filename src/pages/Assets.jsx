@@ -10,6 +10,7 @@ import {
 } from '../components';
 import useMediaQuery from '../hooks/useMediaQuery';
 import useAssets from '../hooks/useAssets';
+import { YourCoinsProvider } from '../contexts/YouCoinsContext';
 
 const Assets = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
@@ -19,7 +20,9 @@ const Assets = () => {
     <>
       <ContentCenter>
         <Section>
-          <ChartPortfolio />
+          <YourCoinsProvider>
+            <ChartPortfolio />
+          </YourCoinsProvider>
         </Section>
         <Section>
           <SectionTitle title='Your Assets' />

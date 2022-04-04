@@ -1,7 +1,7 @@
 import { findAsset } from './find-asset';
 
 const validateSufficientFiatBalance = (transaction, fiatAssets) => {
-  const fiat = findAsset(transaction?.fiat?.symbol, fiatAssets);
+  const fiat = findAsset(transaction?.fiat?.id, fiatAssets);
   const fiatBalance = fiat?.balance_eur;
 
   if (fiat && fiatBalance >= transaction?.fiat?.amount) {
@@ -18,7 +18,7 @@ const validateSufficientFiatBalance = (transaction, fiatAssets) => {
 };
 
 const validateSufficientCoinBalance = (transaction, coinAssets) => {
-  const coin = findAsset(transaction?.coin?.symbol, coinAssets);
+  const coin = findAsset(transaction?.coin?.id, coinAssets);
   const coinBalance = coin?.balance_coin;
 
   if (coin && coinBalance >= transaction.coin.amount) {

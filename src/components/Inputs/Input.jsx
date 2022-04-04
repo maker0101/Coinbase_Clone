@@ -1,6 +1,15 @@
 import './Input.css';
 
-const Input = ({ type, placeholder, name, required = false }) => {
+const Input = ({
+  type,
+  placeholder,
+  name,
+  required = false,
+  autoComplete,
+  minLength = 0,
+  value,
+  onChange,
+}) => {
   return (
     <div className='Input'>
       <input
@@ -9,6 +18,10 @@ const Input = ({ type, placeholder, name, required = false }) => {
         className='input__field'
         name={name}
         required={required}
+        autoComplete={autoComplete}
+        minLength={minLength}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );

@@ -1,28 +1,23 @@
 import './ChartPortfolio.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { YourCoinsContext } from '../../contexts/YouCoinsContext';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { PORTFOLIO_BALANCE } from '../../constants/portfolio-balance';
 import { Text, LineChart, Dropdown } from '..';
-import useAssets from '../../hooks/useAssets';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import classNames from 'classnames';
+import { createChartTimes } from '../../utilities/create-chart-times';
+import useBalanceHistory from '../../hooks/useBalanceHistory';
 
-const TIMEFRAMES = ['1H', '1D', '1W', '1M', '1Y', 'ALL'];
-const PORTFOLIO_FOOTER_DATES = [
-  'JAN 27',
-  'FEB 1',
-  'FEB 6',
-  'FEB 11',
-  'FEB 17',
-  'FEB 22',
-];
+const TIMEFRAME_OPTIONS = ['1D', '1W', '1M', '1Y'];
 
 const ChartPortfolio = () => {
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
-  const { yourCoins } = useAssets();
+  const { yourCoins } = useContext(YourCoinsContext);
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
   const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
+  const chartTimes = createChartTimes();
+  const balanceHistory = useBalanceHistory(activeTimeFrame);
 
   return (
     <div>
@@ -35,12 +30,13 @@ const ChartPortfolio = () => {
             {isWidthMax600 && (
               <Dropdown
                 name='timeframes'
-                options={TIMEFRAMES}
-                initialValue={activeTimeFrame}
+                options={TIMEFRAME_OPTIONS}
+                value={activeTimeFrame}
+                onChange={(e) => setActiveTimeFrame(e.target.value)}
               />
             )}
             {!isWidthMax600 &&
-              TIMEFRAMES.map((time) => {
+              TIMEFRAME_OPTIONS.map((time) => {
                 const timeFrameBtnClasses = classNames({
                   timeFrameBtn: true,
                   timeFrameBtn__active: activeTimeFrame === time,
@@ -63,13 +59,13 @@ const ChartPortfolio = () => {
       </div>
       <div className='chartPortfolio__chartWrapper'>
         <LineChart
-          chartData={PORTFOLIO_BALANCE}
-          labelsKey='date'
+          chartData={balanceHistory}
+          labelsKey='timestamp'
           datasetsKey='balance'
         />
       </div>
       <div className='chartPortfolio__footer'>
-        {PORTFOLIO_FOOTER_DATES.map((date) => (
+        {chartTimes[activeTimeFrame].map((date) => (
           <div key={date} className='chartPortfolio__footerDate'>
             {date}
           </div>
