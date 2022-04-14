@@ -4,8 +4,9 @@ import { transformSparkline } from '../utilities/transform-sparkline';
 
 export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
   const adaptedCoins = fetchedCoins.map((coin) => {
-    const coinBalance = findAsset(coin?.uuid, yourCoins)?.balance_coin || 0;
-    const onWatchList = findAsset(coin?.uuid, yourCoins)?.onWatchlist || false;
+    const coinFound = findAsset(coin?.uuid, yourCoins);
+    const coinBalance = coinFound?.balance_coin || 0;
+    const onWatchList = coinFound?.onWatchlist || false;
 
     return {
       id: coin.uuid,

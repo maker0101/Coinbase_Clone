@@ -1,20 +1,20 @@
 .Logo {
-	display: flex;
-	align-items: center;
-	height: 35px;
-	padding: 16px 0;
-	margin: 0 auto 0 16px;
-	color: #2151f5;
-	font-weight: 700;
-	font-size: 24px;
-	cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  padding: 16px 0;
+  margin: 0 auto 0 16px;
+  color: #2151f5;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 @media (max-width: 1300px) {
-	.Logo {
-		font-weight: 900;
-		font-size: 40px;
-		margin: 0;
-		justify-content: center;
-	}
+  .Logo {
+    font-weight: 900;
+    font-size: 40px;
+    margin: 0;
+    justify-content: center;
+  }
 }
