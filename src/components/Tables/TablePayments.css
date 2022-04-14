@@ -1,23 +1,25 @@
 .tablePayments__cell {
-	display: grid;
-	grid-template-columns: fit-content(30px) 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		'icon name'
-		'icon symbol';
+  display: grid;
+  grid-template-columns: fit-content(30px) 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 12px;
+  grid-template-areas:
+    'icon name'
+    'icon symbol';
+  height: 100%;
+  align-items: center;
 }
 
 .tablePayments__icon {
-	display: flex;
-	align-items: center;
-	width: 30px;
-	grid-area: icon;
+  display: flex;
+  align-items: center;
+  width: 24px;
+  grid-area: icon;
 }
 
 .tablePayments__head {
-	grid-area: name;
+  grid-area: name;
 }
 .tablePayments__body {
-	grid-area: symbol;
+  grid-area: symbol;
 }

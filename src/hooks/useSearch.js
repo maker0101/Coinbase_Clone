@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useSearch = (allItems) => {
   const [searchResult, setSearchResult] = useState(allItems);
@@ -16,6 +16,10 @@ const useSearch = (allItems) => {
     const filteredItems = filterItemsByText(allItems, searchTerm);
     setSearchResult(searchTerm ? filteredItems : allItems);
   };
+
+  useEffect(() => {
+    if (!searchInput) setSearchResult(allItems);
+  }, [allItems]);
 
   return { searchResult, searchInput, handleSearch };
 };

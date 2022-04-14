@@ -1,23 +1,25 @@
 .TableCellCoinName {
-	display: grid;
-	grid-template-columns: fit-content(30px) 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		'icon name'
-		'icon symbol';
+  display: grid;
+  grid-template-columns: fit-content(30px) 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 12px;
+  grid-template-areas:
+    'icon name'
+    'icon symbol';
 }
 
 .tableCellCoinName__icon {
-	display: flex;
-	align-items: center;
-	width: 30px;
-	grid-area: icon;
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin: auto 0;
+  grid-area: icon;
 }
 
 .tableCellCoinName__name {
-	grid-area: name;
+  grid-area: name;
 }
 .tableCellCoinName__symbol {
-	grid-area: symbol;
+  grid-area: symbol;
 }

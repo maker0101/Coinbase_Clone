@@ -1,17 +1,17 @@
-import { PAYMENTS } from '../constants/payments';
 import {
   ContentCenter,
   ContentRight,
   Section,
   SectionTitle,
-  TablePayments,
   TabPay,
+  TablePayments,
 } from '../components';
+
 import useMediaQuery from '../hooks/useMediaQuery';
 
 const Pay = () => {
-	const isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
-	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMax1150 = useMediaQuery('(max-width: 1150px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <>
@@ -28,7 +28,7 @@ const Pay = () => {
             title='Send again'
             subtitle='Easily send to a recent destination'
           />
-          <TablePayments payments={PAYMENTS} />
+          <TablePayments />
         </Section>
       </ContentRight>
     </>

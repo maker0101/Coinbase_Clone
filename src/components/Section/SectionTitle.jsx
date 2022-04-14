@@ -1,4 +1,5 @@
 import './SectionTitle.css';
+
 import { Text } from '..';
 import classNames from 'classnames';
 

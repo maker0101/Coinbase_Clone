@@ -1,6 +1,7 @@
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
+
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { useContext } from 'react';
 
 const TableInputCashout = () => {
   const { selectedFiat } = useContext(SelectAssetContext);
@@ -10,8 +11,8 @@ const TableInputCashout = () => {
       <tbody>
         <TableRowSelectAsset
           helperText='With'
-          assetName={`${selectedFiat.symbol} wallet`}
-          assetIcon={selectedFiat.icon}
+          assetName={`${selectedFiat?.symbol} wallet`}
+          assetIcon={selectedFiat?.icon}
           selectAssetType='selectFiat'
         />
       </tbody>

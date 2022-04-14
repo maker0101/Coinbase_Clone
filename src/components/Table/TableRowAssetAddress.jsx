@@ -1,6 +1,5 @@
-import React from 'react';
-import { Text } from '..';
 import { MdOutlineContentCopy } from 'react-icons/md';
+import { Text } from '..';
 
 const TableRowAssetAddress = ({ helperText, address, icon, iconSize = 16 }) => {
   return (

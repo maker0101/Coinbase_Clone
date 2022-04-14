@@ -1,8 +1,9 @@
 import './TableRowSelectAsset.css';
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Text } from '..';
+import { useContext } from 'react';
 
 const TableRowSelectAsset = ({
   helperText,
@@ -20,7 +21,11 @@ const TableRowSelectAsset = ({
       </td>
       <td>
         <div className='tableRowSelectAsset__cellVerticalAligned'>
-          <div className='tableRowSelectAsset__iconAsset'>{assetIcon}</div>
+          <img
+            className='tableRowSelectAsset__iconAsset'
+            src={assetIcon}
+            alt={`${assetName} icon`}
+          />
           <Text>{assetName}</Text>
         </div>
       </td>

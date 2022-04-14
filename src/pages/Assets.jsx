@@ -1,33 +1,37 @@
 import {
+  ChartPortfolio,
   ContentCenter,
   ContentRight,
   Section,
   SectionTitle,
-  TableYourAssets,
-  TableAssets,
   TabTrade,
-  ChartPortfolio,
+  TableAssets,
+  TableYourAssets,
 } from '../components';
-import useMediaQuery from '../hooks/useMediaQuery';
+
+import { YourCoinsProvider } from '../contexts/YouCoinsContext';
 import useAssets from '../hooks/useAssets';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 const Assets = () => {
-	const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
-	const { yourCrypto, watchlistCrypto } = useAssets();
+  const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
+  const { yourCoins, coinsOnWatchlist } = useAssets();
 
   return (
     <>
       <ContentCenter>
         <Section>
-          <ChartPortfolio />
+          <YourCoinsProvider>
+            <ChartPortfolio />
+          </YourCoinsProvider>
         </Section>
         <Section>
           <SectionTitle title='Your Assets' />
-          <TableYourAssets assets={yourCrypto} />
+          <TableYourAssets assets={yourCoins} />
         </Section>
         <Section>
           <SectionTitle title='Watchlist' />
-          <TableAssets assets={watchlistCrypto} />
+          <TableAssets assets={coinsOnWatchlist} />
         </Section>
       </ContentCenter>
       {isWidthMin1150 && (

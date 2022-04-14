@@ -1,6 +1,8 @@
-import { useState } from 'react';
-import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+
+import { useEffect, useState } from 'react';
+
+import { Line } from 'react-chartjs-2';
 
 const LineChart = ({
   chartData,
@@ -8,7 +10,7 @@ const LineChart = ({
   datasetsKey,
   hasTooltip = true,
 }) => {
-  const [lineChartData] = useState({
+  const [lineChartData, setLineChartData] = useState({
     labels: chartData.map((data) => data[`${labelsKey}`]),
     datasets: [{ data: chartData.map((data) => data[`${datasetsKey}`]) }],
   });
@@ -32,6 +34,7 @@ const LineChart = ({
         },
       },
       y: {
+        beginAtZero: false,
         display: false,
       },
     },
@@ -49,6 +52,13 @@ const LineChart = ({
       },
     },
   };
+
+  useEffect(() => {
+    setLineChartData({
+      labels: chartData.map((data) => data[`${labelsKey}`]),
+      datasets: [{ data: chartData.map((data) => data[`${datasetsKey}`]) }],
+    });
+  }, [chartData]);
 
   return <Line data={lineChartData} options={options} />;
 };

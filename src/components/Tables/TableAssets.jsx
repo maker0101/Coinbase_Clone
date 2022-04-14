@@ -1,13 +1,14 @@
 import './TableAssets.css';
-import { Table, TableCellCoinName, TableCellWatch, Text, LineChart } from '..';
-import { ASSET_PRICE_LAST_24H } from '../../constants/asset-price-last-24h';
-import useMediaQuery from '../../hooks/useMediaQuery';
+
+import { LineChart, Table, TableCellCoinName, TableCellWatch, Text } from '..';
+
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { formatMarketCap } from '../../utilities/format-market-cap';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TableAssets = ({ assets }) => {
-	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
-	const isWidthMin400 = useMediaQuery('(min-width: 400px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMin400 = useMediaQuery('(min-width: 400px)');
 
   return (
     <Table>
@@ -25,12 +26,12 @@ const TableAssets = ({ assets }) => {
       )}
       <tbody>
         {assets.map((asset) => (
-          <tr key={asset.symbol}>
+          <tr key={asset?.symbol}>
             <td>
               <TableCellCoinName
-                icon={asset.icon}
-                name={asset.name}
-                symbol={asset.symbol}
+                icon={asset?.icon}
+                name={asset?.name}
+                symbol={asset?.symbol}
               />
             </td>
 
@@ -38,7 +39,7 @@ const TableAssets = ({ assets }) => {
               <td>
                 <div className='tableAssets__priceChart'>
                   <LineChart
-                    chartData={ASSET_PRICE_LAST_24H}
+                    chartData={asset?.sparkline}
                     labelsKey='time'
                     datasetsKey='price'
                     hasTooltip={false}
@@ -47,25 +48,25 @@ const TableAssets = ({ assets }) => {
               </td>
             )}
             <td>
-              <Text>{convertToCurrency(asset.price_eur)}</Text>
+              <Text>{convertToCurrency(asset?.price_eur)}</Text>
               {!isWidthMin800 && (
-                <Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
-                  {asset.price_change24h}%
+                <Text color={asset?.price_change24h < 0 ? 'red' : 'green'}>
+                  {asset?.price_change24h}%
                 </Text>
               )}
             </td>
             {isWidthMin800 && (
               <>
                 <td>
-                  <Text color={asset.price_change24h < 0 ? 'red' : 'green'}>
-                    {asset.price_change24h}%
+                  <Text color={asset?.price_change24h < 0 ? 'red' : 'green'}>
+                    {asset?.price_change24h}%
                   </Text>
                 </td>
                 <td>
-                  <Text>{formatMarketCap(asset.market_cap)}</Text>
+                  <Text>{formatMarketCap(asset?.market_cap)}</Text>
                 </td>
                 <td>
-                  <TableCellWatch onWatchlist={asset.onWatchlist} />
+                  <TableCellWatch coin={asset} />
                 </td>
               </>
             )}

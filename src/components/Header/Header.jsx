@@ -1,16 +1,20 @@
 import './Header.css';
-import { useContext } from 'react';
-import usePath from '../../hooks/usePath';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { RiAccountCircleFill } from 'react-icons/ri';
-import { Button, Text, Logo } from '..';
+
+import { Button, Logo, Text } from '..';
+
+import Avvvatars from 'avvvatars-react';
 import { IoMenuSharp } from 'react-icons/io5';
 import { ModalContext } from '../../contexts/ModalContext';
+import { UserContext } from '../../contexts/UserContext';
+import { useContext } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import usePath from '../../hooks/usePath';
 
 const Header = () => {
   let isWidthMin800 = useMediaQuery('(min-width: 800px)');
   const { page } = usePath();
   const { handleOpen } = useContext(ModalContext);
+  const { user } = useContext(UserContext);
 
   return (
     <header className='Header'>
@@ -25,7 +29,9 @@ const Header = () => {
             Send / Receive
           </Button>
           <div className='header__verticalLine'></div>
-          <RiAccountCircleFill className='header__account' />
+          <div className='header__avatar' onClick={() => handleOpen('profile')}>
+            <Avvvatars value={user?.email || 'Guest'} size={35} />
+          </div>
         </div>
       )}
       {!isWidthMin800 && (

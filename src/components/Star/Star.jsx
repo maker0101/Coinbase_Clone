@@ -1,15 +1,14 @@
 import './Star.css';
-import { useState } from 'react';
-import { HiStar, HiOutlineStar } from 'react-icons/hi';
 
-const Star = ({ onWatchlist }) => {
-  const [isOnWatchlist, setisOnWatchlist] = useState(onWatchlist);
+import { HiOutlineStar, HiStar } from 'react-icons/hi';
 
-  const toggleisOnWatchlist = () => setisOnWatchlist(() => !isOnWatchlist);
+import { db } from '../../firebase-config';
+import { toggleOnWatchlist } from '../../utilities/toggle-on-watchlist';
 
+const Star = ({ coin }) => {
   return (
-    <div className='Star' onClick={toggleisOnWatchlist}>
-      {isOnWatchlist ? (
+    <div className='Star' onClick={() => toggleOnWatchlist(db, coin)}>
+      {coin?.onWatchlist ? (
         <HiStar className='star__filled' />
       ) : (
         <HiOutlineStar className='star__empty' />

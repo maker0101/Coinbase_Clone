@@ -1,23 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import useAssets from './useAssets';
 
 const useSelectAsset = () => {
-  const { allCrypto, allFiat } = useAssets();
+  const { allCoins, allFiat } = useAssets();
   const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
-  const [lastSelectAssetType, setLastSelectAssetType] = useState('crypto');
-  const [selectedCrypto, setSelectedCrypto] = useState(allCrypto[0]);
-  const [selectedCryptoConvertTo, setSelectedCryptoConvertTo] = useState(
-    allCrypto[1]
-  );
+  const [lastSelectAssetType, setLastSelectAssetType] = useState('coin');
   const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
+  const [selectedCoin, setSelectedCoin] = useState(allCoins[0]);
+  const [selectedCoinConvertTo, setSelectedCoinConvertTo] = useState(
+    allCoins[1]
+  );
 
   const setSelectAssetType = (e) => {
     if (e?.target?.matches('.selectFiat, .selectFiat *'))
       setLastSelectAssetType('fiat');
-    if (e?.target?.matches('.selectCrypto, .selectCrypto *'))
-      setLastSelectAssetType('crypto');
-    if (e?.target?.matches('.selectCrypToConvertTo, .selectCrypToConvertTo *'))
-      setLastSelectAssetType('crypToConvertTo');
+    if (e?.target?.matches('.selectCoin, .selectCoin *'))
+      setLastSelectAssetType('coin');
+    if (e?.target?.matches('.selectCoinConvertTo, .selectCoinConvertTo *'))
+      setLastSelectAssetType('coinConvertTo');
   };
 
   const toggleIsSelectAssetOpen = () =>
@@ -30,10 +31,9 @@ const useSelectAsset = () => {
 
   const handleSelectAsset = (asset, lastSelectAssetType) => {
     if (asset.isFiat) setSelectedFiat(asset);
-    if (!asset.isFiat && lastSelectAssetType === 'crypto')
-      setSelectedCrypto(asset);
-    if (!asset.isFiat && lastSelectAssetType === 'crypToConvertTo')
-      setSelectedCryptoConvertTo(asset);
+    if (!asset.isFiat && lastSelectAssetType === 'coin') setSelectedCoin(asset);
+    if (!asset.isFiat && lastSelectAssetType === 'coinConvertTo')
+      setSelectedCoinConvertTo(asset);
     toggleIsSelectAssetOpen();
   };
 
@@ -41,11 +41,17 @@ const useSelectAsset = () => {
     assetSelected1?.symbol === asset.symbol ||
     assetSelected2?.symbol === asset.symbol;
 
+  useEffect(() => {
+    setSelectedCoin(allCoins[0]);
+    setSelectedCoinConvertTo(allCoins[1]);
+    setSelectedFiat(allFiat[0]);
+  }, [allCoins, allFiat]);
+
   return {
     isSelectAssetOpen,
     lastSelectAssetType,
-    selectedCrypto,
-    selectedCryptoConvertTo,
+    selectedCoin,
+    selectedCoinConvertTo,
     selectedFiat,
     toggleIsSelectAssetOpen,
     handleSelectAssetOpenClick,

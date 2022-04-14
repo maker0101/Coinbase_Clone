@@ -1,24 +1,25 @@
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
 
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { useContext } from 'react';
+
 const TableInputConvert = () => {
-  const { selectedCrypto, selectedCryptoConvertTo } =
+  const { selectedCoin, selectedCoinConvertTo } =
     useContext(SelectAssetContext);
   return (
     <Table isInputTable>
       <tbody>
         <TableRowSelectAsset
           helperText='From'
-          assetName={selectedCrypto.name}
-          assetIcon={selectedCrypto.icon}
-          selectAssetType='selectCrypto'
+          assetName={selectedCoin?.name}
+          assetIcon={selectedCoin?.icon}
+          selectAssetType='selectCoin'
         />
         <TableRowSelectAsset
           helperText='To'
-          assetName={selectedCryptoConvertTo.name}
-          assetIcon={selectedCryptoConvertTo.icon}
-          selectAssetType='selectCrypToConvertTo'
+          assetName={selectedCoinConvertTo?.name}
+          assetIcon={selectedCoinConvertTo?.icon}
+          selectAssetType='selectCoinConvertTo'
         />
       </tbody>
     </Table>

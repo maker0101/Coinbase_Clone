@@ -1,4 +1,5 @@
 import './Section.css';
+
 import classNames from 'classnames';
 
 const Section = ({ children, width }) => {

@@ -1,21 +1,33 @@
 import './TablePayments.css';
-import { Text, Table } from '..';
 
-const TablePayments = ({ payments }) => {
+import { Table, Text } from '..';
+
+import { transactionTime } from '../../utilities/transform-dates';
+import useTransactions from '../../hooks/useTransactions';
+
+const TablePayments = () => {
+  const { sendTransactions } = useTransactions();
+
   return (
     <Table>
       <tbody>
-        {payments.map((p) => (
-          <tr key={p.id}>
+        {sendTransactions.slice(0, 5).map((t) => (
+          <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <div className='tablePayments__icon'>{p.icon}</div>
+                <img
+                  className='tablePayments__icon'
+                  src={t?.coin?.icon}
+                  alt={`${t?.coin?.name} icon`}
+                />
                 <div className='tablePayments__head'>
-                  <Text>{`Sent ${p.name}`}</Text>
+                  <Text>{`Sent ${t?.coin?.amount?.toFixed(6)} ${
+                    t?.coin?.symbol
+                  }`}</Text>
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>
-                    {`To ${p.adress} on ${p.date}`}
+                    {`To ${t?.address} on ${transactionTime(t?.timestamp)}`}
                   </Text>
                 </div>
               </div>

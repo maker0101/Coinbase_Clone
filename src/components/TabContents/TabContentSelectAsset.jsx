@@ -1,23 +1,25 @@
 import './TabContentSelectAsset.css';
-import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
+
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
-import { useContext } from 'react';
+import { Search, TabContent, Table, TableCellCoinName, Text } from '..';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
-import useAssets from '../../hooks/useAssets';
-import useSearch from '../../hooks/useSearch';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import useAssets from '../../hooks/useAssets';
+import { useContext } from 'react';
+import useSearch from '../../hooks/useSearch';
 
 const TabContentSelectAsset = () => {
   const {
     toggleIsSelectAssetOpen,
-    selectedCrypto,
+    selectedCoin,
     selectedFiat,
     lastSelectAssetType,
     handleSelectAsset,
     checkIsSelected,
   } = useContext(SelectAssetContext);
-  const { allCrypto, allFiat } = useAssets();
-  const assets = lastSelectAssetType === 'fiat' ? allFiat : allCrypto;
+  const { allCoins, allFiat } = useAssets();
+  const assets = lastSelectAssetType === 'fiat' ? allFiat : allCoins;
 
   const { searchResult, searchInput, handleSearch } = useSearch(assets);
 
@@ -38,32 +40,32 @@ const TabContentSelectAsset = () => {
           {searchResult.map((asset) => (
             <tr
               className={
-                checkIsSelected(asset, selectedCrypto, selectedFiat)
+                checkIsSelected(asset, selectedCoin, selectedFiat)
                   ? 'tabContent__isSelectedAsset'
                   : ''
               }
-              key={asset.symbol}
+              key={asset?.symbol}
               onClick={() => handleSelectAsset(asset, lastSelectAssetType)}>
               <td>
                 <TableCellCoinName
-                  icon={asset.icon}
-                  name={asset.name}
-                  symbol={asset.symbol}
+                  icon={asset?.icon}
+                  name={asset?.name}
+                  symbol={asset?.symbol}
                 />
               </td>
               <td>
                 <div className='tabContent__selectAssetCell'>
                   {lastSelectAssetType === 'fiat' ? (
-                    <Text>{convertToCurrency(asset.balance_eur)}</Text>
+                    <Text>{convertToCurrency(asset?.balance_eur)}</Text>
                   ) : (
                     <div className='tabContent__selectAssetBalance'>
-                      <Text>{`${asset.balance_coin} ${asset.symbol}`}</Text>
+                      <Text>{`${asset?.balance_coin} ${asset?.symbol}`}</Text>
                       <Text color='grey' size='s'>
-                        {convertToCurrency(asset.balance_eur)}
+                        {convertToCurrency(asset?.balance_eur)}
                       </Text>
                     </div>
                   )}
-                  {checkIsSelected(asset, selectedCrypto, selectedFiat) && (
+                  {checkIsSelected(asset, selectedCoin, selectedFiat) && (
                     <FaCheck />
                   )}
                 </div>

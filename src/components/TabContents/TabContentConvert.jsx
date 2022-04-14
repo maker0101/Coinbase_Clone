@@ -1,31 +1,35 @@
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import {
-  TabContent,
   Button,
   InputAmountContainer,
-  TableInputConvert,
-  TabFooter,
+  TabContent,
   TabContentSelectAsset,
+  TabFooter,
+  TableInputConvert,
+  TransactionForm,
 } from '..';
+
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import { useContext } from 'react';
 
 const TabContentConvert = () => {
-  const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
+  const { isSelectAssetOpen, selectedCoin } = useContext(SelectAssetContext);
   return (
     <>
       {isSelectAssetOpen ? (
         <TabContentSelectAsset />
       ) : (
         <TabContent>
-          <InputAmountContainer />
-          <TableInputConvert />
-          <Button size='xl'>{`Convert ${selectedCrypto.name}`}</Button>
+          <TransactionForm type='convertCoin'>
+            <InputAmountContainer />
+            <TableInputConvert />
+            <Button size='xl'>{`Convert ${selectedCoin?.name}`}</Button>
+          </TransactionForm>
           <TabFooter
-            textLeft={`${selectedCrypto.symbol} balance`}
-            textRight={`${selectedCrypto.balance_coin} ${
-              selectedCrypto.symbol
-            } = ${convertToCurrency(selectedCrypto.balance_eur)}`}
+            textLeft={`${selectedCoin?.symbol} balance`}
+            textRight={`${selectedCoin?.balance_coin?.toFixed(6)} ${
+              selectedCoin?.symbol
+            } = ${convertToCurrency(selectedCoin?.balance_eur)}`}
           />
         </TabContent>
       )}

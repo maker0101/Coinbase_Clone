@@ -1,6 +1,13 @@
-import { ModalTrade, ModalPay, ModalDeposit, MenuMobile } from '..';
-import { useContext } from 'react';
+import {
+  MenuMobile,
+  ModalDeposit,
+  ModalPay,
+  ModalProfile,
+  ModalTrade,
+} from '..';
+
 import { ModalContext } from '../../contexts/ModalContext';
+import { useContext } from 'react';
 
 const ModalsManager = () => {
   const { activeModal } = useContext(ModalContext);
@@ -12,6 +19,8 @@ const ModalsManager = () => {
       return <ModalPay />;
     case 'deposit':
       return <ModalDeposit />;
+    case 'profile':
+      return <ModalProfile />;
     case 'menuMobile':
       return <MenuMobile />;
     default:

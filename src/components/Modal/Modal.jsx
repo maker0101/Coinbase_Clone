@@ -1,5 +1,7 @@
 import './Modal.css';
-import { useRef, useContext } from 'react';
+
+import { useContext, useRef } from 'react';
+
 import { ModalContext } from '../../contexts/ModalContext';
 
 const Modal = ({ children }) => {

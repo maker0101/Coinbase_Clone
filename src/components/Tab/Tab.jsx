@@ -1,7 +1,8 @@
 import './Tab.css';
-import { useContext } from 'react';
+
 import { ModalContext } from '../../contexts/ModalContext';
 import classNames from 'classnames';
+import { useContext } from 'react';
 
 const Tab = ({ data }) => {
   const { activeTab, setActiveTab } = useContext(ModalContext);

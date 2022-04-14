@@ -1,23 +1,25 @@
 import {
-  TabContent,
   Button,
   InputAmountContainer,
-  TableInputBuy,
-  TabFooter,
-  TabContentSelectAsset,
+  TabContent,
   TabContentBuyEmpty,
+  TabContentSelectAsset,
+  TabFooter,
+  TableInputBuy,
+  TransactionForm,
 } from '..';
-import { convertToCurrency } from '../../utilities/convert-to-currency';
-import { calculateBalanceTotal } from '../../utilities/calculate-balance-total';
-import { useContext } from 'react';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 import useAssets from '../../hooks/useAssets';
+import { useContext } from 'react';
 
 const TabContentBuy = () => {
-  const { isSelectAssetOpen, selectedCrypto, selectedFiat } =
+  const { isSelectAssetOpen, selectedCoin, selectedFiat } =
     useContext(SelectAssetContext);
   const { allFiat } = useAssets();
-  const hasNoFiat = Boolean(!calculateBalanceTotal(allFiat));
+  const hasNoFiat = Boolean(!calculateTotalBalance(allFiat));
 
   if (hasNoFiat) {
     return <TabContentBuyEmpty />;
@@ -26,12 +28,14 @@ const TabContentBuy = () => {
   } else {
     return (
       <TabContent>
-        <InputAmountContainer />
-        <TableInputBuy />
-        <Button size='xl'>{`Buy ${selectedCrypto.name}`}</Button>
+        <TransactionForm type='buyCoin'>
+          <InputAmountContainer />
+          <TableInputBuy />
+          <Button size='xl'>{`Buy ${selectedCoin?.name}`}</Button>
+        </TransactionForm>
         <TabFooter
-          textLeft={`${selectedFiat.symbol} balance`}
-          textRight={convertToCurrency(selectedFiat.balance_eur)}
+          textLeft={`${selectedFiat?.symbol} balance`}
+          textRight={convertToCurrency(selectedFiat?.balance_eur)}
         />
       </TabContent>
     );

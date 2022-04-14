@@ -1,29 +1,33 @@
 import './Trade.css';
-import { RECENT_TRANSACTIONS } from '../constants/recent-transactions';
+
 import {
   ContentCenter,
   ContentRight,
+  Dropdown,
+  Search,
   Section,
   SectionTitle,
+  TabTrade,
   TableAssets,
   TableRecentTransactions,
-  Search,
-  Dropdown,
-  TabTrade,
 } from '../components';
-import useMediaQuery from '../hooks/useMediaQuery';
+
 import useAssets from '../hooks/useAssets';
-import useSearch from '../hooks/useSearch';
-import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
+import useFilter from '../hooks/useFilter';
+import useMediaQuery from '../hooks/useMediaQuery';
+import useSearch from '../hooks/useSearch';
+
+const ASSET_OPTIONS = ['All assets', 'Watchlist'];
 
 const Trade = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   const isWidthMin800 = useMediaQuery('(min-width: 800px)');
-  const { allCrypto } = useAssets();
-  const { searchResult, searchInput, handleSearch } = useSearch(allCrypto);
+  const { allCoins } = useAssets();
+
+  const { searchResult, searchInput, handleSearch } = useSearch(allCoins);
   const { filterResult, filterInput, handleFilter } = useFilter(
-    allCrypto,
+    allCoins,
     'All assets'
   );
   const { searchFilterResult } = useCombineSearchFilter(
@@ -31,10 +35,11 @@ const Trade = () => {
     filterResult,
     'symbol'
   );
-  const watchlistQuery = (asset) => asset.onWatchlist === true;
 
-  const OPTIONS_TIME = ['1d', '1w', '1m', '1y'];
-  const ASSET_TYPE = ['All assets', 'Watchlist'];
+  const assetsInTable =
+    searchInput || filterInput !== 'All assets' ? searchFilterResult : allCoins;
+
+  const watchlistQuery = (asset) => asset.onWatchlist;
 
   return (
     <>
@@ -45,28 +50,20 @@ const Trade = () => {
             <Search
               searchInput={searchInput}
               handleSearch={handleSearch}
-              allItems={allCrypto}
+              allItems={allCoins}
             />
             {isWidthMin800 && (
               <div className='trade__filters'>
                 <Dropdown
-                  name='timeframe'
-                  options={OPTIONS_TIME}
-                  initialValue='1d'
-                />
-                <Dropdown
-                  name='assetType'
-                  options={ASSET_TYPE}
-                  initialValue='Tradeable Assets'
-                  filterInput={filterInput}
-                  handleFilter={handleFilter}
-                  filterQuery={watchlistQuery}
-                  allItems={allCrypto}
+                  name='assetOptions'
+                  options={ASSET_OPTIONS}
+                  value={filterInput}
+                  onChange={(e) => handleFilter(e, allCoins, watchlistQuery)}
                 />
               </div>
             )}
           </div>
-          <TableAssets assets={searchFilterResult} />
+          <TableAssets assets={assetsInTable} />
         </Section>
       </ContentCenter>
       <ContentRight>
@@ -77,7 +74,7 @@ const Trade = () => {
         )}
         <Section>
           <SectionTitle title='Recent transactions' />
-          <TableRecentTransactions transactions={RECENT_TRANSACTIONS} />
+          <TableRecentTransactions />
         </Section>
       </ContentRight>
     </>

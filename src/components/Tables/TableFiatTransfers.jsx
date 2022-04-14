@@ -1,23 +1,33 @@
 import './TablePayments.css';
-import { Text, Table } from '..';
 
-const TableFiatTransfers = ({ payments }) => {
+import { Table, Text } from '..';
+
+import { transactionTime } from '../../utilities/transform-dates';
+import useTransactions from '../../hooks/useTransactions';
+
+const TableFiatTransfers = () => {
+  const { fiatTransactions } = useTransactions();
+
   return (
     <Table>
       <tbody>
-        {payments.map((p) => (
-          <tr key={p.id}>
+        {fiatTransactions.slice(0, 5).map((t) => (
+          <tr key={t?.id}>
             <td>
               <div className='tablePayments__cell'>
-                <div className='tablePayments__icon'>{p.icon}</div>
+                <img
+                  className='tablePayments__icon'
+                  src={t?.fiat?.icon}
+                  alt={`${t?.fiat?.name} icon`}
+                />
                 <div className='tablePayments__head'>
-                  <Text>{`${p.type === 'deposit' ? 'Deposited' : 'Withdrew'} ${
-                    p.amount
-                  } ${p.name}`}</Text>
+                  <Text>{`${
+                    t?.type === 'depositFiat' ? 'Deposited' : 'Withdrew'
+                  } ${t?.fiat?.amount} ${t?.fiat?.symbol}`}</Text>
                 </div>
                 <div className='tablePayments__body'>
                   <Text color='grey' size='s'>
-                    {`On ${p.date}`}
+                    {`On ${transactionTime(t?.timestamp)}`}
                   </Text>
                 </div>
               </div>

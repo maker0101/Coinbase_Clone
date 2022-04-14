@@ -1,16 +1,18 @@
 import './TableReceive.css';
-import { FaAddressCard } from 'react-icons/fa';
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+
 import {
   Table,
+  TableRowAssetAddress,
   TableRowQR,
   TableRowSelectAsset,
-  TableRowAssetAddress,
 } from '..';
 
+import { FaAddressCard } from 'react-icons/fa';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { useContext } from 'react';
+
 const TableReceive = () => {
-  const { selectedCrypto } = useContext(SelectAssetContext);
+  const { selectedCoin } = useContext(SelectAssetContext);
   return (
     <div className='TableReceive'>
       <Table isInputTable>
@@ -18,9 +20,9 @@ const TableReceive = () => {
           <TableRowQR />
           <TableRowSelectAsset
             helperText='Asset'
-            assetName={selectedCrypto.name}
-            assetIcon={selectedCrypto.icon}
-            selectAssetType='selectCrypto'
+            assetName={selectedCoin?.name}
+            assetIcon={selectedCoin?.icon}
+            selectAssetType='selectCoin'
           />
           <TableRowAssetAddress
             helperText='Address'

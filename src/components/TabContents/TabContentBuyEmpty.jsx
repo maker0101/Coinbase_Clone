@@ -1,7 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import './TabContentBuyEmpty.css';
+
+import { Button, TabContent, Text } from '..';
+
 import { HiExclamationCircle } from 'react-icons/hi';
-import { Text, Button, TabContent } from '..';
+import { useNavigate } from 'react-router-dom';
 
 const TabContentBuyEmpty = () => {
   const navigate = useNavigate();

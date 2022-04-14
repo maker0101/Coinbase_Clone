@@ -1,10 +1,11 @@
-import { useContext } from 'react';
+import { TabContent, TabContentSelectAsset, TabFooter, TableReceive } from '..';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
-import { TabContent, TableReceive, TabFooter, TabContentSelectAsset } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import { useContext } from 'react';
 
 const TabContentReceive = (props) => {
-  const { isSelectAssetOpen, selectedCrypto } = useContext(SelectAssetContext);
+  const { isSelectAssetOpen, selectedCoin } = useContext(SelectAssetContext);
   return (
     <>
       {isSelectAssetOpen ? (
@@ -14,10 +15,10 @@ const TabContentReceive = (props) => {
           <TableReceive {...props} />
           <TabFooter
             marginTopNone
-            textLeft={`${selectedCrypto.symbol} balance`}
-            textRight={`${selectedCrypto.balance_coin} ${
-              selectedCrypto.symbol
-            } = ${convertToCurrency(selectedCrypto.balance_eur)}`}
+            textLeft={`${selectedCoin?.symbol} balance`}
+            textRight={`${selectedCoin?.balance_coin?.toFixed(6)} ${
+              selectedCoin?.symbol
+            } = ${convertToCurrency(selectedCoin?.balance_eur)}`}
           />
         </TabContent>
       )}

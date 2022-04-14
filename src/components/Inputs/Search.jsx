@@ -1,4 +1,5 @@
 import './Search.css';
+
 import { IoSearchOutline } from 'react-icons/io5';
 
 const Search = ({ searchInput, handleSearch, allItems }) => {

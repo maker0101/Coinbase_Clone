@@ -1,11 +1,14 @@
 import './TableRowInputText.css';
-import { Text, Input } from '..';
+
+import { Input, Text } from '..';
 
 const TableRowInputText = ({
   helperText,
+  name,
   inputPlaceholder,
   icon,
   iconSize,
+  required,
 }) => {
   return (
     <tr className='TableRowInputText'>
@@ -19,7 +22,11 @@ const TableRowInputText = ({
             style={{ fontSize: iconSize + 'px' }}>
             {icon}
           </div>
-          <Input placeholder={inputPlaceholder} />
+          <Input
+            placeholder={inputPlaceholder}
+            name={name}
+            required={required}
+          />
         </div>
       </td>
       <td></td>

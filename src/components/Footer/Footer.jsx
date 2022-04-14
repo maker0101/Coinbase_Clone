@@ -1,7 +1,8 @@
-import { useContext } from 'react';
-import { ModalContext } from '../../contexts/ModalContext';
-import { Button } from '..';
 import './Footer.css';
+
+import { Button } from '..';
+import { ModalContext } from '../../contexts/ModalContext';
+import { useContext } from 'react';
 import usePath from '../../hooks/usePath';
 
 const Footer = () => {
