@@ -1,31 +1,30 @@
 <h1 align="center">Simplified Coinbase Clone</h1>
-<h3 align="center">Build with React, Typescript and Firebase. Tested with Jest/React Testing Library.</h3>
+<h3 align="center">Build with React, JavaScript and Firebase. Real-time data from Coinranking API.</h3>
 
 ![Coinbase Clone Screenshot](coinbase-clone-preview.jpg)
 [Go to live app](https://todoist-clone.com/)
 
 ## What is this and who is it for ⭐
 
-This is a simplified Coinbase clone built with React, Typescript and Firebase.
+This is a simplified Coinbase clone built with React, Firebase and the Coinranking API. The app let's you check prices, price histories and market caps of popular crypto currencies. Furthermore, you can simulate trading crypto assets, sending crypto to friends as well as depositing and withdrawing fiat currencies.
+
 After building a [Todoist Clone as my first React project](https://github.com/maker0101/Todoist_Clone) I was looking for second React training project where I could:
 
 - Continue to practice building reusable components and hooks.
 - Work with external data APIs for data fetching
 - Build my first Charts :-)
-- Implement Tests with React Testing Library / Jest for the first time
-- Start learning and playing around with Typescript
 
-This project focusses on the Frontend. If you like, have a look.
+This project focusses on the Frontend. You are very welcome to have a look at the code.
 As this project helped me tremendously on my journey to become an awesome Frontend Developer, I hope it provides some value for you, too 🤓.
 
 ## Features and Technologies
 
-- Written in **modern React** and **Typescript**
+- Written in **modern React** and **JavaScript**
 - **Simple** vanilla React **state management** (without Redux, Recoil or similar)
 - **Coinbase UI** (as of March 2022)
-- Crypto data fetched using [Coinranks awesome API](https://developers.coinranking.com/api) via [RapidAPI](https://rapidapi.com/)
-- **Components tested** with React Testing Library / Jest
 - **Firebase** as backend (for authentification and database)
+- Crypto data fetched using [Coinranks awesome API](https://developers.coinranking.com/api) via [RapidAPI](https://rapidapi.com/)
+- Charts created with [Chart.js](https://www.chartjs.org/)
 
 ## Getting started 🛠
 
@@ -45,21 +44,23 @@ I'm aware of the following shortcomings listed below:
 
 ### Performance 🚀
 
-- Caching
+- The current app is not performance optimized
+- Currently there is no data caching of responses implemented, resulting in considerable layout shifts
 
 ### Security 🔒
 
-- Seperate Production and development environment
-- Add Backend validations
-- Improve frontend validations
+- All validations of transactions are currently taking place on the client. For a production app, transaction validations should be implemented in the backend.
+- Seperating production and development environments is recommended.
 
 ### Styling 🎨
 
-- using CSS custom properties to store repeating styles (e.g. colors)
+- To make the app more maintainable, repeating properties like colors, breakpoints, sizes should be stored and used as custom CSS properties.
+- Current app implementation performs styling mostly via classnames. But in situations where truly dynamic CSS properties is needed, some inline styling is used. While this is working, switching to a unified styling approach (e.g. with 'styled components') is recommended.
+- App uses BEM classname convention to prevent classname collisions. While working, adopting e.g. 'styled componets' would eliminate the need for BEM, because of automatic unique class name generation
 
 ### Data management 🗄
 
-- tbd
+- Currently all users share the same data. This is a major shortcoming and I will work on fixing it soon.
 
 ### Accessibility ♿
 
@@ -67,11 +68,11 @@ No extra efforts have been put into making this project more accessible. For a p
 
 ### Testing 🧪
 
-tbd
+- Testing is currently missing. This is a major shortcoming and I will work on fixing it soon.
 
 ## Author: Max Breitsprecher
 
-- Website: [xxx.com](https://xxx.com)
+- Website: [maxbreitsprecher.com](https://www.maxbreitsprecher.com/)
 - Email: max.breitsp@gmail.com
 - Github profile: [github.com/maker0101](https://github.com/maker0101)
 
@@ -84,7 +85,7 @@ If you have any questions or feedback, feel free to say hi. 👋
 ## Shout out
 
 - This great [YouTube video from JavaScript Mastery](https://youtu.be/9DDX3US3kss) helped me discover the Coinranking API and the Rapid API service.
-- Again, i would like to thank my awesome code tutor [Esen](https://github.com/snqb) for his invaluable feedback, code reviews and words of encouragement.
+- Again, I would like to thank my awesome code tutor [Esen](https://github.com/snqb) for his invaluable feedback, code reviews and words of encouragement.
 
 ## Disclaimer
 
