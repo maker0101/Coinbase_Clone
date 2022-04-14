@@ -2,7 +2,7 @@
 <h3 align="center">Build with React, JavaScript and Firebase. Real-time data from Coinranking API.</h3>
 
 ![Coinbase Clone Screenshot](coinbase-clone-preview.jpg)
-[Go to live app](https://todoist-clone.com/)
+[Go to live app](https://coinbase-clone.com/)
 
 ## What is this and who is it for ⭐
 
