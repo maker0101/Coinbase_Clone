@@ -1,7 +1,8 @@
 import { Table, TableCellCoinName, Text } from '..';
-import useMediaQuery from '../../hooks/useMediaQuery';
+
 import { calculateAllocation } from '../../utilities/calculate-allocation';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TableYourAssets = ({ assets }) => {
   const isWidthMin800 = useMediaQuery('(min-width: 800px)');

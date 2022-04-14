@@ -1,10 +1,12 @@
 import './ModalProfile.css';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import { Modal, ModalClose, Text, Button } from '..';
-import useMediaQuery from '../../hooks/useMediaQuery';
+
+import { Button, Modal, ModalClose, Text } from '..';
+
 import Avvvatars from 'avvvatars-react';
+import { UserContext } from '../../contexts/UserContext';
 import useAuth from '../../hooks/useAuth';
+import { useContext } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const ModalProfile = () => {
   const isWidthMax800 = useMediaQuery('(max-width: 800px)');

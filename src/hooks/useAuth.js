@@ -1,13 +1,14 @@
-import { useState, useContext } from 'react';
 import {
-  signInWithEmailAndPassword,
-  signInAnonymously,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
-  signOut,
-  GoogleAuthProvider,
   onAuthStateChanged,
+  signInAnonymously,
+  signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
+import { useContext, useState } from 'react';
+
 import { UserContext } from '../contexts/UserContext';
 import { auth } from '../firebase-config';
 

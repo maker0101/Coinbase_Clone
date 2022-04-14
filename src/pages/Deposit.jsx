@@ -3,9 +3,10 @@ import {
   ContentRight,
   Section,
   SectionTitle,
-  TableFiatTransfers,
   TabDeposit,
+  TableFiatTransfers,
 } from '../components';
+
 import useMediaQuery from '../hooks/useMediaQuery';
 
 const Deposit = () => {

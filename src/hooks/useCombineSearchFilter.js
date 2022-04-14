@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useCombineSearchFilter = (searchResult, filterResult, key) => {
   const [searchFilterResult, setSearchFilterResult] = useState(searchResult);

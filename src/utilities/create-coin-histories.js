@@ -1,5 +1,5 @@
-import fetchCoinPriceHistory from '../utilities/fetch-coin-price-history';
 import createCoinBalanceHistory from '../utilities/create-coin-balance-history';
+import fetchCoinPriceHistory from '../utilities/fetch-coin-price-history';
 
 const createCoinHistories = async (yourCoins, timeFrame, transactions) => {
   const coinHistories = [];

@@ -1,7 +1,9 @@
 import './Star.css';
-import { HiStar, HiOutlineStar } from 'react-icons/hi';
-import { toggleOnWatchlist } from '../../utilities/toggle-on-watchlist';
+
+import { HiOutlineStar, HiStar } from 'react-icons/hi';
+
 import { db } from '../../firebase-config';
+import { toggleOnWatchlist } from '../../utilities/toggle-on-watchlist';
 
 const Star = ({ coin }) => {
   return (

@@ -1,4 +1,5 @@
-import { Modal, TabDeposit, ModalClose } from '..';
+import { Modal, ModalClose, TabDeposit } from '..';
+
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const ModalDeposit = () => {

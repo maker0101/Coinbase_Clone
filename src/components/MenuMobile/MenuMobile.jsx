@@ -1,11 +1,13 @@
 import './MenuMobile.css';
-import { useContext } from 'react';
-import { ModalContext } from '../../contexts/ModalContext';
-import { RiPieChartFill, RiBankCardFill, RiCloseLine } from 'react-icons/ri';
-import { TiChartLine } from 'react-icons/ti';
+
+import { Button, SidebarNavItem } from '..';
+import { RiBankCardFill, RiCloseLine, RiPieChartFill } from 'react-icons/ri';
+
 import { AiFillEuroCircle } from 'react-icons/ai';
-import { SidebarNavItem, Button } from '..';
+import { ModalContext } from '../../contexts/ModalContext';
+import { TiChartLine } from 'react-icons/ti';
 import useAuth from '../../hooks/useAuth';
+import { useContext } from 'react';
 
 const MenuMobile = () => {
   const { isOpen, handleClose } = useContext(ModalContext);

@@ -1,5 +1,6 @@
 import './TableRowInputText.css';
-import { Text, Input } from '..';
+
+import { Input, Text } from '..';
 
 const TableRowInputText = ({
   helperText,

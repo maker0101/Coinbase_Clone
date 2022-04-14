@@ -1,7 +1,8 @@
 import './AuthError.css';
+
 import { RiErrorWarningFill } from 'react-icons/ri';
-import useAuth from '../../hooks/useAuth';
 import { Text } from '../index';
+import useAuth from '../../hooks/useAuth';
 
 const AuthError = () => {
   const { authError } = useAuth();

@@ -1,8 +1,10 @@
 import './TableAssets.css';
-import { Table, TableCellCoinName, TableCellWatch, Text, LineChart } from '..';
-import useMediaQuery from '../../hooks/useMediaQuery';
+
+import { LineChart, Table, TableCellCoinName, TableCellWatch, Text } from '..';
+
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { formatMarketCap } from '../../utilities/format-market-cap';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TableAssets = ({ assets }) => {
   const isWidthMin800 = useMediaQuery('(min-width: 800px)');

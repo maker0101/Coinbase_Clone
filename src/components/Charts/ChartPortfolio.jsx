@@ -1,13 +1,15 @@
 import './ChartPortfolio.css';
-import { useState, useContext } from 'react';
+
+import { Dropdown, LineChart, Text } from '..';
+import { useContext, useState } from 'react';
+
 import { YourCoinsContext } from '../../contexts/YouCoinsContext';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { Text, LineChart, Dropdown } from '..';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
-import { convertToCurrency } from '../../utilities/convert-to-currency';
 import classNames from 'classnames';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { createChartTimes } from '../../utilities/create-chart-times';
 import useBalanceHistory from '../../hooks/useBalanceHistory';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const TIMEFRAME_OPTIONS = ['1D', '1W', '1M', '1Y'];
 

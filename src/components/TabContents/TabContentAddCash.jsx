@@ -1,15 +1,16 @@
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import {
-  TabContent,
   Button,
   InputAmountContainer,
-  TableInputAddCash,
-  TabFooter,
+  TabContent,
   TabContentSelectAsset,
+  TabFooter,
+  TableInputAddCash,
   TransactionForm,
 } from '..';
+
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import { useContext } from 'react';
 
 const TabContentAddCash = () => {
   const { isSelectAssetOpen, selectedFiat } = useContext(SelectAssetContext);

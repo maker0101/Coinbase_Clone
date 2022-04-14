@@ -1,4 +1,5 @@
 import './TableCellCoinName.css';
+
 import { Text } from '..';
 
 const TableCellCoinName = ({ icon, name, symbol }) => {

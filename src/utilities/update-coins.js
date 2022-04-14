@@ -1,6 +1,6 @@
-import { findAsset } from './find-asset';
-import { createCoin } from './create-coin';
 import { addCoin } from './add-coin';
+import { createCoin } from './create-coin';
+import { findAsset } from './find-asset';
 import { updateCoinBalance } from './update-coin-balance';
 
 export const updateCoins = (db, transaction, coinAssets) => {

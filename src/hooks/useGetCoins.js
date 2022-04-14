@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+
 import { adaptFetchedCoins } from '../utilities/adapt-fetched-coins';
-import { onSnapshot, query, collection } from 'firebase/firestore';
+import axios from 'axios';
 import { db } from '../firebase-config';
 
 const REQUEST_OPTIONS = {
@@ -56,7 +57,6 @@ const useGetCoins = () => {
     fetchYourCoins(db);
   }, []);
 
-  //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCoins'."
   useEffect(() => {
     handleGetAllCoins(REQUEST_OPTIONS, yourCoins);
   }, [yourCoins]);

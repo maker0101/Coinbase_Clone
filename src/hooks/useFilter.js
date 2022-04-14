@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useFilter = (allItems, defaultValue) => {
   const [filterResult, setFilterResult] = useState(allItems);
@@ -12,7 +12,6 @@ const useFilter = (allItems, defaultValue) => {
     setFilterResult(filterValue !== defaultValue ? filteredAssets : allItems);
   };
 
-  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
     if (filterInput === defaultValue) setFilterResult(allItems);
   }, [allItems]);

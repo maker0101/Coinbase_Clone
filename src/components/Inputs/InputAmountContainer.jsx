@@ -1,8 +1,9 @@
 import './InputAmountContainer.css';
-import { useContext } from 'react';
-import { TransactionFormContext } from '../../contexts/TransactionFormContext';
+
 import InputAmountDynamicWidth from './InputAmountDynamicWidth';
 import { Text } from '..';
+import { TransactionFormContext } from '../../contexts/TransactionFormContext';
+import { useContext } from 'react';
 
 const InputAmountContainer = () => {
   const { amountError } = useContext(TransactionFormContext);

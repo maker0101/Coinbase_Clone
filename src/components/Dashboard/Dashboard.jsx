@@ -1,11 +1,13 @@
 import './Dashboard.css';
-import { Outlet } from 'react-router-dom';
-import { Sidebar, Main, Header, Content, Footer, ModalsManager } from '..';
-import useMediaQuery from '../../hooks/useMediaQuery';
+
+import { Content, Footer, Header, Main, ModalsManager, Sidebar } from '..';
+
 import { ModalProvider } from '../../contexts/ModalContext';
+import { Outlet } from 'react-router-dom';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const Dashboard = () => {
-	const isWidthMin800 = useMediaQuery('(min-width: 800px)');
+  const isWidthMin800 = useMediaQuery('(min-width: 800px)');
 
   return (
     <div className='Dashboard'>

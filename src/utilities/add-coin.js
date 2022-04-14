@@ -1,4 +1,4 @@
-import { setDoc, doc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 
 export const addCoin = async (db, coin) => {
   try {

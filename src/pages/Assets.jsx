@@ -1,16 +1,17 @@
 import {
+  ChartPortfolio,
   ContentCenter,
   ContentRight,
   Section,
   SectionTitle,
-  TableYourAssets,
-  TableAssets,
   TabTrade,
-  ChartPortfolio,
+  TableAssets,
+  TableYourAssets,
 } from '../components';
-import useMediaQuery from '../hooks/useMediaQuery';
-import useAssets from '../hooks/useAssets';
+
 import { YourCoinsProvider } from '../contexts/YouCoinsContext';
+import useAssets from '../hooks/useAssets';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 const Assets = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');

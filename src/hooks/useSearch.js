@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useSearch = (allItems) => {
   const [searchResult, setSearchResult] = useState(allItems);
@@ -17,7 +17,6 @@ const useSearch = (allItems) => {
     setSearchResult(searchTerm ? filteredItems : allItems);
   };
 
-  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
     if (!searchInput) setSearchResult(allItems);
   }, [allItems]);

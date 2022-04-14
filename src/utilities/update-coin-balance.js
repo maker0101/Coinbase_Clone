@@ -1,4 +1,4 @@
-import { updateDoc, doc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 
 export const updateCoinBalance = async (db, coinId, newCoinBalance) => {
   try {

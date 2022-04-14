@@ -1,18 +1,19 @@
 import {
-  TabContent,
   Button,
   InputAmountContainer,
-  TableInputBuy,
-  TabFooter,
-  TabContentSelectAsset,
+  TabContent,
   TabContentBuyEmpty,
+  TabContentSelectAsset,
+  TabFooter,
+  TableInputBuy,
   TransactionForm,
 } from '..';
-import { convertToCurrency } from '../../utilities/convert-to-currency';
-import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
-import { useContext } from 'react';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
+import { convertToCurrency } from '../../utilities/convert-to-currency';
 import useAssets from '../../hooks/useAssets';
+import { useContext } from 'react';
 
 const TabContentBuy = () => {
   const { isSelectAssetOpen, selectedCoin, selectedFiat } =

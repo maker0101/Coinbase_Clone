@@ -1,5 +1,6 @@
+import { Tab, TabContentBuy, TabContentConvert, TabContentSell } from '..';
+
 import { SelectAssetProvider } from '../../contexts/SelectAssetContext';
-import { Tab, TabContentBuy, TabContentSell, TabContentConvert } from '..';
 
 const TabTrade = () => {
   const TAB_TRADE_CONTENT = [

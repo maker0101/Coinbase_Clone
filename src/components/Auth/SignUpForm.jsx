@@ -1,11 +1,13 @@
 import './SignUpForm.css';
-import { useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+
+import { Button, Input, Text } from '../index';
+import { useContext, useEffect } from 'react';
+
 import { UserContext } from '../../contexts/UserContext';
+import { auth } from '../../firebase-config';
+import { onAuthStateChanged } from 'firebase/auth';
 import useAuth from '../../hooks/useAuth';
-import { Button, Text, Input } from '../index';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
   const { user, setUser } = useContext(UserContext);

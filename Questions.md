@@ -16,27 +16,6 @@ Questions:
 - Would you just change the ids to make them unique or change the data structure as awhole?
 - Would you recommend to calculate everything from a single source of truth (e.g. transactions collection), even if it makes some of the code more complicated? (e.g. I would need to recalculate the current Bitcoin coin balance each time from transactions instead getting it directly from 'yourCoins' collection)
 
-## Why can't I move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop?
-
-1. // Why can't I just move 'REQUEST_OPTIONS' inside 'useGetCoinPriceHistory' without producing an infinite loop? It's just a constant. your suggested workaround with putting it inside a function is awesome, but I would like to understand what's going on here.
-
-## Can I avoid "reinitializing" state?
-
-Situation:
-
-- When I initialize a state where I fetch the data from an external source, the state is initialized empty
-- Then I need to listen with useEffect on state changes and setState with the fetched data.
-- This adds a little bit of extra code.
-
-Question:
-
-- Is there a simple way to avoid this extra "reinitialization" step?
-- E.g. Telling a state to wait for initialization until data is fetched?
-
-Examples:
-./hooks/useSelectAsset.js#L43
-./hooks/useSearch.js#L20
-
 ## Memory leak error (again)
 
 Situation:
@@ -97,19 +76,3 @@ Situation:
 Question:
 
 - What do you think? How are you dealing with it?
-
-## Guidance/Best practices for deciding which object structure to use
-
-Situation:
-
-- I needed to decide for the structure of a transaction object.
-- This transaction object has general information (type, timestamp, ...) and information on the assets transacted (fiat, coin, coinConvertTo)
-- First, I decided for a 'plain' object structure (without nesting)
-- However later on I changed my mind and used nesting (and refactoring the structure was a bit painfull)
-
-Question:
-
-- Can you point me to some guiding priciples/best practices/ressources to decide for which object / data / database structure to use when?
-- When to use nesting and when not?
-- When to calculate everything from a single source of truth? When to use 'helper' collections?
-- ...

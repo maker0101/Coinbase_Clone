@@ -1,5 +1,7 @@
 import './InputAmountDynamicWidth.css';
-import { useState, useContext, useEffect } from 'react';
+
+import { useContext, useEffect, useState } from 'react';
+
 import { TransactionFormContext } from '../../contexts/TransactionFormContext';
 
 const InputAmountDynamicWidth = () => {

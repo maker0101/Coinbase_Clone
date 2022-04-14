@@ -1,5 +1,6 @@
+import { Tab, TabContentReceive, TabContentSend } from '..';
+
 import { SelectAssetProvider } from '../../contexts/SelectAssetContext';
-import { Tab, TabContentSend, TabContentReceive } from '..';
 
 const TabPay = () => {
   const TAB_PAY_CONTENT = [

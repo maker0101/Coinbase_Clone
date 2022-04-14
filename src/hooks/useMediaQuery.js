@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const isQueryMatching = (query) => window.matchMedia(query).matches;
 
@@ -9,7 +9,6 @@ const useMediaQuery = (query) => {
     if (isQueryMatching(query) !== matches) setMatches(isQueryMatching(query));
   };
 
-  //FIXME: Terminal warning: React Hook useEffect has a missing dependency: 'setQueryMatch'.
   useEffect(() => {
     window.addEventListener('resize', setQueryMatch);
     return () => window.removeEventListener('resize', setQueryMatch);

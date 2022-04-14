@@ -1,6 +1,7 @@
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Table, TableRowSelectAsset } from '..';
+
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { useContext } from 'react';
 
 const TableInputBuy = () => {
   const { selectedCoin, selectedFiat } = useContext(SelectAssetContext);

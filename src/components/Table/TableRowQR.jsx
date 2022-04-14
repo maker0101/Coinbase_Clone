@@ -1,4 +1,5 @@
 import './TableRowQR.css';
+
 import { MdQrCode2 } from 'react-icons/md';
 
 const TableRowQR = () => {

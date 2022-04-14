@@ -1,6 +1,7 @@
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { createCoin } from './create-coin';
+
 import { addCoin } from './add-coin';
+import { createCoin } from './create-coin';
 
 export const toggleOnWatchlist = async (db, coin) => {
   const checkIsYourCoin = async (db, coinId) => {

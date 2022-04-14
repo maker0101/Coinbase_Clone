@@ -1,8 +1,9 @@
 import './TableRowSelectAsset.css';
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { Text } from '..';
+import { useContext } from 'react';
 
 const TableRowSelectAsset = ({
   helperText,

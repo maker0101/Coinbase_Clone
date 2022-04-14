@@ -1,4 +1,5 @@
 import './Text.css';
+
 import classNames from 'classnames';
 
 const Text = ({ children, h1, h2, h3, size, weight, color, uppercase }) => {

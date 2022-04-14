@@ -1,7 +1,9 @@
 import './TableRecentTransactions.css';
-import { Text, Table } from '..';
-import useTransactions from '../../hooks/useTransactions';
+
+import { Table, Text } from '..';
+
 import { transactionTime } from '../../utilities/transform-dates';
+import useTransactions from '../../hooks/useTransactions';
 
 const TableRecentTransactions = () => {
   const { tradeTransactions } = useTransactions();

@@ -1,14 +1,14 @@
-import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
 import {
+  Assets,
+  Deposit,
+  Pay,
+  ProtectedPages,
   SignIn,
   SignUp,
-  Assets,
   Trade,
-  Pay,
-  Deposit,
-  ProtectedPages,
 } from './pages';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 import { Dashboard } from './components';
 import { UserProvider } from './contexts/UserContext';
 

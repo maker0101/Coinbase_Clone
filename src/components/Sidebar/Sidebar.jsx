@@ -1,8 +1,10 @@
 import './Sidebar.css';
-import { RiPieChartFill, RiBankCardFill } from 'react-icons/ri';
-import { TiChartLine } from 'react-icons/ti';
-import { AiFillEuroCircle } from 'react-icons/ai';
+
 import { Logo, SidebarNavItem } from '..';
+import { RiBankCardFill, RiPieChartFill } from 'react-icons/ri';
+
+import { AiFillEuroCircle } from 'react-icons/ai';
+import { TiChartLine } from 'react-icons/ti';
 
 const Sidebar = () => {
   return (

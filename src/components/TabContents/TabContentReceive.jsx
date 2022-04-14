@@ -1,7 +1,8 @@
-import { useContext } from 'react';
+import { TabContent, TabContentSelectAsset, TabFooter, TableReceive } from '..';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
-import { TabContent, TableReceive, TabFooter, TabContentSelectAsset } from '..';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import { useContext } from 'react';
 
 const TabContentReceive = (props) => {
   const { isSelectAssetOpen, selectedCoin } = useContext(SelectAssetContext);

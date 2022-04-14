@@ -1,12 +1,13 @@
 import {
-  ModalTrade,
-  ModalPay,
-  ModalDeposit,
-  ModalProfile,
   MenuMobile,
+  ModalDeposit,
+  ModalPay,
+  ModalProfile,
+  ModalTrade,
 } from '..';
-import { useContext } from 'react';
+
 import { ModalContext } from '../../contexts/ModalContext';
+import { useContext } from 'react';
 
 const ModalsManager = () => {
   const { activeModal } = useContext(ModalContext);

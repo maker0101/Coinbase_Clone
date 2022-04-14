@@ -1,8 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
 import { YourCoinsContext } from '../contexts/YouCoinsContext';
-import useTransactions from './useTransactions';
 import createCoinHistories from '../utilities/create-coin-histories';
 import createTotalBalanceHistory from '../utilities/create-total-balance-history';
+import useTransactions from './useTransactions';
 
 const useBalanceHistory = (activeTimeFrame) => {
   const { yourCoins } = useContext(YourCoinsContext);
@@ -15,7 +16,6 @@ const useBalanceHistory = (activeTimeFrame) => {
     setBalanceHistory(totalHistory);
   };
 
-  //FIXME: Terminal warning "React Hook useEffect has a missing dependency: 'handleGetCoinPriceHistories'."
   useEffect(() => {
     if (yourCoins?.length)
       handleGetCoinPriceHistories(yourCoins, activeTimeFrame, coinTransactions);

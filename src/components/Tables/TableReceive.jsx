@@ -1,13 +1,15 @@
 import './TableReceive.css';
-import { FaAddressCard } from 'react-icons/fa';
-import { useContext } from 'react';
-import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+
 import {
   Table,
+  TableRowAssetAddress,
   TableRowQR,
   TableRowSelectAsset,
-  TableRowAssetAddress,
 } from '..';
+
+import { FaAddressCard } from 'react-icons/fa';
+import { SelectAssetContext } from '../../contexts/SelectAssetContext';
+import { useContext } from 'react';
 
 const TableReceive = () => {
   const { selectedCoin } = useContext(SelectAssetContext);

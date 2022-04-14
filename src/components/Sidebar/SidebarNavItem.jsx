@@ -1,11 +1,12 @@
 import './SidebarNavItem.css';
+
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import { ModalContext } from '../../contexts/ModalContext';
-import usePath from '../../hooks/usePath';
-import classNames from 'classnames';
 import { Tooltip } from '..';
+import classNames from 'classnames';
+import { useContext } from 'react';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import usePath from '../../hooks/usePath';
 
 const SidebarNavItem = ({ to, icon, text }) => {
   const { activeModal, handleClose } = useContext(ModalContext);

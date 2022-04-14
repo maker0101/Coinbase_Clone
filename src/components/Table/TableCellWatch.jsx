@@ -1,7 +1,9 @@
 import './TableCellWatch.css';
-import { useContext } from 'react';
-import { ModalContext } from '../../contexts/ModalContext';
+
 import { Button, Star } from '..';
+
+import { ModalContext } from '../../contexts/ModalContext';
+import { useContext } from 'react';
 
 const TableCellWatch = ({ coin }) => {
   const { handleOpen } = useContext(ModalContext);

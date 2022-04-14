@@ -1,4 +1,5 @@
-import { TabTrade, Modal, ModalClose } from '..';
+import { Modal, ModalClose, TabTrade } from '..';
+
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const ModalTrade = () => {

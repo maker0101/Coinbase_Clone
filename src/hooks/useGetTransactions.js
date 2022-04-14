@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { onSnapshot, query, collection } from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+
 import { db } from '../firebase-config';
 
 const useGetTransactions = () => {

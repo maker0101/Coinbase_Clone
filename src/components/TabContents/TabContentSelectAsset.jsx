@@ -1,11 +1,13 @@
 import './TabContentSelectAsset.css';
-import { Text, Search, TabContent, Table, TableCellCoinName } from '..';
+
 import { FaArrowLeft, FaCheck } from 'react-icons/fa';
-import { useContext } from 'react';
+import { Search, TabContent, Table, TableCellCoinName, Text } from '..';
+
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
-import useAssets from '../../hooks/useAssets';
-import useSearch from '../../hooks/useSearch';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
+import useAssets from '../../hooks/useAssets';
+import { useContext } from 'react';
+import useSearch from '../../hooks/useSearch';
 
 const TabContentSelectAsset = () => {
   const {

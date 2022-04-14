@@ -1,20 +1,22 @@
 import './Trade.css';
+
 import {
   ContentCenter,
   ContentRight,
+  Dropdown,
+  Search,
   Section,
   SectionTitle,
+  TabTrade,
   TableAssets,
   TableRecentTransactions,
-  Search,
-  Dropdown,
-  TabTrade,
 } from '../components';
-import useMediaQuery from '../hooks/useMediaQuery';
+
 import useAssets from '../hooks/useAssets';
-import useSearch from '../hooks/useSearch';
-import useFilter from '../hooks/useFilter';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
+import useFilter from '../hooks/useFilter';
+import useMediaQuery from '../hooks/useMediaQuery';
+import useSearch from '../hooks/useSearch';
 
 const ASSET_OPTIONS = ['All assets', 'Watchlist'];
 

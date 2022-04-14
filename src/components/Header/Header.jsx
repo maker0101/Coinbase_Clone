@@ -1,12 +1,14 @@
 import './Header.css';
-import { useContext } from 'react';
-import usePath from '../../hooks/usePath';
-import useMediaQuery from '../../hooks/useMediaQuery';
-import { Button, Text, Logo } from '..';
+
+import { Button, Logo, Text } from '..';
+
+import Avvvatars from 'avvvatars-react';
 import { IoMenuSharp } from 'react-icons/io5';
 import { ModalContext } from '../../contexts/ModalContext';
 import { UserContext } from '../../contexts/UserContext';
-import Avvvatars from 'avvvatars-react';
+import { useContext } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import usePath from '../../hooks/usePath';
 
 const Header = () => {
   let isWidthMin800 = useMediaQuery('(min-width: 800px)');

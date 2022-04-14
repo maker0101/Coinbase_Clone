@@ -1,6 +1,6 @@
-import { transformSparkline } from '../utilities/transform-sparkline';
-import { findAsset } from '../utilities/find-asset';
 import { calculateCoinBalance } from '../utilities/calculate-coin-balance';
+import { findAsset } from '../utilities/find-asset';
+import { transformSparkline } from '../utilities/transform-sparkline';
 
 export const adaptFetchedCoins = (fetchedCoins, yourCoins) => {
   const adaptedCoins = fetchedCoins.map((coin) => {

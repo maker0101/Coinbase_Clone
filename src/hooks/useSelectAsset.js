@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 import useAssets from './useAssets';
 
 const useSelectAsset = () => {
@@ -40,7 +41,6 @@ const useSelectAsset = () => {
     assetSelected1?.symbol === asset.symbol ||
     assetSelected2?.symbol === asset.symbol;
 
-  // TODO: Can I avoid "reinitializing" state? Currently needing it because state is initialized empty first (because data still fetching)?
   useEffect(() => {
     setSelectedCoin(allCoins[0]);
     setSelectedCoinConvertTo(allCoins[1]);
