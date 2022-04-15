@@ -6,7 +6,7 @@
 
 ## What is this and who is it for ⭐
 
-This is a simplified Coinbase clone built with React, Firebase, and the Coinranking API. The app lets you check prices, price histories, and market caps of popular cryptocurrencies. Furthermore, you can simulate trading crypto assets, sending crypto to friends as well as depositing and withdrawing fiat currencies.
+This is a simplified Coinbase clone built with React, Firebase, and the Coinranking API. The app lets you check prices, price histories, and market cap of popular cryptocurrencies. Furthermore, you can simulate trading crypto assets, sending crypto to friends as well as depositing and withdrawing fiat currencies.
 
 After building a [Todoist Clone as my first React project](https://github.com/maker0101/Todoist_Clone) I was looking for a second React training project where I could:
 
@@ -15,14 +15,14 @@ After building a [Todoist Clone as my first React project](https://github.com/ma
 - Build my first Charts :-)
 
 This project focuses on the Frontend. You are very welcome to have a look at the code.
-As this project helped me tremendously on my journey to become an awesome Frontend Developer, I hope it provides some value for you, too 🤓.
+As this project helped me tremendously on my journey to become an awesome Frontend Developer, I hope it provides some value for you too 🤓.
 
 ## Features and Technologies
 
 - Written in **modern React** and **JavaScript**
 - **Simple** vanilla React **state management** (without Redux, Recoil, or similar)
 - **Coinbase UI** (as of March 2022)
-- **Firebase** as backend (for authentification and database)
+- **Firebase** as backend (for authentication and database)
 - Crypto data fetched using [Coinranks awesome API](https://developers.coinranking.com/api) via [RapidAPI](https://rapidapi.com/)
 - Charts created with [Chart.js](https://www.chartjs.org/)
 
@@ -31,7 +31,7 @@ As this project helped me tremendously on my journey to become an awesome Fronte
 - Signup for a [RapidAPI account](https://rapidapi.com/), set up an app, and Subscribe to the [Coinranking API](https://rapidapi.com/Coinranking/api/coinranking1/)
 - Signup for a [Firebase account](https://firebase.google.com/) if you don't have it already, create a new project, then set up a web app.
 - Inside Firebase, set up Firestore and create three collections `transactions`, `yourCoins`, `yourFiat`.
-- Inside Firebase, set up Firebase authentification and enable Email/Password, Anonymous, and Google SignIn.
+- Inside Firebase, setup Firebase authentication and enable Email/Password, Anonymous, and Google SignIn.
 - `git clone https://github.com/maker0101/Coinbase_Clone`
 - Create an empty `.env.local` file in the root directory, copy `.env.local.example` contents into it, and fill `XXX` placeholders with your RapidAPI and Firebase project credentials.
 - `npm install`
@@ -89,4 +89,4 @@ If you have any questions or feedback, feel free to say hi. 👋
 
 ## Disclaimer
 
-This project is for entirely educational purposes. It is in no way connected to Coinbase the app or Coinbase the company. I'm just a fan of their app and figured it would be a fun, educational challenge to recreate a simplified web-app version of it.
+This project is entirely for educational purposes. It is in no way connected to Coinbase, the app or Coinbase, the company. I'm just a fan of their app and figured it would be a fun, educational challenge to recreate a simplified web-app version of it.
