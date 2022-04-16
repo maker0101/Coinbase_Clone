@@ -11,6 +11,15 @@
 # production
 /build
 
+# hosting
+.firebase/
+.firebaserc/
+.firebaserc
+
+# ci
+.github/
+
+
 # misc
 .DS_Store
 .env
