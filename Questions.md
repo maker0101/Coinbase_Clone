@@ -8,7 +8,15 @@ e.g. src/components/Input.tsx
 
 e.g. src/utilities/format-market-cap.ts
 
---- OLD Questions below - underlying issues still need to be fixed ---
+## Do you use 'interface' or 'types' as default way?
+
+## Do you usally define the interface/types definition in an extra file and import it? Or in same file as component/function?
+
+## Which approach do you take for naming intefaces/types?
+
+---
+
+## --- OLD Questions below -> still need to be fixed ---
 
 ## Do I need to change my 'yourCoin' ids to support multiple users? How to structure data?
 
