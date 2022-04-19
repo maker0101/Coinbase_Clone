@@ -1,9 +1,12 @@
 # Questions
 
-## Should component default values be defined in props or HTML attributes?
+## Should component default values be defined in components props or HTML element attributes?
 
-e.g. Input.tsx
+e.g. src/components/Input.tsx
 
+## Typescript: Why do I sometimes have to add 'undefined' as function retunr type
+
+e.g. src/utilities/format-market-cap.ts
 
 --- OLD Questions below - underlying issues still need to be fixed ---
 

@@ -13,6 +13,7 @@ interface InputProps {
   onChange: () => any;
 }
 
+//TODO: Should component default values be defined in components props (as currently is) or HTML element attributes (e.g. inside input element here)?
 const Input: FC<InputProps> = ({
   name,
   value,
