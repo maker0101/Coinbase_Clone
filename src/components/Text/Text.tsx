@@ -1,8 +1,29 @@
 import './Text.css';
 
+import { FC } from 'react';
 import classNames from 'classnames';
 
-const Text = ({ children, h1, h2, h3, size, weight, color, uppercase }) => {
+interface TextProps {
+  children: string;
+  h1: boolean;
+  h2: boolean;
+  h3: boolean;
+  uppercase: boolean;
+  size: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+  weight: '400' | '500' | '600' | '700';
+  color: 'black' | 'white' | 'grey' | 'blue' | 'red' | 'green';
+}
+
+const Text: FC<TextProps> = ({
+  children,
+  h1,
+  h2,
+  h3,
+  uppercase,
+  size,
+  weight,
+  color,
+}) => {
   const textClasses = classNames({
     Text: true,
     'text-h1': h1,

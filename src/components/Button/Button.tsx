@@ -1,28 +1,40 @@
 import './Button.css';
 
+import { FC } from 'react';
 import classNames from 'classnames';
 
-const Button = ({
+interface ButtonProps {
+  children: string;
+  disabled?: boolean;
+  light?: boolean;
+  stretch?: boolean;
+  color?: 'primary' | 'secondary' | 'danger';
+  size?: 'md' | 'xl' | 'xxl';
+  type?: 'submit';
+  onClick?: () => void;
+}
+
+const Button: FC<ButtonProps> = ({
   children,
-  color,
   disabled,
   light,
-  size,
   stretch,
-  onClick,
+  color,
+  size,
   type,
+  onClick,
 }) => {
   const btnClasses = classNames({
     Button: true,
+    'btn-disabled': disabled,
+    'btn-light': light,
+    'btn-stretch': stretch,
     'btn-primary': color === 'primary',
     'btn-secondary': color === 'secondary',
     'btn-danger': color === 'danger',
     'btn-md': size === 'md',
     'btn-xl': size === 'xl',
     'btn-xxl': size === 'xxl',
-    'btn-stretch': stretch,
-    'btn-disabled': disabled,
-    'btn-light': light,
   });
 
   return (
