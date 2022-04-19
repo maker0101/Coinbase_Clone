@@ -1,5 +1,12 @@
 # Questions
 
+## Should component default values be defined in props or HTML attributes?
+
+e.g. Input.tsx
+
+
+--- OLD Questions below - underlying issues still need to be fixed ---
+
 ## Do I need to change my 'yourCoin' ids to support multiple users? How to structure data?
 
 Situation:
