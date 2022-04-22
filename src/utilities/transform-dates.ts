@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 
-interface TransactionTime {
+interface ItransactionTime {
   (timestamp: number): string;
 }
 
-export const transactionTime: TransactionTime = (timestamp) =>
+export const transactionTime: ItransactionTime = (timestamp) =>
   dayjs(timestamp).format('MMM D, YYYY');

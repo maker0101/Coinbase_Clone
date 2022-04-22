@@ -24,7 +24,7 @@ const TabContentAddCash = () => {
           <TransactionForm type='depositFiat'>
             <InputAmountContainer />
             <TableInputAddCash />
-            <Button size='xl' type={'submit'}>
+            <Button size='xl' type='submit'>
               Add cash
             </Button>
           </TransactionForm>

@@ -6,8 +6,6 @@ interface ContentProps {
   children: ReactNode;
 }
 
-const Content: FC<ContentProps> = ({ children }) => {
-  return <div className='Content'>{children}</div>;
-};
+const Content: FC<ContentProps> = ({ children }) => <div className='Content'>{children}</div>;
 
 export default Content;

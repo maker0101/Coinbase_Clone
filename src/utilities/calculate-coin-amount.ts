@@ -1,10 +1,10 @@
 import { findAsset } from './find-asset';
 
-interface CalculateCoinAmount {
+interface IcalculateCoinAmount {
   (transactionAmount: number, id: string, assets: object[]): number;
 }
 
-export const calculateCoinAmount: CalculateCoinAmount = (
+export const calculateCoinAmount: IcalculateCoinAmount = (
   transactionAmount,
   id,
   assets

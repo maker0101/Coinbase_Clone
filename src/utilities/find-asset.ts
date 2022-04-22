@@ -1,10 +1,10 @@
-interface FindAsset {
+interface IfindAsset {
   (id: string, assets: any): any;
 }
 
-interface Asset {
+interface IAsset {
   id: string;
 }
 
-export const findAsset: FindAsset = (id, assets) =>
-  assets.find((asset: Asset) => asset.id === id);
+export const findAsset: IfindAsset = (id, assets) =>
+  assets.find((asset: IAsset) => asset.id === id);

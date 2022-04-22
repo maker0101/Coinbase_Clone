@@ -43,7 +43,7 @@ const SignUpForm = () => {
         autoComplete='current-password'
         placeholder='Password'
         required
-        minLength={6}
+        minlength={6}
         value={signUpPassword}
         onChange={(e) => setSignUpPassword(e.target.value)}
       />

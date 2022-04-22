@@ -1,10 +1,8 @@
-interface TranslateSelectedTimeframe {
+interface ItranslateSelectedTimeframe {
   (timeFrame: string): string | undefined;
 }
 
-export const translateSelectedTimeframe: TranslateSelectedTimeframe = (
-  timeFrame
-) => {
+export const translateSelectedTimeframe: ItranslateSelectedTimeframe = (timeFrame) => {
   switch (timeFrame) {
     case '1D':
       return '24h';

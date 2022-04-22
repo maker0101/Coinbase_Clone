@@ -1,18 +1,23 @@
-interface CreateCoin {
+interface IcreateCoin {
   (
     coin: { id: string; symbol: string },
     balance: number,
     onWatchlist: boolean
-  ): object;
+  ): {
+    id: string;
+    symbol: string;
+    balance_coin: number;
+    onWatchlist: boolean;
+  };
 }
 
-export const createCoin: CreateCoin = (
+export const createCoin: IcreateCoin = (
   coin,
   balance = 0,
   onWatchlist = false
 ) => ({
-  id: coin?.id,
-  symbol: coin?.symbol,
+  id: coin.id,
+  symbol: coin.symbol,
   balance_coin: balance,
   onWatchlist: onWatchlist,
 });

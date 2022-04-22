@@ -1,10 +1,10 @@
 import { Firestore, doc, setDoc } from 'firebase/firestore';
 
-interface AddCoin {
+interface IaddCoin {
   (db: Firestore, coin: { id: string }): void;
 }
 
-export const addCoin: AddCoin = async (db, coin) => {
+export const addCoin: IaddCoin = async (db, coin) => {
   try {
     await setDoc(doc(db, 'yourCoins', coin.id), { ...coin });
   } catch (err) {

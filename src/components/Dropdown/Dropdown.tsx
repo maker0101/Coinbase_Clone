@@ -1,17 +1,14 @@
 import './Dropdown.css';
 
-import { ChangeEvent, FC } from 'react';
+import { ComponentProps, FC } from 'react';
 
-interface DrodownProps {
-  name: string;
-  value: string;
-  options: ['All assets', 'Watchlist'];
-  onChange: (e: ChangeEvent) => void;
+interface DropdownProps extends ComponentProps<'select'> {
+  options: string[];
 }
 
-const Dropdown: FC<DrodownProps> = ({ name, value, options, onChange }) => {
+const Dropdown: FC<DropdownProps> = ({ options, ...selectProps }) => {
   return (
-    <select className='Dropdown' name={name} value={value} onChange={onChange}>
+    <select className='Dropdown' {...selectProps}>
       {options.map((option: string) => (
         <option key={option} value={option}>
           {option}
