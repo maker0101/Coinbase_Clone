@@ -1,18 +1,5 @@
 # Questions
 
-## Should component default values be defined in components props or HTML element attributes?
-
-e.g. src/components/Input.tsx
-
-## Typescript: Why do I sometimes have to add 'undefined' as function retunr type
-
-e.g. src/utilities/format-market-cap.ts
-
-## Do you use 'interface' or 'types' as default way?
-
-## Do you usally define the interface/types definition in an extra file and import it? Or in same file as component/function?
-
-## Which approach do you take for naming intefaces/types?
 
 ---
 

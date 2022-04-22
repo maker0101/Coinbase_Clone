@@ -10,8 +10,6 @@ export const toggleOnWatchlist = async (db, coin) => {
   };
   const isYourCoin = await checkIsYourCoin(db, coin?.id);
 
-  console.log(coin);
-
   try {
     if (isYourCoin) {
       const coinDoc = doc(db, 'yourCoins', coin?.id);
