@@ -9,16 +9,16 @@ import {
   TransactionForm,
 } from '..';
 
+import { AssetsContext } from '../../contexts/AssetsContext';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
-import useAssets from '../../hooks/useAssets';
 import { useContext } from 'react';
 
 const TabContentBuy = () => {
   const { isSelectAssetOpen, selectedCoin, selectedFiat } =
     useContext(SelectAssetContext);
-  const { allFiat } = useAssets();
+  const { allFiat } = useContext(AssetsContext);
   const hasNoFiat = Boolean(!calculateTotalBalance(allFiat));
 
   if (hasNoFiat) {

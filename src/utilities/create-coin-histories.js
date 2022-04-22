@@ -2,6 +2,8 @@ import createCoinBalanceHistory from '../utilities/create-coin-balance-history';
 import fetchCoinPriceHistory from '../utilities/fetch-coin-price-history';
 
 const createCoinHistories = async (yourCoins, timeFrame, transactions) => {
+  console.log(yourCoins, timeFrame, transactions);
+
   const coinHistories = [];
 
   for (const coin of yourCoins) {

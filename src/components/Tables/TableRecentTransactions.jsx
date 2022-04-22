@@ -2,11 +2,12 @@ import './TableRecentTransactions.css';
 
 import { Table, Text } from '..';
 
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 import { transactionTime } from '../../utilities/transform-dates';
-import useTransactions from '../../hooks/useTransactions';
+import { useContext } from 'react';
 
 const TableRecentTransactions = () => {
-  const { tradeTransactions } = useTransactions();
+  const { tradeTransactions } = useContext(TransactionsContext);
 
   const createHeadText = (transaction) => {
     const assetName = transaction?.coin?.name;
