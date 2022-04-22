@@ -9,21 +9,19 @@ import {
   TableYourAssets,
 } from '../components';
 
-import { YourCoinsProvider } from '../contexts/YouCoinsContext';
-import useAssets from '../hooks/useAssets';
+import { AssetsContext } from '../contexts/AssetsContext';
+import { useContext } from 'react';
 import useMediaQuery from '../hooks/useMediaQuery';
 
 const Assets = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
-  const { yourCoins, coinsOnWatchlist } = useAssets();
+  const { yourCoins, coinsOnWatchlist } = useContext(AssetsContext);
 
   return (
     <>
       <ContentCenter>
         <Section>
-          <YourCoinsProvider>
-            <ChartPortfolio />
-          </YourCoinsProvider>
+          <ChartPortfolio assets={yourCoins} />
         </Section>
         <Section>
           <SectionTitle title='Your Assets' />

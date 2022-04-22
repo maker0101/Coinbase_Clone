@@ -12,8 +12,9 @@ import {
   TableRecentTransactions,
 } from '../components';
 
-import useAssets from '../hooks/useAssets';
+import { AssetsContext } from '../contexts/AssetsContext';
 import useCombineSearchFilter from '../hooks/useCombineSearchFilter';
+import { useContext } from 'react';
 import useFilter from '../hooks/useFilter';
 import useMediaQuery from '../hooks/useMediaQuery';
 import useSearch from '../hooks/useSearch';
@@ -23,7 +24,7 @@ const ASSET_OPTIONS = ['All assets', 'Watchlist'];
 const Trade = () => {
   const isWidthMin1150 = useMediaQuery('(min-width: 1150px)');
   const isWidthMin800 = useMediaQuery('(min-width: 800px)');
-  const { allCoins } = useAssets();
+  const { allCoins } = useContext(AssetsContext);
 
   const { searchResult, searchInput, handleSearch } = useSearch(allCoins);
   const { filterResult, filterInput, handleFilter } = useFilter(

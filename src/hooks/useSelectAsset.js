@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import useAssets from './useAssets';
+import { AssetsContext } from '../contexts/AssetsContext';
 
 const useSelectAsset = () => {
-  const { allCoins, allFiat } = useAssets();
+  const { allCoins, allFiat } = useContext(AssetsContext);
   const [isSelectAssetOpen, setIsSelectAssetOpen] = useState(false);
   const [lastSelectAssetType, setLastSelectAssetType] = useState('coin');
   const [selectedFiat, setSelectedFiat] = useState(allFiat[0]);
