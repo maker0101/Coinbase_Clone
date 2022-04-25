@@ -2,56 +2,17 @@ import 'chart.js/auto';
 
 import { useEffect, useState } from 'react';
 
+import { CHART_OPTIONS } from '../../constants/chart-options';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = ({
-  chartData,
-  labelsKey,
-  datasetsKey,
-  hasTooltip = true,
-}) => {
+const LineChart = ({ chartData, labelsKey, datasetsKey, hasTooltip }) => {
   const [lineChartData, setLineChartData] = useState({
     labels: chartData.map((data) => data[`${labelsKey}`]),
     datasets: [{ data: chartData.map((data) => data[`${datasetsKey}`]) }],
   });
 
-  const options = {
-    borderColor: '#2151f5',
-    borderWidth: 2,
-    animation: {
-      duration: 0,
-    },
-    interaction: {
-      intersect: false,
-      mode: 'index',
-    },
-    responsive: true,
-    scales: {
-      x: {
-        display: false,
-        grid: {
-          display: false,
-        },
-      },
-      y: {
-        beginAtZero: false,
-        display: false,
-      },
-    },
-    elements: {
-      point: {
-        radius: 0,
-      },
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: hasTooltip,
-      },
-    },
-  };
+  const chartOptionsDeepCopy = JSON.parse(JSON.stringify(CHART_OPTIONS));
+  chartOptionsDeepCopy.plugins.tooltip.enabled = hasTooltip;
 
   useEffect(() => {
     setLineChartData({
@@ -60,7 +21,7 @@ const LineChart = ({
     });
   }, [chartData]);
 
-  return <Line data={lineChartData} options={options} />;
+  return <Line data={lineChartData} options={chartOptionsDeepCopy} />;
 };
 
 export default LineChart;

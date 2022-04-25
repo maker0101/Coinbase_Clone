@@ -2,11 +2,12 @@ import './TablePayments.css';
 
 import { Table, Text } from '..';
 
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 import { transactionTime } from '../../utilities/transform-dates';
-import useTransactions from '../../hooks/useTransactions';
+import { useContext } from 'react';
 
 const TableFiatTransfers = () => {
-  const { fiatTransactions } = useTransactions();
+  const { fiatTransactions } = useContext(TransactionsContext);
 
   return (
     <Table>

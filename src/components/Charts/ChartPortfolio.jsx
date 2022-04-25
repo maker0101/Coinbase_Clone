@@ -1,23 +1,21 @@
 import './ChartPortfolio.css';
 
 import { Dropdown, LineChart, Text } from '..';
-import { useContext, useState } from 'react';
 
-import { YourCoinsContext } from '../../contexts/YouCoinsContext';
 import { calculateTotalBalance } from '../../utilities/calculate-total-balance';
 import classNames from 'classnames';
 import { convertToCurrency } from '../../utilities/convert-to-currency';
 import { createChartTimes } from '../../utilities/create-chart-times';
 import useBalanceHistory from '../../hooks/useBalanceHistory';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import { useState } from 'react';
 
 const TIMEFRAME_OPTIONS = ['1D', '1W', '1M', '1Y'];
 
-const ChartPortfolio = () => {
+const ChartPortfolio = ({ assets }) => {
   const isWidthMax600 = useMediaQuery('(max-width: 600px)');
-  const { yourCoins } = useContext(YourCoinsContext);
   const [activeTimeFrame, setActiveTimeFrame] = useState('1M');
-  const portfolioBalance = convertToCurrency(calculateTotalBalance(yourCoins));
+  const portfolioBalance = convertToCurrency(calculateTotalBalance(assets));
   const chartTimes = createChartTimes();
   const balanceHistory = useBalanceHistory(activeTimeFrame);
 
@@ -64,6 +62,7 @@ const ChartPortfolio = () => {
           chartData={balanceHistory}
           labelsKey='timestamp'
           datasetsKey='balance'
+          hasTooltip={true}
         />
       </div>
       <div className='chartPortfolio__footer'>

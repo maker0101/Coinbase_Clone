@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 
+import { AssetsContext } from '../../contexts/AssetsContext';
 import { SelectAssetContext } from '../../contexts/SelectAssetContext';
 import { TransactionFormContext } from '../../contexts/TransactionFormContext';
 import { addTransaction } from '../../utilities/add-transaction';
@@ -7,11 +8,10 @@ import { createTransaction } from '../../utilities/create-transaction';
 import { db } from '../../firebase-config';
 import { updateCoins } from '../../utilities/update-coins';
 import { updateFiatBalance } from '../../utilities/update-fiat-balance';
-import useAssets from '../../hooks/useAssets';
 import { validateTransaction } from '../../utilities/validate-transaction';
 
 const TransactionForm = ({ children, type }) => {
-  const { allCoins, yourCoins, allFiat } = useAssets();
+  const { allCoins, yourCoins, allFiat } = useContext(AssetsContext);
   const { selectedCoin, selectedCoinConvertTo, selectedFiat } =
     useContext(SelectAssetContext);
   const [amount, setAmount] = useState(0);
