@@ -29,6 +29,7 @@ const useGetCoins = () => {
 
   const fetchCoins = async (options) => {
     try {
+      console.log('fetching coins...')
       const response = await axios.request(options);
       const coins = await response.data.data.coins;
       return coins;
