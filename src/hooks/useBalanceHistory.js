@@ -10,12 +10,8 @@ const useBalanceHistory = (activeTimeFrame) => {
   const [balanceHistory, setBalanceHistory] = useState([]);
   const { coinTransactions } = useContext(TransactionsContext);
 
-  console.log(coinTransactions);
-
   const handleGetCoinPriceHistories = async (coins, time, transactions) => {
-    console.log(transactions);
     const coinHistories = await createCoinHistories(coins, time, transactions);
-    console.log(coinHistories);
     const totalHistory = await createTotalBalanceHistory(coinHistories);
     setBalanceHistory(totalHistory);
   };
