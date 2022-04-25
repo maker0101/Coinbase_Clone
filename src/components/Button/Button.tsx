@@ -6,7 +6,6 @@ import classNames from 'classnames';
 
 interface ButtonProps extends ComponentProps<'button'> {
   children: string;
-  disabled?: boolean;
   light?: boolean;
   stretch?: boolean;
   color?: 'primary' | 'secondary' | 'danger';
