@@ -4,6 +4,7 @@ import createCoinHistoryRequestOptions from '../utilities/create-coin-history-re
 const fetchCoinPriceHistory = async (coin, timeFrame) => {
   const requestOptions = createCoinHistoryRequestOptions(coin, timeFrame);
   try {
+    console.log('fetching coins price history...');
     const response = await axios.request(requestOptions);
     const priceHistoryTurned = response.data.data.history;
     const priceHistory = priceHistoryTurned.slice().reverse();

@@ -1,5 +1,10 @@
 # Questions
 
+
+---
+
+## --- OLD Questions below -> still need to be fixed ---
+
 ## Do I need to change my 'yourCoin' ids to support multiple users? How to structure data?
 
 Situation:

@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { Firestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 import { addCoin } from './add-coin';
 import { createCoin } from './create-coin';
